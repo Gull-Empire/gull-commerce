@@ -17,31 +17,29 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Custom Palette Config: Soft Premium Orange + Warm Accent -->
+  <!-- Custom Palette Config -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            // Soft, non-glaring premium orange tones
             amberOrange: {
               300: '#ffca99',
-              400: '#f59e0b', // Muted, warm gold-orange
-              500: '#ea580c', // Deep smooth orange
+              400: '#f59e0b',
+              500: '#ea580c',
               600: '#c2410c',
               700: '#9a3412',
             },
-            // Soft warm accent tone to complement orange
             amberGold: {
               300: '#fcd34d',
               400: '#fbbf24',
               500: '#d97706',
             },
-            // Pure Dark & Deep Charcoal Backgrounds
             dark: {
-              900: '#070709', // Main background
-              800: '#0e0e12', // Header / Cards background
-              700: '#16161e', // Borders / Soft highlights
+              900: '#070709',
+              800: '#0e0e12',
+              700: '#16161e',
+              600: '#22222e',
             }
           },
           fontFamily: {
@@ -56,7 +54,6 @@
   <style>
     body { background: #070709; }
     
-    /* Smooth, non-chubnay-wala ambient glow */
     .bg-soft-orange-glow {
       background: 
         radial-gradient(55% 55% at 80% 50%, rgba(234, 88, 12, 0.12) 0%, rgba(245, 158, 11, 0.04) 45%, transparent 75%),
@@ -68,13 +65,26 @@
       background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
       background-size: 28px 28px;
     }
+
+    /* Mega Menu Smooth Hover Reveal */
+    .menu-dropdown {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .group\/nav:hover .menu-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body class="bg-soft-orange-glow bg-grain text-slate-200 font-sans antialiased min-h-screen flex flex-col justify-between overflow-x-hidden">
 
-  <!-- HEADER / NAVBAR -->
-  <header class="w-full border-b border-amberOrange-500/20 bg-dark-800/80 backdrop-blur-md fixed top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+  <!-- HEADER / NAVBAR WITH FULL MEGA MENUS -->
+  <header class="w-full border-b border-amberOrange-500/20 bg-dark-800/90 backdrop-blur-md fixed top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative">
       
       <!-- Logo -->
       <a href="https://gull-of-group.github.io/index.html" class="inline-flex items-center shrink-0 group">
@@ -83,13 +93,127 @@
              class="h-10 sm:h-12 w-auto object-contain filter drop-shadow-[0_0_12px_rgba(234,88,12,0.25)] group-hover:scale-[1.02] transition-all duration-300">
       </a>
 
-      <!-- Desktop Navigation Links -->
-      <nav class="hidden lg:flex items-center gap-8 text-xs font-semibold uppercase tracking-wider text-slate-300">
-        <a href="#" class="hover:text-amberOrange-400 transition-colors flex items-center gap-1">Services <i class="fa-solid fa-chevron-down text-[10px] text-slate-500"></i></a>
-        <a href="#" class="hover:text-amberOrange-400 transition-colors flex items-center gap-1">Category Expertise <i class="fa-solid fa-chevron-down text-[10px] text-slate-500"></i></a>
-        <a href="#" class="hover:text-amberOrange-400 transition-colors flex items-center gap-1">Solutions <i class="fa-solid fa-chevron-down text-[10px] text-slate-500"></i></a>
+      <!-- Navigation Links + Mega Menus Container -->
+      <nav class="hidden lg:flex items-center gap-8 text-xs font-semibold uppercase tracking-wider text-slate-300 h-full">
+        
+        <!-- 1. SERVICES MEGA MENU TRIGGER -->
+        <div class="group/nav h-full flex items-center">
+          <a href="#" class="hover:text-amberOrange-400 transition-colors flex items-center gap-1 py-6">
+            Services <i class="fa-solid fa-chevron-down text-[10px] text-slate-500 group-hover/nav:rotate-180 transition-transform"></i>
+          </a>
+
+          <!-- SERVICES MEGA MENU DROPDOWN PANEL -->
+          <div class="menu-dropdown absolute top-full left-0 w-full bg-dark-800/95 border-b border-x border-amberOrange-500/20 shadow-2xl backdrop-blur-xl p-8 z-50 rounded-b-2xl">
+            <div class="max-w-7xl mx-auto grid grid-cols-4 gap-8 text-left normal-case">
+              
+              <!-- Column 1: Core Services -->
+              <div class="space-y-3">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-amberOrange-400 border-b border-amberOrange-500/15 pb-2">Main Services</h4>
+                <ul class="space-y-2.5 text-sm text-slate-300">
+                  <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Full Service Management</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Advertising (PPC) Management</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Amazon SEO Optimization</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Amazon Account Audit</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Brand Strategy SOPs</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2 font-semibold text-amberGold-400"><i class="fa-solid fa-circle-chevron-right text-xs"></i> Book a Coaching Call</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 2: Design & Content -->
+              <div class="space-y-3">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-amberOrange-400 border-b border-amberOrange-500/15 pb-2">Design & Branding</h4>
+                <ul class="space-y-2.5 text-sm text-slate-300">
+                  <li><a href="#" class="hover:text-amberOrange-400 transition-colors">Brand Guidelines Setup</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400 transition-colors">Brand Story Creation</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400 transition-colors">Amazon Storefront Design</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400 transition-colors">Listing Images & Infographics</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400 transition-colors">Enhanced Brand Content (A+ Content)</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400 transition-colors">Main Image CTR Optimization</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 3: Troubleshooting -->
+              <div class="space-y-3">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-amberOrange-400 border-b border-amberOrange-500/15 pb-2">Troubleshooting</h4>
+                <ul class="space-y-2.5 text-sm text-slate-300">
+                  <li><a href="#" class="hover:text-amberOrange-400 transition-colors">Listing Reinstatement</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400 transition-colors">Account Suspension Appeals</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400 transition-colors">PPC Advertising Audit</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400 transition-colors">Brand Name Change Assistance</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400 transition-colors">UPC to GS1 Barcode Fixes</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400 transition-colors">Remote Fulfillment FBA Setup</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 4: Extended & Specialized -->
+              <div class="space-y-3">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-amberOrange-400 border-b border-amberOrange-500/15 pb-2">Other Expansion Services</h4>
+                <ul class="space-y-2.5 text-sm text-slate-300">
+                  <li><a href="#" class="hover:text-amberOrange-400 transition-colors">Amazon DSP Advertising</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400 transition-colors">Trademark Registration Support</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400 transition-colors">Vendor Central Full Management</a></li>
+                  <li>
+                    <a href="#" class="hover:text-amberOrange-400 inline-flex items-center gap-1.5">
+                      Walmart Full Service <span class="px-1.5 py-0.5 rounded bg-amberOrange-500/20 text-amberOrange-400 text-[9px] font-bold">NEW</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="hover:text-amberOrange-400 inline-flex items-center gap-1.5">
+                      Walmart Account Audit <span class="px-1.5 py-0.5 rounded bg-amberOrange-500/20 text-amberOrange-400 text-[9px] font-bold">NEW</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. CATEGORY EXPERTISE MEGA MENU TRIGGER -->
+        <div class="group/nav h-full flex items-center">
+          <a href="#" class="hover:text-amberOrange-400 transition-colors flex items-center gap-1 py-6">
+            Category Expertise <i class="fa-solid fa-chevron-down text-[10px] text-slate-500 group-hover/nav:rotate-180 transition-transform"></i>
+          </a>
+
+          <!-- CATEGORY EXPERTISE MEGA MENU DROPDOWN PANEL -->
+          <div class="menu-dropdown absolute top-full left-0 w-full bg-dark-800/95 border-b border-x border-amberOrange-500/20 shadow-2xl backdrop-blur-xl p-8 z-50 rounded-b-2xl">
+            <div class="max-w-7xl mx-auto grid grid-cols-3 gap-8 text-left normal-case">
+              
+              <!-- Left: Categories List -->
+              <div class="space-y-3 border-r border-amberOrange-500/15 pr-6">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-amberOrange-400 border-b border-amberOrange-500/15 pb-2">Specialized Niche Categories</h4>
+                <ul class="space-y-2.5 text-sm text-slate-300">
+                  <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Beauty & Skincare Products</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Consumables & Grocery</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Consumer Packaged Goods (CPG)</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Hard Line Goods & Electronics</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Home & Kitchen Essentials</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Soft Line Apparel & Leather Goods</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Health & Supplements</a></li>
+                </ul>
+              </div>
+
+              <!-- Center Featured Card 1 -->
+              <div class="bg-dark-700/60 rounded-xl p-4 border border-amberOrange-500/15 hover:border-amberOrange-500/40 transition-colors">
+                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80" alt="Supplements Strategy" class="w-full h-36 object-cover rounded-lg mb-3">
+                <h5 class="font-heading font-bold text-base text-white">Grow your supplement brand</h5>
+                <p class="text-xs text-slate-400 mt-1 leading-relaxed">Thrive on Amazon’s supplement category with our battle-tested growth strategy.</p>
+              </div>
+
+              <!-- Right Featured Card 2 -->
+              <div class="bg-dark-700/60 rounded-xl p-4 border border-amberOrange-500/15 hover:border-amberOrange-500/40 transition-colors">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" alt="Beauty Brand" class="w-full h-36 object-cover rounded-lg mb-3">
+                <h5 class="font-heading font-bold text-base text-white">Sell your beauty products on Amazon</h5>
+                <p class="text-xs text-slate-400 mt-1 leading-relaxed">Improve your brand's presence and grow your market share in competitive beauty niches.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <a href="#" class="hover:text-amberOrange-400 transition-colors">Solutions</a>
         <a href="#" class="hover:text-amberOrange-400 transition-colors">Results</a>
-        <a href="#" class="hover:text-amberOrange-400 transition-colors flex items-center gap-1">About Us <i class="fa-solid fa-chevron-down text-[10px] text-slate-500"></i></a>
+        <a href="#" class="hover:text-amberOrange-400 transition-colors">About Us</a>
       </nav>
 
       <!-- Right Action CTA Buttons -->
@@ -103,7 +227,7 @@
     </div>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO SECTION WITH PROMINENT LARGE IMAGE (500px+) -->
   <section class="relative pt-32 lg:pt-36 pb-20 min-h-screen flex items-center">
     <div class="max-w-7xl mx-auto px-6 w-full">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -130,13 +254,11 @@
           <!-- Action Buttons -->
           <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
             
-            <!-- Primary Soft Orange CTA Button -->
             <a href="#" class="px-8 py-4 rounded-xl bg-gradient-to-r from-amberOrange-500 via-amberOrange-600 to-amberOrange-700 hover:from-amberOrange-400 hover:to-amberOrange-500 text-white font-bold text-sm uppercase tracking-wider shadow-xl shadow-amberOrange-500/25 hover:shadow-amberOrange-500/40 transition-all duration-300 flex items-center justify-center gap-3 group">
               <i class="fa-solid fa-chart-line text-amberGold-300 group-hover:scale-110 transition-transform"></i>
               <span>Grow Your Sales</span>
             </a>
 
-            <!-- Secondary Bordered CTA Button -->
             <a href="#" class="px-8 py-4 rounded-xl border border-amberOrange-500/30 bg-dark-800/60 hover:bg-amberOrange-500/10 text-slate-200 font-bold text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-3 hover:border-amberOrange-500/50">
               <i class="fa-solid fa-circle-nodes text-amberGold-400"></i>
               <span>Solve Amazon Problem</span>
@@ -177,18 +299,18 @@
 
         </div>
 
-        <!-- RIGHT IMAGE COLUMN -->
+        <!-- RIGHT IMAGE COLUMN (500px+ ENHANCED HIGH-IMPACT SCALE) -->
         <div class="lg:col-span-5 relative flex justify-center items-center">
           
-          <!-- Background Concentric Subtle Orange & Gold Glow Rings -->
-          <div class="absolute w-[320px] h-[320px] sm:w-[450px] sm:h-[450px] rounded-full border border-amberOrange-500/20 bg-amberOrange-500/10 animate-pulse -z-10 blur-sm"></div>
-          <div class="absolute w-[240px] h-[240px] sm:w-[340px] sm:h-[340px] rounded-full border border-amberGold-500/20 -z-10"></div>
+          <!-- Large Background Glow Rings -->
+          <div class="absolute w-[400px] h-[400px] sm:w-[550px] sm:h-[550px] rounded-full border border-amberOrange-500/20 bg-amberOrange-500/10 animate-pulse -z-10 blur-sm"></div>
+          <div class="absolute w-[300px] h-[300px] sm:w-[420px] sm:h-[420px] rounded-full border border-amberGold-500/20 -z-10"></div>
 
-          <!-- Transparent Image -->
-          <div class="relative z-10 max-w-full sm:max-w-md lg:max-w-none">
+          <!-- Hero Image Container (Max 580px Scale) -->
+          <div class="relative z-10 w-full max-w-[480px] sm:max-w-[540px] lg:max-w-[580px]">
             <img 
               src="https://gull-of-group.github.io/Gull-commerce/Abdullah_Work_5_upscale_upscaled-removebg-preview.png" alt="Abdullah Gull - Amazon Growth Expert" 
-              class="w-full h-auto object-contain filter drop-shadow-[0_20px_40px_rgba(234,88,12,0.25)] hover:scale-[1.02] transition-transform duration-500"
+              class="w-full h-auto object-contain filter drop-shadow-[0_25px_50px_rgba(234,88,12,0.3)] hover:scale-[1.03] transition-transform duration-500"
             />
           </div>
 
