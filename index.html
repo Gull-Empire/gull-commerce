@@ -212,48 +212,147 @@
           </div>
         </div>
 
-        <!-- 3. MARKETPLACES MEGA MENU TRIGGER (fixed: now its own top-level item, not nested inside Category Expertise) -->
-        <div class="group/nav h-full flex items-center">
-          <a href="#" class="hover:text-amberOrange-400 transition-colors flex items-center gap-1 py-6">
-            Marketplaces <i class="fa-solid fa-chevron-down text-[10px] text-slate-500 group-hover/nav:rotate-180 transition-transform"></i>
-          </a>
+        <!-- 3. MARKETPLACES — CLICK/TOUCH ACCORDION (not hover): click "Marketplaces" to reveal every marketplace name; click a marketplace to reveal its own services column -->
+        <div class="h-full flex items-center relative" id="marketplaces-wrapper">
+          <button type="button" id="marketplaces-trigger" class="hover:text-amberOrange-400 transition-colors flex items-center gap-1 py-6 uppercase text-xs font-semibold tracking-wider">
+            Marketplaces <i id="marketplaces-chevron" class="fa-solid fa-chevron-down text-[10px] text-slate-500 transition-transform"></i>
+          </button>
 
-          <!-- MARKETPLACES MEGA MENU DROPDOWN PANEL -->
-          <div class="menu-dropdown absolute top-full left-0 w-full bg-dark-800/95 border-b border-x border-amberOrange-500/20 shadow-2xl backdrop-blur-xl p-8 z-50 rounded-b-2xl">
-            <div class="max-w-7xl mx-auto grid grid-cols-4 gap-6 text-left normal-case">
-              
-              <a href="#" class="p-4 rounded-xl bg-dark-700/50 border border-amberOrange-500/10 hover:border-amberOrange-500/40 hover:bg-dark-700 transition-all group">
-                <div class="flex items-center gap-3 mb-2">
-                  <i class="fa-brands fa-amazon text-2xl text-amberOrange-400 group-hover:scale-110 transition-transform"></i>
-                  <h5 class="font-heading font-bold text-white text-base">Amazon</h5>
+          <!-- MARKETPLACES PANEL (hidden until clicked/tapped) -->
+          <div id="marketplaces-panel" class="hidden absolute top-full left-0 w-full bg-dark-800/95 border-b border-x border-amberOrange-500/20 shadow-2xl backdrop-blur-xl p-8 z-50 rounded-b-2xl">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 text-left normal-case">
+
+              <!-- Left: full list of every marketplace (click one to open its services) -->
+              <div class="md:col-span-3 md:border-r border-amberOrange-500/15 md:pr-6 space-y-1.5">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-amberOrange-400 border-b border-amberOrange-500/15 pb-2 mb-2">All Marketplaces</h4>
+
+                <button type="button" data-marketplace="amazon" class="marketplace-tab is-active w-full text-left px-3 py-2.5 rounded-lg flex items-center gap-3 text-sm font-semibold transition-colors bg-amberOrange-500/10 border border-amberOrange-500/30 text-white">
+                  <i class="fa-brands fa-amazon text-amberOrange-400 w-4 text-center"></i> Amazon
+                </button>
+                <button type="button" data-marketplace="walmart" class="marketplace-tab w-full text-left px-3 py-2.5 rounded-lg flex items-center gap-3 text-sm font-semibold transition-colors border border-transparent text-slate-300 hover:bg-dark-700/60">
+                  <i class="fa-solid fa-store text-amberGold-400 w-4 text-center"></i> Walmart
+                </button>
+                <button type="button" data-marketplace="shopify" class="marketplace-tab w-full text-left px-3 py-2.5 rounded-lg flex items-center gap-3 text-sm font-semibold transition-colors border border-transparent text-slate-300 hover:bg-dark-700/60">
+                  <i class="fa-brands fa-shopify text-emerald-400 w-4 text-center"></i> Shopify
+                </button>
+                <button type="button" data-marketplace="ebay" class="marketplace-tab w-full text-left px-3 py-2.5 rounded-lg flex items-center gap-3 text-sm font-semibold transition-colors border border-transparent text-slate-300 hover:bg-dark-700/60">
+                  <i class="fa-brands fa-ebay text-blue-400 w-4 text-center"></i> eBay
+                </button>
+                <button type="button" data-marketplace="etsy" class="marketplace-tab w-full text-left px-3 py-2.5 rounded-lg flex items-center gap-3 text-sm font-semibold transition-colors border border-transparent text-slate-300 hover:bg-dark-700/60">
+                  <i class="fa-brands fa-etsy text-orange-400 w-4 text-center"></i> Etsy
+                </button>
+                <button type="button" data-marketplace="wayfair" class="marketplace-tab w-full text-left px-3 py-2.5 rounded-lg flex items-center gap-3 text-sm font-semibold transition-colors border border-transparent text-slate-300 hover:bg-dark-700/60">
+                  <i class="fa-solid fa-couch text-purple-400 w-4 text-center"></i> Wayfair
+                </button>
+                <button type="button" data-marketplace="homedepot" class="marketplace-tab w-full text-left px-3 py-2.5 rounded-lg flex items-center gap-3 text-sm font-semibold transition-colors border border-transparent text-slate-300 hover:bg-dark-700/60">
+                  <i class="fa-solid fa-house text-amber-500 w-4 text-center"></i> Home Depot
+                </button>
+              </div>
+
+              <!-- Right: services column for whichever marketplace is selected -->
+              <div class="md:col-span-9">
+
+                <!-- AMAZON: split into Seller Central row + Vendor Central row, side by side -->
+                <div class="marketplace-panel" data-panel="amazon">
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
+                    <div class="space-y-3">
+                      <h4 class="text-xs font-bold uppercase tracking-wider text-amberOrange-400 border-b border-amberOrange-500/15 pb-2">Seller Central</h4>
+                      <ul class="space-y-2.5 text-sm text-slate-300">
+                        <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Full Service Account Management</a></li>
+                        <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Amazon PPC & Sponsored Ads</a></li>
+                        <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Listing Optimization & SEO</a></li>
+                        <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> FBA Inventory Management</a></li>
+                        <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Brand Registry & A+ Content</a></li>
+                        <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Account Health & Suspension Appeals</a></li>
+                      </ul>
+                    </div>
+                    <div class="space-y-3">
+                      <h4 class="text-xs font-bold uppercase tracking-wider text-amberOrange-400 border-b border-amberOrange-500/15 pb-2">Vendor Central</h4>
+                      <ul class="space-y-2.5 text-sm text-slate-300">
+                        <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Vendor Central Account Management</a></li>
+                        <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Vendor PPC (Sponsored Brands & Display)</a></li>
+                        <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> PO & Chargeback Management</a></li>
+                        <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Catalog & Content Management</a></li>
+                        <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Co-op & Deals Negotiation</a></li>
+                        <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> EDI & Purchase Order Optimization</a></li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-                <p class="text-xs text-slate-400">FBA, FBM, Vendor Central, PPC & Brand Registry.</p>
-              </a>
 
-              <a href="#" class="p-4 rounded-xl bg-dark-700/50 border border-amberOrange-500/10 hover:border-amberOrange-500/40 hover:bg-dark-700 transition-all group">
-                <div class="flex items-center gap-3 mb-2">
-                  <i class="fa-solid fa-store text-2xl text-amberGold-400 group-hover:scale-110 transition-transform"></i>
-                  <h5 class="font-heading font-bold text-white text-base">Walmart</h5>
+                <!-- WALMART -->
+                <div class="marketplace-panel hidden" data-panel="walmart">
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-amberOrange-400 border-b border-amberOrange-500/15 pb-2 mb-3">Walmart Services</h4>
+                  <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5 text-sm text-slate-300">
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Walmart Marketplace Onboarding</a></li>
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Walmart Fulfillment Services (WFS)</a></li>
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Walmart Sponsored Ads (WPA)</a></li>
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Listing & Catalog Optimization</a></li>
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Account Health Management</a></li>
+                  </ul>
                 </div>
-                <p class="text-xs text-slate-400">WFS fulfillment, Marketplace setup & WPA Ads.</p>
-              </a>
 
-              <a href="#" class="p-4 rounded-xl bg-dark-700/50 border border-amberOrange-500/10 hover:border-amberOrange-500/40 hover:bg-dark-700 transition-all group">
-                <div class="flex items-center gap-3 mb-2">
-                  <i class="fa-brands fa-shopify text-2xl text-emerald-400 group-hover:scale-110 transition-transform"></i>
-                  <h5 class="font-heading font-bold text-white text-base">Shopify</h5>
+                <!-- SHOPIFY -->
+                <div class="marketplace-panel hidden" data-panel="shopify">
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-amberOrange-400 border-b border-amberOrange-500/15 pb-2 mb-3">Shopify Services</h4>
+                  <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5 text-sm text-slate-300">
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Custom Shopify Store Development</a></li>
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Theme Customization & Speed Optimization</a></li>
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> App Integrations & Automation</a></li>
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Multi-Channel Sync (Amazon/Walmart)</a></li>
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Conversion Rate Optimization</a></li>
+                  </ul>
                 </div>
-                <p class="text-xs text-slate-400">Custom store development & multi-channel sync.</p>
-              </a>
 
-              <a href="#" class="p-4 rounded-xl bg-dark-700/50 border border-amberOrange-500/10 hover:border-amberOrange-500/40 hover:bg-dark-700 transition-all group">
-                <div class="flex items-center gap-3 mb-2">
-                  <i class="fa-brands fa-ebay text-2xl text-blue-400 group-hover:scale-110 transition-transform"></i>
-                  <h5 class="font-heading font-bold text-white text-base">eBay</h5>
+                <!-- EBAY -->
+                <div class="marketplace-panel hidden" data-panel="ebay">
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-amberOrange-400 border-b border-amberOrange-500/15 pb-2 mb-3">eBay Services</h4>
+                  <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5 text-sm text-slate-300">
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> eBay Store Setup & Optimization</a></li>
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Promoted Listings Management</a></li>
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Listing Templates & SEO</a></li>
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Order & Inventory Management</a></li>
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Feedback & Account Health Management</a></li>
+                  </ul>
                 </div>
-                <p class="text-xs text-slate-400">Store optimization & Promoted Listings setup.</p>
-              </a>
 
+                <!-- ETSY -->
+                <div class="marketplace-panel hidden" data-panel="etsy">
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-amberOrange-400 border-b border-amberOrange-500/15 pb-2 mb-3">Etsy Services</h4>
+                  <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5 text-sm text-slate-300">
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Etsy Shop Setup & Branding</a></li>
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> SEO-Optimized Listings & Tags</a></li>
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Etsy Ads Management</a></li>
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Product Photography Guidance</a></li>
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Shop Policy & Trust Optimization</a></li>
+                  </ul>
+                </div>
+
+                <!-- WAYFAIR -->
+                <div class="marketplace-panel hidden" data-panel="wayfair">
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-amberOrange-400 border-b border-amberOrange-500/15 pb-2 mb-3">Wayfair Services</h4>
+                  <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5 text-sm text-slate-300">
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Wayfair Supplier Onboarding</a></li>
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Catalog & Listing Management</a></li>
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Wayfair Sponsored Products</a></li>
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Inventory & Order Sync</a></li>
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Performance & Scorecard Management</a></li>
+                  </ul>
+                </div>
+
+                <!-- HOME DEPOT -->
+                <div class="marketplace-panel hidden" data-panel="homedepot">
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-amberOrange-400 border-b border-amberOrange-500/15 pb-2 mb-3">Home Depot Services</h4>
+                  <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5 text-sm text-slate-300">
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Home Depot Marketplace Onboarding</a></li>
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Listing Optimization & Compliance</a></li>
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Pro Xtra & B2B Program Setup</a></li>
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Inventory & Fulfillment Management</a></li>
+                    <li><a href="#" class="hover:text-amberOrange-400 flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-xs text-amberOrange-500"></i> Advertising & Promotion Setup</a></li>
+                  </ul>
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
@@ -281,7 +380,109 @@
     <div id="mobile-menu" class="hidden lg:hidden bg-dark-800 border-t border-amberOrange-500/20 px-6 py-6 space-y-4">
       <a href="#" class="block text-slate-200 font-semibold text-sm uppercase tracking-wider hover:text-amberOrange-400">Services</a>
       <a href="#" class="block text-slate-300 font-semibold text-sm uppercase tracking-wider hover:text-amberOrange-400">Category Expertise</a>
-      <a href="#" class="block text-slate-300 font-semibold text-sm uppercase tracking-wider hover:text-amberOrange-400">Marketplaces</a>
+      <details class="group">
+        <summary class="list-none flex items-center justify-between text-slate-200 font-semibold text-sm uppercase tracking-wider hover:text-amberOrange-400 cursor-pointer">
+          Marketplaces
+          <i class="fa-solid fa-chevron-down text-[10px] text-slate-500 group-open:rotate-180 transition-transform"></i>
+        </summary>
+        <div class="mt-3 pl-3 border-l border-amberOrange-500/20 space-y-3">
+
+          <details>
+            <summary class="list-none flex items-center gap-2 text-sm font-semibold text-white cursor-pointer"><i class="fa-brands fa-amazon text-amberOrange-400 w-4 text-center"></i> Amazon</summary>
+            <div class="mt-2 pl-6 space-y-3">
+              <div>
+                <p class="text-[11px] font-bold uppercase tracking-wider text-amberOrange-400 mb-1.5">Seller Central</p>
+                <ul class="space-y-1.5 text-xs text-slate-400">
+                  <li><a href="#" class="hover:text-amberOrange-400">Full Service Account Management</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400">Amazon PPC & Sponsored Ads</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400">Listing Optimization & SEO</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400">FBA Inventory Management</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400">Brand Registry & A+ Content</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400">Account Health & Suspension Appeals</a></li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-[11px] font-bold uppercase tracking-wider text-amberOrange-400 mb-1.5">Vendor Central</p>
+                <ul class="space-y-1.5 text-xs text-slate-400">
+                  <li><a href="#" class="hover:text-amberOrange-400">Vendor Central Account Management</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400">Vendor PPC (Sponsored Brands & Display)</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400">PO & Chargeback Management</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400">Catalog & Content Management</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400">Co-op & Deals Negotiation</a></li>
+                  <li><a href="#" class="hover:text-amberOrange-400">EDI & Purchase Order Optimization</a></li>
+                </ul>
+              </div>
+            </div>
+          </details>
+
+          <details>
+            <summary class="list-none flex items-center gap-2 text-sm font-semibold text-white cursor-pointer"><i class="fa-solid fa-store text-amberGold-400 w-4 text-center"></i> Walmart</summary>
+            <ul class="mt-2 pl-6 space-y-1.5 text-xs text-slate-400">
+              <li><a href="#" class="hover:text-amberOrange-400">Walmart Marketplace Onboarding</a></li>
+              <li><a href="#" class="hover:text-amberOrange-400">Walmart Fulfillment Services (WFS)</a></li>
+              <li><a href="#" class="hover:text-amberOrange-400">Walmart Sponsored Ads (WPA)</a></li>
+              <li><a href="#" class="hover:text-amberOrange-400">Listing & Catalog Optimization</a></li>
+              <li><a href="#" class="hover:text-amberOrange-400">Account Health Management</a></li>
+            </ul>
+          </details>
+
+          <details>
+            <summary class="list-none flex items-center gap-2 text-sm font-semibold text-white cursor-pointer"><i class="fa-brands fa-shopify text-emerald-400 w-4 text-center"></i> Shopify</summary>
+            <ul class="mt-2 pl-6 space-y-1.5 text-xs text-slate-400">
+              <li><a href="#" class="hover:text-amberOrange-400">Custom Shopify Store Development</a></li>
+              <li><a href="#" class="hover:text-amberOrange-400">Theme Customization & Speed Optimization</a></li>
+              <li><a href="#" class="hover:text-amberOrange-400">App Integrations & Automation</a></li>
+              <li><a href="#" class="hover:text-amberOrange-400">Multi-Channel Sync (Amazon/Walmart)</a></li>
+              <li><a href="#" class="hover:text-amberOrange-400">Conversion Rate Optimization</a></li>
+            </ul>
+          </details>
+
+          <details>
+            <summary class="list-none flex items-center gap-2 text-sm font-semibold text-white cursor-pointer"><i class="fa-brands fa-ebay text-blue-400 w-4 text-center"></i> eBay</summary>
+            <ul class="mt-2 pl-6 space-y-1.5 text-xs text-slate-400">
+              <li><a href="#" class="hover:text-amberOrange-400">eBay Store Setup & Optimization</a></li>
+              <li><a href="#" class="hover:text-amberOrange-400">Promoted Listings Management</a></li>
+              <li><a href="#" class="hover:text-amberOrange-400">Listing Templates & SEO</a></li>
+              <li><a href="#" class="hover:text-amberOrange-400">Order & Inventory Management</a></li>
+              <li><a href="#" class="hover:text-amberOrange-400">Feedback & Account Health Management</a></li>
+            </ul>
+          </details>
+
+          <details>
+            <summary class="list-none flex items-center gap-2 text-sm font-semibold text-white cursor-pointer"><i class="fa-brands fa-etsy text-orange-400 w-4 text-center"></i> Etsy</summary>
+            <ul class="mt-2 pl-6 space-y-1.5 text-xs text-slate-400">
+              <li><a href="#" class="hover:text-amberOrange-400">Etsy Shop Setup & Branding</a></li>
+              <li><a href="#" class="hover:text-amberOrange-400">SEO-Optimized Listings & Tags</a></li>
+              <li><a href="#" class="hover:text-amberOrange-400">Etsy Ads Management</a></li>
+              <li><a href="#" class="hover:text-amberOrange-400">Product Photography Guidance</a></li>
+              <li><a href="#" class="hover:text-amberOrange-400">Shop Policy & Trust Optimization</a></li>
+            </ul>
+          </details>
+
+          <details>
+            <summary class="list-none flex items-center gap-2 text-sm font-semibold text-white cursor-pointer"><i class="fa-solid fa-couch text-purple-400 w-4 text-center"></i> Wayfair</summary>
+            <ul class="mt-2 pl-6 space-y-1.5 text-xs text-slate-400">
+              <li><a href="#" class="hover:text-amberOrange-400">Wayfair Supplier Onboarding</a></li>
+              <li><a href="#" class="hover:text-amberOrange-400">Catalog & Listing Management</a></li>
+              <li><a href="#" class="hover:text-amberOrange-400">Wayfair Sponsored Products</a></li>
+              <li><a href="#" class="hover:text-amberOrange-400">Inventory & Order Sync</a></li>
+              <li><a href="#" class="hover:text-amberOrange-400">Performance & Scorecard Management</a></li>
+            </ul>
+          </details>
+
+          <details>
+            <summary class="list-none flex items-center gap-2 text-sm font-semibold text-white cursor-pointer"><i class="fa-solid fa-house text-amber-500 w-4 text-center"></i> Home Depot</summary>
+            <ul class="mt-2 pl-6 space-y-1.5 text-xs text-slate-400">
+              <li><a href="#" class="hover:text-amberOrange-400">Home Depot Marketplace Onboarding</a></li>
+              <li><a href="#" class="hover:text-amberOrange-400">Listing Optimization & Compliance</a></li>
+              <li><a href="#" class="hover:text-amberOrange-400">Pro Xtra & B2B Program Setup</a></li>
+              <li><a href="#" class="hover:text-amberOrange-400">Inventory & Fulfillment Management</a></li>
+              <li><a href="#" class="hover:text-amberOrange-400">Advertising & Promotion Setup</a></li>
+            </ul>
+          </details>
+
+        </div>
+      </details>
       <a href="#" class="block text-slate-300 font-semibold text-sm uppercase tracking-wider hover:text-amberOrange-400">Results</a>
       <a href="#" class="block text-slate-300 font-semibold text-sm uppercase tracking-wider hover:text-amberOrange-400">About Us</a>
       <a href="#" class="block w-full text-center bg-gradient-to-r from-amberOrange-500 to-amberOrange-600 text-white font-bold text-xs uppercase tracking-wider py-3 rounded-lg mt-4">Book Session</a>
@@ -522,6 +723,53 @@
   const mobileMenu = document.getElementById('mobile-menu');
   mobileMenuBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
+  });
+
+  // ===== MARKETPLACES CLICK/TOUCH ACCORDION =====
+  const mpTrigger  = document.getElementById('marketplaces-trigger');
+  const mpPanel    = document.getElementById('marketplaces-panel');
+  const mpChevron  = document.getElementById('marketplaces-chevron');
+  const mpTabs     = document.querySelectorAll('.marketplace-tab');
+  const mpPanels   = document.querySelectorAll('.marketplace-panel');
+
+  function closeMarketplaces() {
+    mpPanel.classList.add('hidden');
+    mpChevron.classList.remove('rotate-180');
+  }
+
+  mpTrigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isHidden = mpPanel.classList.contains('hidden');
+    if (isHidden) {
+      mpPanel.classList.remove('hidden');
+      mpChevron.classList.add('rotate-180');
+    } else {
+      closeMarketplaces();
+    }
+  });
+
+  mpTabs.forEach((tab) => {
+    tab.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const target = tab.getAttribute('data-marketplace');
+
+      mpTabs.forEach((t) => {
+        t.classList.remove('is-active', 'bg-amberOrange-500/10', 'border-amberOrange-500/30', 'text-white');
+        t.classList.add('border-transparent', 'text-slate-300');
+      });
+      tab.classList.add('is-active', 'bg-amberOrange-500/10', 'border-amberOrange-500/30', 'text-white');
+      tab.classList.remove('border-transparent', 'text-slate-300');
+
+      mpPanels.forEach((p) => {
+        p.classList.toggle('hidden', p.getAttribute('data-panel') !== target);
+      });
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!mpPanel.contains(e.target) && !mpTrigger.contains(e.target)) {
+      closeMarketplaces();
+    }
   });
 </script>
 
