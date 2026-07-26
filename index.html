@@ -1,1 +1,160 @@
-hdwisdoosxncehpwnxpxhpnshdpncsnpsdcpidpnddbdppd
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon Growth Experts — Gull Commerce</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom Tailwind Config for Exact Colors & Animations -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#FF5C00',
+              orangeHover: '#E05100',
+              darkBg: '#080808',
+              cardBg: '#121212',
+              border: '#262626'
+            }
+          },
+          backgroundImage: {
+            'orange-glow': 'radial-gradient(circle at right center, rgba(255, 92, 0, 0.15) 0%, rgba(8, 8, 8, 0) 60%)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-brand-darkBg text-white font-sans antialiased selection:bg-brand-orange selection:text-black min-h-screen flex flex-col justify-between">
+
+  <!-- NAVIGATION BAR -->
+  <header class="border-b border-brand-border/40 backdrop-blur-md fixed w-full top-0 z-50 bg-brand-darkBg/90">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <div class="flex items-center gap-2">
+        <div class="flex items-end gap-0.5 h-6">
+          <span class="w-1.5 h-3 bg-brand-orange rounded-sm"></span>
+          <span class="w-1.5 h-4 bg-brand-orange rounded-sm"></span>
+          <span class="w-1.5 h-6 bg-brand-orange rounded-sm"></span>
+        </div>
+        <span class="text-xl font-black tracking-tight text-white ml-1">My Amazon <span class="text-brand-orange">Guy</span></span>
+      </div>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-300">
+        <a href="#" class="hover:text-white flex items-center gap-1 transition-colors">Services <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i></a>
+        <a href="#" class="hover:text-white flex items-center gap-1 transition-colors">Category Expertise <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i></a>
+        <a href="#" class="hover:text-white flex items-center gap-1 transition-colors">DTC <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i></a>
+        <a href="#" class="hover:text-white flex items-center gap-1 transition-colors">Amazon Solutions <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i></a>
+        <a href="#" class="hover:text-white transition-colors">Results</a>
+        <a href="#" class="hover:text-white flex items-center gap-1 transition-colors">About Us <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i></a>
+        <a href="#" class="hover:text-white transition-colors">Coaching</a>
+      </nav>
+
+      <!-- Right Nav CTAs -->
+      <div class="flex items-center gap-4">
+        <a href="#" class="hidden sm:block text-brand-orange text-sm font-bold hover:underline">Free Audit</a>
+        <a href="#contact" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-5 py-2.5 rounded-lg text-sm font-bold shadow-lg shadow-brand-orange/20 transition-all">Fast Quote</a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative pt-32 lg:pt-36 pb-20 overflow-hidden bg-orange-glow min-h-screen flex items-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- LEFT COLUMN: TEXT CONTENT -->
+        <div class="lg:col-span-7 z-10">
+          
+          <!-- Top Badge -->
+          <div class="inline-flex items-center px-3 py-1 rounded-md border border-brand-orange/40 bg-brand-orange/10 text-brand-orange text-xs font-bold uppercase tracking-widest mb-6">
+            AMAZON GROWTH EXPERTS
+          </div>
+
+          <!-- Main Heading -->
+          <h1 class="text-4xl sm:text-6xl font-black text-white leading-[1.1] tracking-tight">
+            We help Amazon brands grow faster and <span class="text-brand-orange">sell more.</span>
+          </h1>
+
+          <!-- Subheading -->
+          <p class="mt-6 text-lg text-gray-400 max-w-2xl leading-relaxed font-normal">
+            From strategy to execution, we help Amazon brands increase visibility, drive traffic, and boost sales with proven methods that work.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <!-- Primary Orange CTA -->
+            <a href="#contact" class="bg-brand-orange hover:bg-brand-orangeHover text-white font-extrabold px-8 py-4 rounded-xl flex items-center justify-center gap-3 text-base shadow-xl shadow-brand-orange/25 transition-all group">
+              <i data-lucide="trending-up" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+              <span>Grow Your Amazon Sales</span>
+            </a>
+
+            <!-- Secondary Outline CTA -->
+            <a href="#contact" class="border border-brand-border bg-black/40 hover:bg-brand-cardBg text-white font-bold px-8 py-4 rounded-xl flex items-center justify-center gap-3 text-base transition-all group">
+              <i data-lucide="bar-chart-3" class="w-5 h-5 text-brand-orange"></i>
+              <span>Solve an Amazon Problem</span>
+            </a>
+          </div>
+
+          <!-- Bottom Feature Badges Grid -->
+          <div class="mt-14 pt-8 border-t border-brand-border/50 grid grid-cols-2 sm:grid-cols-4 gap-6">
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="shield-check" class="w-5 h-5 text-brand-orange shrink-0"></i>
+              <span class="text-xs font-bold text-gray-300">Amazon Experts</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="line-chart" class="w-5 h-5 text-brand-orange shrink-0"></i>
+              <span class="text-xs font-bold text-gray-300">Proven Strategies</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="trophy" class="w-5 h-5 text-brand-orange shrink-0"></i>
+              <span class="text-xs font-bold text-gray-300">Results That Matter</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="headphones" class="w-5 h-5 text-brand-orange shrink-0"></i>
+              <span class="text-xs font-bold text-gray-300">Ongoing Support</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN: IMAGE WITH GLOW BACKGROUND -->
+        <div class="lg:col-span-5 relative flex justify-center items-center">
+          
+          <!-- Background Concentric Glow Rings -->
+          <div class="absolute w-[350px] h-[350px] sm:w-[480px] sm:h-[480px] rounded-full border border-brand-orange/10 bg-brand-orange/5 animate-pulse -z-10"></div>
+          <div class="absolute w-[260px] h-[260px] sm:w-[360px] sm:h-[360px] rounded-full border border-brand-orange/20 -z-10"></div>
+
+          <!-- Provided Image -->
+          <div class="relative z-10 max-w-full sm:max-w-md lg:max-w-none">
+            <img 
+              src="https://abdullahgull.github.io/images/abdullah-gull-amazon.jpg-removebg-preview-removebg-preview.png" 
+              alt="Abdullah Gull Amazon Growth Expert" 
+              class="w-full h-auto object-contain filter drop-shadow-[0_20px_40px_rgba(255,92,0,0.25)] hover:scale-[1.02] transition-transform duration-500"
+            />
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- JAVASCRIPT FOR ICONS -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>
