@@ -5,8 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Amazon Growth Experts — Gull Of Group</title>
   <meta name="description" content="Gull Of Group helps Amazon brands grow faster and sell more through full-service account management, PPC advertising, SEO, and marketplace expansion across Amazon, Walmart, Shopify, and eBay.">
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="https://abdullah-gull.github.io/services/facon-Gull-of-Group.png">
+   <!-- Gull Of Group Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="https://abdullah-gull.github.io/services/facon-Gull-of-Group.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://abdullah-gull.github.io/services/facon-Gull-of-Group.png">
+<link rel="apple-touch-icon" href="https://abdullah-gull.github.io/services/facon-Gull-of-Group.png">
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   
@@ -454,7 +457,7 @@
     </div>
   </header>
   <!-- HERO SECTION WITH PROMINENT LARGE IMAGE -->
-  <section class="relative pt-32 lg:pt-36 pb-20 min-h-screen flex items-center">
+  <section class="relative pt-32 lg:pt-36 pb-0">
     <div class="max-w-7xl mx-auto px-6 w-full">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
@@ -516,7 +519,7 @@
           </div>
         </div>
         <!-- RIGHT IMAGE COLUMN (fixed: was triple-nested before, collapsed to a single wrapper) -->
-        <div class="lg:col-span-5 relative flex justify-center items-center w-full min-h-[480px] sm:min-h-[580px] lg:min-h-[640px]">
+        <div class="lg:col-span-5 relative flex justify-center items-center w-full">
           <!-- Subtle Glow Background -->
           <div class="absolute w-[320px] h-[320px] sm:w-[380px] sm:h-[380px] rounded-full border border-amberOrange-500/20 bg-amberOrange-500/10 -z-10 blur-2xl"></div>
           <!-- Image Container -->
@@ -529,8 +532,115 @@
       </div>
     </div>
   </section>
+  <!-- ============================================================
+     MARKETPLACES TRUST BAR — big, plain white wordmarks on black,
+     infinite auto-scroll. Tailwind + JS (no card/pill chrome —
+     matches a premium "as trusted by" logo strip).
+     Paste inside <body>. Merge the tailwind.config keyframes below
+     into your page's existing config (skip the CDN <script> if you
+     already load Tailwind elsewhere).
+     ============================================================ -->
 
- <!-- ============================================================
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        keyframes: {
+          marquee: {
+            '0%':   { transform: 'translateX(0)' },
+            '100%': { transform: 'translateX(-50%)' },
+          },
+        },
+        animation: {
+          marquee: 'marquee 34s linear infinite',
+        },
+      },
+    },
+  };
+</script>
+
+<section class="relative bg-black py-10 sm:py-12 border-b-4 border-orange-500/70 overflow-hidden">
+  <div id="marqueeViewport" class="overflow-hidden [mask-image:linear-gradient(to_right,transparent_0,#000_6%,#000_94%,transparent_100%)]">
+    <div id="marqueeTrack" class="flex items-center gap-16 sm:gap-20 lg:gap-24 w-max px-8 animate-marquee">
+
+      <!-- Base logo set — JS below auto-duplicates this for a seamless loop -->
+      <a href="#" class="marquee-pill shrink-0 flex items-center gap-3 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="https://cdn.simpleicons.org/amazon/FFFFFF" alt="Amazon" loading="lazy" class="h-8 sm:h-10 lg:h-11 w-auto object-contain" onerror="this.remove()">
+        <span class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight">amazon</span>
+      </a>
+
+      <a href="#" class="marquee-pill shrink-0 flex items-center gap-3 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="https://cdn.simpleicons.org/walmart/FFFFFF" alt="Walmart" loading="lazy" class="h-8 sm:h-10 lg:h-11 w-auto object-contain" onerror="this.remove()">
+        <span class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight">Walmart</span>
+      </a>
+
+      <a href="#" class="marquee-pill shrink-0 flex items-center gap-3 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="https://cdn.simpleicons.org/shopify/FFFFFF" alt="Shopify" loading="lazy" class="h-8 sm:h-10 lg:h-11 w-auto object-contain" onerror="this.remove()">
+        <span class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight">Shopify</span>
+      </a>
+
+      <a href="#" class="marquee-pill shrink-0 flex items-center gap-3 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="https://cdn.simpleicons.org/ebay/FFFFFF" alt="eBay" loading="lazy" class="h-8 sm:h-10 lg:h-11 w-auto object-contain" onerror="this.remove()">
+        <span class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight">eBay</span>
+      </a>
+
+      <a href="#" class="marquee-pill shrink-0 flex items-center gap-3 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="https://cdn.simpleicons.org/etsy/FFFFFF" alt="Etsy" loading="lazy" class="h-8 sm:h-10 lg:h-11 w-auto object-contain" onerror="this.remove()">
+        <span class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight">Etsy</span>
+      </a>
+
+      <a href="#" class="marquee-pill shrink-0 flex items-center gap-3 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="https://cdn.simpleicons.org/wayfair/FFFFFF" alt="Wayfair" loading="lazy" class="h-8 sm:h-10 lg:h-11 w-auto object-contain" onerror="this.remove()">
+        <span class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight">Wayfair</span>
+      </a>
+
+      <a href="#" class="marquee-pill shrink-0 flex items-center gap-3 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="https://cdn.simpleicons.org/thehomedepot/FFFFFF" alt="Home Depot" loading="lazy" class="h-8 sm:h-10 lg:h-11 w-auto object-contain" onerror="this.remove()">
+        <span class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight">Home Depot</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  // Auto-clones the logo set until the track is at least 2x the viewport
+  // width, so the -50% loop is always perfectly seamless — and pauses on
+  // hover/touch.
+  (function () {
+    const viewport = document.getElementById('marqueeViewport');
+    const track = document.getElementById('marqueeTrack');
+    if (!viewport || !track) return;
+
+    function buildLoop() {
+      const originals = Array.from(track.children).filter(el => !el.dataset.clone);
+      track.innerHTML = '';
+      originals.forEach(el => track.appendChild(el));
+
+      let guard = 0;
+      while (track.scrollWidth < viewport.clientWidth * 2 && guard < 10) {
+        originals.forEach(el => {
+          const clone = el.cloneNode(true);
+          clone.dataset.clone = 'true';
+          clone.setAttribute('aria-hidden', 'true');
+          track.appendChild(clone);
+        });
+        guard++;
+      }
+    }
+
+    buildLoop();
+    window.addEventListener('resize', buildLoop);
+
+    viewport.addEventListener('mouseenter', () => track.style.animationPlayState = 'paused');
+    viewport.addEventListener('mouseleave', () => track.style.animationPlayState = 'running');
+    viewport.addEventListener('touchstart', () => track.style.animationPlayState = 'paused', { passive: true });
+    viewport.addEventListener('touchend', () => track.style.animationPlayState = 'running');
+  })();
+</script>
+
+  <!-- ============================================================
        SERVICES TABS SECTION — Expert Amazon Services by Abdullah Gull
        (Rebuilt in Tailwind to match the site's amber/gold dark theme)
        ============================================================ -->
@@ -548,7 +658,7 @@
           Service Breakdown
         </div>
         <h2 class="font-heading text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-          Expert <span class="text-transparent bg-clip-text bg-gradient-to-r from-amberOrange-400 via-amberGold-400 to-amberOrange-500">Amazon</span> Services by Gull Of Group
+          Expert <span class="text-transparent bg-clip-text bg-gradient-to-r from-amberOrange-400 via-amberGold-400 to-amberOrange-500">Amazon</span> Services by Abdullah Gull
         </h2>
         <p class="mt-6 text-base sm:text-lg text-slate-400 leading-relaxed">
           A holistic approach to driving traffic and boosting conversions. We build custom PPC campaigns and optimize your catalog end-to-end to strengthen brand performance on the world's largest marketplace.
@@ -702,9 +812,8 @@
       });
     })();
   </script>
-  
 
-        <!-- FOOTER SECTION -->
+  <!-- FOOTER SECTION -->
 <footer class="w-full bg-[#070709] border-t border-amber-600/20 text-slate-300 pt-16 pb-12 relative overflow-hidden font-sans">
   
   <!-- Ambient Orange Background Glow -->
