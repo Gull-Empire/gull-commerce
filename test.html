@@ -1,316 +1,69 @@
-<!-- SERVICES SECTION -->
-<section class="bg-[#070709] text-white py-24 px-6 sm:px-12 lg:px-24 font-sans relative overflow-hidden selection:bg-amber-500 selection:text-black">
-  
-  <!-- Subtle Ambient Lights -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gull Commerce — Marketplace Services</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  body{background:#070709;}
+  ::-webkit-scrollbar{height:6px;width:6px;}
+  ::-webkit-scrollbar-thumb{background:#3a3a40;border-radius:10px;}
+  ::-webkit-scrollbar-track{background:transparent;}
+  .mp-btn.active{background:linear-gradient(135deg,#f59e0b,#ea580c);color:#000;border-color:transparent;box-shadow:0 8px 24px -6px rgba(245,158,11,.45);}
+  .mp-btn.active .mp-icon{color:#000;}
+  .topic-btn.active{background:linear-gradient(90deg,rgba(245,158,11,.14),rgba(245,158,11,0));border-left-color:#f59e0b;color:#fff;}
+  .topic-btn.active .topic-num{color:#f59e0b;}
+  .fade-in{animation:fadeIn .35s ease both;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+</style>
+</head>
+<body class="font-sans">
+
+<section class="bg-[#070709] text-white py-24 px-6 sm:px-12 lg:px-24 relative overflow-hidden selection:bg-amber-500 selection:text-black">
+
+  <!-- Ambient light -->
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-amber-600/10 blur-[150px] pointer-events-none"></div>
 
   <div class="max-w-7xl mx-auto relative z-10">
-    
-    <!-- Section Header -->
-    <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-14 space-y-4">
       <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-amber-500/20 bg-amber-500/10 text-amber-400 font-semibold text-xs tracking-wider uppercase">
-        <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span> Service Architecture
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span> Cross-Channel Service Architecture
       </div>
-      
       <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight uppercase bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-amber-500">
         Marketplace Mastery
       </h2>
-      
       <p class="text-slate-400 text-base sm:text-lg leading-relaxed">
-        Whether you are scaling directly to consumers or managing enterprise distribution, I provide data-driven strategies to maximize your brand's presence, conversion, and yield.
+        Gull Commerce runs full-funnel account management across every major marketplace — pick a channel below to see exactly how we grow it.
       </p>
     </div>
 
-    <!-- Tab Switcher -->
-    <div class="flex justify-center mb-16">
-      <div class="bg-slate-900/90 border border-slate-800 p-1.5 rounded-2xl flex relative max-w-md w-full shadow-2xl backdrop-blur-xl">
-        <!-- Active Background Indicator -->
-        <div id="tab-indicator" class="absolute top-1.5 bottom-1.5 left-1.5 w-[calc(50%-6px)] bg-gradient-to-r from-amber-500 to-orange-600 rounded-xl transition-all duration-300 ease-out z-0 shadow-lg shadow-amber-500/25"></div>
-        
-        <button onclick="switchTab('seller')" id="btn-seller" class="flex-1 text-center py-3.5 rounded-xl font-bold text-xs uppercase tracking-widest transition-all duration-200 z-10 text-black">
-          Seller Central
-        </button>
-        <button onclick="switchTab('vendor')" id="btn-vendor" class="flex-1 text-center py-3.5 rounded-xl font-bold text-xs uppercase tracking-widest transition-all duration-200 z-10 text-slate-400 hover:text-white">
-          Vendor Central
-        </button>
-      </div>
+    <!-- MARKETPLACE SELECTOR -->
+    <div id="marketplace-row" class="flex gap-3 overflow-x-auto pb-4 mb-10 justify-start lg:justify-center scroll-smooth">
+      <!-- injected by JS -->
     </div>
 
-    <!-- SERVICES GRID CONTAINER -->
-    <div>
-      
-      <!-- 1. SELLER CENTRAL SERVICES -->
-      <div id="grid-seller" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-300 opacity-100 block">
-        
-        <!-- Card 1 -->
-        <div class="group relative bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 hover:border-amber-500/50 p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 shadow-xl hover:shadow-2xl hover:shadow-amber-500/10 flex flex-col justify-between overflow-hidden">
-          <div class="absolute -right-10 -top-10 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl group-hover:bg-amber-500/20 transition-all"></div>
-          
-          <div>
-            <div class="flex items-center justify-between mb-8">
-              <div class="w-14 h-14 rounded-2xl bg-slate-800/80 border border-slate-700/80 flex items-center justify-center text-amber-500 text-xl group-hover:bg-amber-500 group-hover:text-black transition-all duration-300 shadow-inner">
-                <i class="fa-solid fa-chart-line"></i>
-              </div>
-              <span class="text-xs font-mono font-semibold text-slate-600 group-hover:text-amber-500/70 transition-colors">01 / SELLER</span>
-            </div>
+    <!-- MAIN PANEL: sidebar topics + content -->
+    <div class="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-6">
 
-            <h3 class="text-xl font-bold text-white mb-3 tracking-wide group-hover:text-amber-400 transition-colors">Full Service Account Management</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-8">I manage daily Seller Central tasks so your catalog, listings, ads, and account health stay completely on track for scalable growth.</p>
-          </div>
-
-          <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-500 group-hover:text-white transition-colors duration-200 pt-4 border-t border-slate-800/80">
-            <span>Learn More</span>
-            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
-          </a>
+      <!-- Topic sidebar -->
+      <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-2 backdrop-blur-xl h-fit lg:sticky lg:top-6">
+        <div class="px-4 pt-4 pb-3">
+          <span class="text-[11px] font-bold uppercase tracking-widest text-amber-500/80">Service Topics</span>
         </div>
-
-        <!-- Card 2 -->
-        <div class="group relative bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 hover:border-amber-500/50 p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 shadow-xl hover:shadow-2xl hover:shadow-amber-500/10 flex flex-col justify-between overflow-hidden">
-          <div class="absolute -right-10 -top-10 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl group-hover:bg-amber-500/20 transition-all"></div>
-          
-          <div>
-            <div class="flex items-center justify-between mb-8">
-              <div class="w-14 h-14 rounded-2xl bg-slate-800/80 border border-slate-700/80 flex items-center justify-center text-amber-500 text-xl group-hover:bg-amber-500 group-hover:text-black transition-all duration-300 shadow-inner">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </div>
-              <span class="text-xs font-mono font-semibold text-slate-600 group-hover:text-amber-500/70 transition-colors">02 / SELLER</span>
-            </div>
-
-            <h3 class="text-xl font-bold text-white mb-3 tracking-wide group-hover:text-amber-400 transition-colors">Amazon SEO</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-8">I map high-converting buyer-intent keywords into titles, bullet points, backend search terms, and text fields to maximize organic visibility.</p>
-          </div>
-
-          <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-500 group-hover:text-white transition-colors duration-200 pt-4 border-t border-slate-800/80">
-            <span>Learn More</span>
-            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
-          </a>
+        <div id="topic-list" class="flex lg:flex-col gap-1 overflow-x-auto lg:overflow-visible px-2 pb-2 lg:pb-2">
+          <!-- injected by JS -->
         </div>
-
-        <!-- Card 3 -->
-        <div class="group relative bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 hover:border-amber-500/50 p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 shadow-xl hover:shadow-2xl hover:shadow-amber-500/10 flex flex-col justify-between overflow-hidden">
-          <div class="absolute -right-10 -top-10 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl group-hover:bg-amber-500/20 transition-all"></div>
-          
-          <div>
-            <div class="flex items-center justify-between mb-8">
-              <div class="w-14 h-14 rounded-2xl bg-slate-800/80 border border-slate-700/80 flex items-center justify-center text-amber-500 text-xl group-hover:bg-amber-500 group-hover:text-black transition-all duration-300 shadow-inner">
-                <i class="fa-solid fa-[#ff8c00] fa-bullhorn"></i>
-              </div>
-              <span class="text-xs font-mono font-semibold text-slate-600 group-hover:text-amber-500/70 transition-colors">03 / SELLER</span>
-            </div>
-
-            <h3 class="text-xl font-bold text-white mb-3 tracking-wide group-hover:text-amber-400 transition-colors">Amazon PPC</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-8">I build, refine, and scale Sponsored Products, Brands, and Display campaigns, cutting out wasted spend to lock in absolute profitability.</p>
-          </div>
-
-          <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-500 group-hover:text-white transition-colors duration-200 pt-4 border-t border-slate-800/80">
-            <span>Learn More</span>
-            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
-          </a>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="group relative bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 hover:border-amber-500/50 p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 shadow-xl hover:shadow-2xl hover:shadow-amber-500/10 flex flex-col justify-between overflow-hidden">
-          <div class="absolute -right-10 -top-10 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl group-hover:bg-amber-500/20 transition-all"></div>
-          
-          <div>
-            <div class="flex items-center justify-between mb-8">
-              <div class="w-14 h-14 rounded-2xl bg-slate-800/80 border border-slate-700/80 flex items-center justify-center text-amber-500 text-xl group-hover:bg-amber-500 group-hover:text-black transition-all duration-300 shadow-inner">
-                <i class="fa-solid fa-[#ff8c00] fa-pen-nib"></i>
-              </div>
-              <span class="text-xs font-mono font-semibold text-slate-600 group-hover:text-amber-500/70 transition-colors">04 / SELLER</span>
-            </div>
-
-            <h3 class="text-xl font-bold text-white mb-3 tracking-wide group-hover:text-amber-400 transition-colors">Listing Optimization</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-8">I rewrite product copy to ensure target audiences understand your features immediately, dropping bounce rates and spiking sales metrics.</p>
-          </div>
-
-          <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-500 group-hover:text-white transition-colors duration-200 pt-4 border-t border-slate-800/80">
-            <span>Learn More</span>
-            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
-          </a>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="group relative bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 hover:border-amber-500/50 p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 shadow-xl hover:shadow-2xl hover:shadow-amber-500/10 flex flex-col justify-between overflow-hidden">
-          <div class="absolute -right-10 -top-10 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl group-hover:bg-amber-500/20 transition-all"></div>
-          
-          <div>
-            <div class="flex items-center justify-between mb-8">
-              <div class="w-14 h-14 rounded-2xl bg-slate-800/80 border border-slate-700/80 flex items-center justify-center text-amber-500 text-xl group-hover:bg-amber-500 group-hover:text-black transition-all duration-300 shadow-inner">
-                <i class="fa-solid fa-image"></i>
-              </div>
-              <span class="text-xs font-mono font-semibold text-slate-600 group-hover:text-amber-500/70 transition-colors">05 / SELLER</span>
-            </div>
-
-            <h3 class="text-xl font-bold text-white mb-3 tracking-wide group-hover:text-amber-400 transition-colors">Image Optimization</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-8">I direct layout assets for main photos, secondary infographs, and lifestyle banners designed carefully to convert visual clicks into definitive checkouts.</p>
-          </div>
-
-          <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-500 group-hover:text-white transition-colors duration-200 pt-4 border-t border-slate-800/80">
-            <span>Learn More</span>
-            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
-          </a>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="group relative bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 hover:border-amber-500/50 p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 shadow-xl hover:shadow-2xl hover:shadow-amber-500/10 flex flex-col justify-between overflow-hidden">
-          <div class="absolute -right-10 -top-10 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl group-hover:bg-amber-500/20 transition-all"></div>
-          
-          <div>
-            <div class="flex items-center justify-between mb-8">
-              <div class="w-14 h-14 rounded-2xl bg-slate-800/80 border border-slate-700/80 flex items-center justify-center text-amber-500 text-xl group-hover:bg-amber-500 group-hover:text-black transition-all duration-300 shadow-inner">
-                <i class="fa-solid fa-layer-group"></i>
-              </div>
-              <span class="text-xs font-mono font-semibold text-slate-600 group-hover:text-amber-500/70 transition-colors">06 / SELLER</span>
-            </div>
-
-            <h3 class="text-xl font-bold text-white mb-3 tracking-wide group-hover:text-amber-400 transition-colors">A+ Content</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-8">I architect brand-focused premium modules that fully structure advanced product features, overcome buyer friction, and support continuous micro-conversions.</p>
-          </div>
-
-          <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-500 group-hover:text-white transition-colors duration-200 pt-4 border-t border-slate-800/80">
-            <span>Learn More</span>
-            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
-          </a>
-        </div>
-
       </div>
 
-      <!-- 2. VENDOR CENTRAL SERVICES (Hidden by Default) -->
-      <div id="grid-vendor" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-300 opacity-0 hidden">
-        
-        <!-- Card 1 -->
-        <div class="group relative bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 hover:border-amber-500/50 p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 shadow-xl hover:shadow-2xl hover:shadow-amber-500/10 flex flex-col justify-between overflow-hidden">
-          <div class="absolute -right-10 -top-10 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl group-hover:bg-amber-500/20 transition-all"></div>
-          
-          <div>
-            <div class="flex items-center justify-between mb-8">
-              <div class="w-14 h-14 rounded-2xl bg-slate-800/80 border border-slate-700/80 flex items-center justify-center text-amber-500 text-xl group-hover:bg-amber-500 group-hover:text-black transition-all duration-300 shadow-inner">
-                <i class="fa-solid fa-rocket"></i>
-              </div>
-              <span class="text-xs font-mono font-semibold text-slate-600 group-hover:text-amber-500/70 transition-colors">01 / VENDOR</span>
-            </div>
-
-            <h3 class="text-xl font-bold text-white mb-3 tracking-wide group-hover:text-amber-400 transition-colors">Vendor Onboarding</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-8">I guide manufacturing brands seamlessly through high-level product data imports, logistics setup, and compliance configurations for a frictionless launch.</p>
-          </div>
-
-          <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-500 group-hover:text-white transition-colors duration-200 pt-4 border-t border-slate-800/80">
-            <span>Learn More</span>
-            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
-          </a>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="group relative bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 hover:border-amber-500/50 p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 shadow-xl hover:shadow-2xl hover:shadow-amber-500/10 flex flex-col justify-between overflow-hidden">
-          <div class="absolute -right-10 -top-10 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl group-hover:bg-amber-500/20 transition-all"></div>
-          
-          <div>
-            <div class="flex items-center justify-between mb-8">
-              <div class="w-14 h-14 rounded-2xl bg-slate-800/80 border border-slate-700/80 flex items-center justify-center text-amber-500 text-xl group-hover:bg-amber-500 group-hover:text-black transition-all duration-300 shadow-inner">
-                <i class="fa-solid fa-boxes-stacked"></i>
-              </div>
-              <span class="text-xs font-mono font-semibold text-slate-600 group-hover:text-amber-500/70 transition-colors">02 / VENDOR</span>
-            </div>
-
-            <h3 class="text-xl font-bold text-white mb-3 tracking-wide group-hover:text-amber-400 transition-colors">Inventory Management</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-8">I systematically audit stock flow signals, wholesale buy trends, and high-risk catalog bottlenecks to completely avoid buy-box loss and maximize fill rates.</p>
-          </div>
-
-          <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-500 group-hover:text-white transition-colors duration-200 pt-4 border-t border-slate-800/80">
-            <span>Learn More</span>
-            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
-          </a>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="group relative bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 hover:border-amber-500/50 p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 shadow-xl hover:shadow-2xl hover:shadow-amber-500/10 flex flex-col justify-between overflow-hidden">
-          <div class="absolute -right-10 -top-10 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl group-hover:bg-amber-500/20 transition-all"></div>
-          
-          <div>
-            <div class="flex items-center justify-between mb-8">
-              <div class="w-14 h-14 rounded-2xl bg-slate-800/80 border border-slate-700/80 flex items-center justify-center text-amber-500 text-xl group-hover:bg-amber-500 group-hover:text-black transition-all duration-300 shadow-inner">
-                <i class="fa-solid fa-rectangle-ad"></i>
-              </div>
-              <span class="text-xs font-mono font-semibold text-slate-600 group-hover:text-amber-500/70 transition-colors">03 / VENDOR</span>
-            </div>
-
-            <h3 class="text-xl font-bold text-white mb-3 tracking-wide group-hover:text-amber-400 transition-colors">Retail Advertising Management</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-8">I build out target Amazon DSP and retail campaigns with calculated precision to scale vendor market volume while protecting margins from chargebacks.</p>
-          </div>
-
-          <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-500 group-hover:text-white transition-colors duration-200 pt-4 border-t border-slate-800/80">
-            <span>Learn More</span>
-            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
-          </a>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="group relative bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 hover:border-amber-500/50 p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 shadow-xl hover:shadow-2xl hover:shadow-amber-500/10 flex flex-col justify-between overflow-hidden">
-          <div class="absolute -right-10 -top-10 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl group-hover:bg-amber-500/20 transition-all"></div>
-          
-          <div>
-            <div class="flex items-center justify-between mb-8">
-              <div class="w-14 h-14 rounded-2xl bg-slate-800/80 border border-slate-700/80 flex items-center justify-center text-amber-500 text-xl group-hover:bg-amber-500 group-hover:text-black transition-all duration-300 shadow-inner">
-                <i class="fa-solid fa-cubes"></i>
-              </div>
-              <span class="text-xs font-mono font-semibold text-slate-600 group-hover:text-amber-500/70 transition-colors">04 / VENDOR</span>
-            </div>
-
-            <h3 class="text-xl font-bold text-white mb-3 tracking-wide group-hover:text-amber-400 transition-colors">A+ Content Creation</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-8">I construct premium layouts optimized specifically for tier-one ASIN conversions, building strong strategic frameworks to validate product value.</p>
-          </div>
-
-          <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-500 group-hover:text-white transition-colors duration-200 pt-4 border-t border-slate-800/80">
-            <span>Learn More</span>
-            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
-          </a>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="group relative bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 hover:border-amber-500/50 p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 shadow-xl hover:shadow-2xl hover:shadow-amber-500/10 flex flex-col justify-between overflow-hidden">
-          <div class="absolute -right-10 -top-10 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl group-hover:bg-amber-500/20 transition-all"></div>
-          
-          <div>
-            <div class="flex items-center justify-between mb-8">
-              <div class="w-14 h-14 rounded-2xl bg-slate-800/80 border border-slate-700/80 flex items-center justify-center text-amber-500 text-xl group-hover:bg-amber-500 group-hover:text-black transition-all duration-300 shadow-inner">
-                <i class="fa-solid fa-bolt"></i>
-              </div>
-              <span class="text-xs font-mono font-semibold text-slate-600 group-hover:text-amber-500/70 transition-colors">05 / VENDOR</span>
-            </div>
-
-            <h3 class="text-xl font-bold text-white mb-3 tracking-wide group-hover:text-amber-400 transition-colors">Sponsored Ad Management</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-8">I take dynamic control of your structured ad funnels, maximizing performance mechanics so bulk keyword targets capture high volume.</p>
-          </div>
-
-          <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-500 group-hover:text-white transition-colors duration-200 pt-4 border-t border-slate-800/80">
-            <span>Learn More</span>
-            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
-          </a>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="group relative bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 hover:border-amber-500/50 p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 shadow-xl hover:shadow-2xl hover:shadow-amber-500/10 flex flex-col justify-between overflow-hidden">
-          <div class="absolute -right-10 -top-10 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl group-hover:bg-amber-500/20 transition-all"></div>
-          
-          <div>
-            <div class="flex items-center justify-between mb-8">
-              <div class="w-14 h-14 rounded-2xl bg-slate-800/80 border border-slate-700/80 flex items-center justify-center text-amber-500 text-xl group-hover:bg-amber-500 group-hover:text-black transition-all duration-300 shadow-inner">
-                <i class="fa-solid fa-sliders"></i>
-              </div>
-              <span class="text-xs font-mono font-semibold text-slate-600 group-hover:text-amber-500/70 transition-colors">06 / VENDOR</span>
-            </div>
-
-            <h3 class="text-xl font-bold text-white mb-3 tracking-wide group-hover:text-amber-400 transition-colors">Product Listing Optimization</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-8">I systematically optimize infrastructure data titles, bullets, and core backend metadata tags to ensure algorithm crawlers map inventory.</p>
-          </div>
-
-          <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-500 group-hover:text-white transition-colors duration-200 pt-4 border-t border-slate-800/80">
-            <span>Learn More</span>
-            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
-          </a>
-        </div>
-
+      <!-- Content panel -->
+      <div id="content-panel" class="bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 rounded-3xl p-8 sm:p-10 relative overflow-hidden min-h-[420px]">
+        <div class="absolute -right-16 -top-16 w-56 h-56 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <!-- injected by JS -->
       </div>
 
     </div>
@@ -318,44 +71,299 @@
   </div>
 </section>
 
-<!-- Smooth Tab Switch Script -->
 <script>
-  function switchTab(type) {
-    const btnSeller = document.getElementById('btn-seller');
-    const btnVendor = document.getElementById('btn-vendor');
-    const gridSeller = document.getElementById('grid-seller');
-    const gridVendor = document.getElementById('grid-vendor');
-    const indicator = document.getElementById('tab-indicator');
-
-    if (type === 'seller') {
-      btnSeller.classList.add('text-black');
-      btnSeller.classList.remove('text-slate-400', 'hover:text-white');
-      btnVendor.classList.remove('text-black');
-      btnVendor.classList.add('text-slate-400', 'hover:text-white');
-
-      indicator.style.left = '6px';
-
-      gridVendor.classList.add('opacity-0');
-      setTimeout(() => {
-        gridVendor.classList.add('hidden');
-        gridSeller.classList.remove('hidden');
-        setTimeout(() => gridSeller.classList.remove('opacity-0'), 50);
-      }, 200);
-
-    } else if (type === 'vendor') {
-      btnVendor.classList.add('text-black');
-      btnVendor.classList.remove('text-slate-400', 'hover:text-white');
-      btnSeller.classList.remove('text-black');
-      btnSeller.classList.add('text-slate-400', 'hover:text-white');
-
-      indicator.style.left = 'calc(50% + 0px)';
-
-      gridSeller.classList.add('opacity-0');
-      setTimeout(() => {
-        gridSeller.classList.add('hidden');
-        gridVendor.classList.remove('hidden');
-        setTimeout(() => gridVendor.classList.remove('opacity-0'), 50);
-      }, 200);
-    }
+/* ---------------------------------------------------------
+   DATA: marketplace -> icon -> list of service topics
+--------------------------------------------------------- */
+const MARKETPLACES = {
+  amazon: {
+    label: "Amazon",
+    icon: "fa-brands fa-amazon",
+    tagline: "Full Seller & Vendor Central management engineered for scalable, profitable growth.",
+    services: [
+      { title: "PPC Management", icon: "fa-solid fa-bullhorn",
+        desc: "We build, refine, and scale Sponsored Products, Brands, and Display campaigns across your entire catalog with continuous A/B testing, keyword refinement, and bid optimization on every dollar spent to generate a measurable return.",
+        features: ["Campaign strategy & structure","Keyword research & targeting","Bid optimization & automation","ACOS reduction techniques","Competitor analysis","Dayparting & placement tuning"] },
+      { title: "Amazon SEO", icon: "fa-solid fa-magnifying-glass",
+        desc: "High-converting buyer-intent keywords are mapped into titles, bullet points, backend search terms, and text fields to maximize organic visibility and search rank.",
+        features: ["Keyword indexing audit","Title & bullet rewrites","Backend search term mapping","Search rank tracking","Category & node optimization","Competitor keyword gap analysis"] },
+      { title: "Listing Optimization", icon: "fa-solid fa-pen-nib",
+        desc: "Product copy is rewritten so target audiences understand your features immediately, dropping bounce rates and spiking conversion metrics across the funnel.",
+        features: ["Conversion-focused copywriting","Feature-to-benefit mapping","Buy Box readiness checks","Variation & parent-child setup","Q&A and review mining","Split-testing content variants"] },
+      { title: "A+ Content & Storefront", icon: "fa-solid fa-layer-group",
+        desc: "Brand-focused premium modules and full storefronts are architected to structure advanced product features, overcome buyer friction, and support continuous micro-conversions.",
+        features: ["Premium A+ module design","Brand Store build-out","Cross-sell & comparison charts","Mobile-first layout QA","Brand story sections","Template performance tracking"] },
+      { title: "Account Health & Audit", icon: "fa-solid fa-shield-halved",
+        desc: "Daily account monitoring keeps your catalog, listings, ads, and account health completely on track, catching risks before they become suspensions.",
+        features: ["Policy compliance checks","Suspension prevention & appeals","Inventory & FBA health audit","Pricing & buy box monitoring","Weekly health scorecards","Case log management"] },
+      { title: "Product Launch Strategy", icon: "fa-solid fa-rocket",
+        desc: "New ASIN launches are engineered with a structured ramp — from keyword indexing to review velocity — to hit profitable rank in the shortest possible window.",
+        features: ["Pre-launch keyword mapping","Launch-phase PPC ramp","Review & rating velocity plan","Coupon & deal sequencing","Early conversion rate tracking","30/60/90 day roadmap"] },
+    ]
+  },
+  walmart: {
+    label: "Walmart",
+    icon: "fa-solid fa-store",
+    tagline: "Walmart Marketplace growth built on clean catalog data, WFS fulfillment, and disciplined ad spend.",
+    services: [
+      { title: "WMP Advertising", icon: "fa-solid fa-bullhorn",
+        desc: "Sponsored Products and Search Brand Amplifier campaigns are structured and optimized to capture Walmart.com search volume at a profitable ROAS.",
+        features: ["Campaign architecture","Keyword & auto targeting","Bid & budget pacing","ROAS-driven scaling","Negative keyword hygiene","Placement performance review"] },
+      { title: "Item Setup & Catalog", icon: "fa-solid fa-boxes-stacked",
+        desc: "Bulk item spec sheets, GTIN mapping, and catalog structure are handled end-to-end so new SKUs go live clean and error-free.",
+        features: ["Bulk item setup","GTIN/UPC mapping","Category & attribute mapping","Variant grouping","Catalog error resolution","Item spec sheet audits"] },
+      { title: "Content Optimization", icon: "fa-solid fa-pen-nib",
+        desc: "Titles, descriptions, and rich media are optimized against Walmart's content quality score to lift both organic rank and conversion.",
+        features: ["Content Quality Score audit","Title & description rewrites","Rich media / shelf pages","Image compliance checks","Attribute completeness","Search rank tracking"] },
+      { title: "Fulfillment Strategy (WFS)", icon: "fa-solid fa-truck-fast",
+        desc: "Walmart Fulfillment Services enrollment and inventory placement are managed to protect delivery speed badges and reduce storage costs.",
+        features: ["WFS onboarding","Inventory placement planning","2-day delivery eligibility","Storage cost monitoring","Replenishment forecasting","Fulfillment performance audit"] },
+      { title: "Brand Shop Design", icon: "fa-solid fa-layer-group",
+        desc: "A dedicated Walmart Brand Shop is designed to showcase your full catalog and drive repeat, direct-to-brand traffic.",
+        features: ["Brand Shop layout design","Collection curation","Cross-sell modules","Mobile layout QA","Seasonal refreshes","Traffic performance tracking"] },
+      { title: "Performance Audit", icon: "fa-solid fa-shield-halved",
+        desc: "A full account health review flags compliance risks, pricing violations, and catalog gaps before they cost you visibility.",
+        features: ["Compliance risk scan","Pricing parity checks","Retail readiness score","Return rate analysis","Catalog gap report","Action-item roadmap"] },
+    ]
+  },
+  shopify: {
+    label: "Shopify",
+    icon: "fa-brands fa-shopify",
+    tagline: "DTC storefronts engineered for conversion, retention, and paid acquisition efficiency.",
+    services: [
+      { title: "Store Setup & Theme Design", icon: "fa-solid fa-pen-nib",
+        desc: "Custom Shopify themes are built or customized around your brand identity, structured for speed, clarity, and mobile-first conversion.",
+        features: ["Custom theme build","Mobile-first UX","Page speed optimization","App stack integration","Checkout customization","Brand style guide"] },
+      { title: "Conversion Rate Optimization", icon: "fa-solid fa-magnifying-glass",
+        desc: "Funnel data is analyzed to identify friction points across product, cart, and checkout — then systematically tested and fixed.",
+        features: ["Funnel & heatmap analysis","A/B testing roadmap","Product page optimization","Cart abandonment fixes","Trust badge & social proof","Checkout friction audit"] },
+      { title: "App & Tech Stack", icon: "fa-solid fa-layer-group",
+        desc: "The right combination of subscription, reviews, upsell, and loyalty apps is selected and configured without bloating page speed.",
+        features: ["App audit & selection","Subscription setup","Upsell/cross-sell flows","Loyalty & rewards config","Speed impact testing","Stack consolidation"] },
+      { title: "Email & SMS Flows", icon: "fa-solid fa-bullhorn",
+        desc: "Klaviyo/SMS automation covers welcome, abandonment, post-purchase, and win-back flows to drive repeat revenue on autopilot.",
+        features: ["Welcome series build","Cart & browse abandonment","Post-purchase flows","Win-back campaigns","Segmentation strategy","Flow performance reporting"] },
+      { title: "Paid Social Ads", icon: "fa-solid fa-rocket",
+        desc: "Meta and TikTok campaigns are structured around creative testing and profitable CAC targets, not vanity metrics.",
+        features: ["Campaign architecture","Creative testing framework","Audience & retargeting setup","CAC/LTV tracking","Pixel & CAPI setup","Weekly scaling reviews"] },
+      { title: "Analytics & Tracking", icon: "fa-solid fa-shield-halved",
+        desc: "Clean, unified tracking across GA4, pixels, and server-side events gives you a single source of truth for every marketing dollar.",
+        features: ["GA4 & pixel setup","Server-side tracking (CAPI)","UTM governance","Dashboard build-out","Attribution review","Monthly performance report"] },
+    ]
+  },
+  ebay: {
+    label: "eBay",
+    icon: "fa-brands fa-ebay",
+    tagline: "Listing design, Promoted Listings, and reputation management built for eBay's search algorithm.",
+    services: [
+      { title: "Listing Templates & Design", icon: "fa-solid fa-pen-nib",
+        desc: "Mobile-responsive HTML listing templates are designed to build trust instantly and communicate specs at a glance.",
+        features: ["Responsive HTML templates","Spec table design","Brand-consistent layout","Image gallery structure","Cross-sell modules","Compliance-safe formatting"] },
+      { title: "Promoted Listings Ads", icon: "fa-solid fa-bullhorn",
+        desc: "Promoted Listings Standard and Advanced campaigns are managed to lift visibility on high-margin SKUs without eroding profitability.",
+        features: ["Ad rate strategy","Campaign structuring","High-margin SKU targeting","Bid pacing","Performance reporting","Budget reallocation"] },
+      { title: "Store Optimization", icon: "fa-solid fa-layer-group",
+        desc: "Your eBay Store is organized into clear categories and promotions boxes that guide shoppers toward higher basket sizes.",
+        features: ["Category structure design","Store branding","Promotions box setup","Markdown Manager use","Cross-promotion rules","Traffic source review"] },
+      { title: "Multi-Channel Sync", icon: "fa-solid fa-boxes-stacked",
+        desc: "Inventory and pricing are synced across eBay and your other channels to eliminate oversells and pricing conflicts.",
+        features: ["Inventory sync setup","Cross-channel pricing rules","Oversell prevention","Order routing","Repricer configuration","Sync error monitoring"] },
+      { title: "Feedback & Reputation", icon: "fa-solid fa-shield-halved",
+        desc: "Seller rating, defect rate, and feedback score are actively managed to protect Top Rated Seller status and search boost.",
+        features: ["Defect rate monitoring","Feedback recovery process","Case & return handling","Top Rated Seller tracking","Policy compliance review","Customer service scripting"] },
+      { title: "Pricing Strategy", icon: "fa-solid fa-magnifying-glass",
+        desc: "Competitive pricing analysis and automated repricing rules keep you winning the buy box without racing to the bottom.",
+        features: ["Competitor price tracking","Repricing rule setup","Margin floor protection","Best Offer strategy","Seasonal pricing plan","Profitability reporting"] },
+    ]
+  },
+  etsy: {
+    label: "Etsy",
+    icon: "fa-brands fa-etsy",
+    tagline: "Handmade and design-led brands positioned to rank, convert, and build repeat buyers.",
+    services: [
+      { title: "SEO & Tag Strategy", icon: "fa-solid fa-magnifying-glass",
+        desc: "All 13 tags, titles, and attributes are mapped to real buyer search behavior to maximize placement in Etsy search.",
+        features: ["Tag & attribute mapping","Title structure optimization","Search term research","Category placement audit","Seasonal keyword refresh","Rank tracking"] },
+      { title: "Shop Branding", icon: "fa-solid fa-pen-nib",
+        desc: "Shop banners, About sections, and policies are crafted to build instant credibility with handmade and vintage buyers.",
+        features: ["Shop banner design","About section copywriting","Policy page setup","Shop announcement copy","Brand voice guide","Visual consistency review"] },
+      { title: "Etsy Ads Management", icon: "fa-solid fa-bullhorn",
+        desc: "Etsy Ads and Offsite Ads budgets are managed by listing-level ROAS to keep spend concentrated on your best performers.",
+        features: ["Listing-level ROAS tracking","Budget allocation strategy","Offsite Ads opt-in review","Underperformer pausing","Seasonal budget scaling","Weekly ad reporting"] },
+      { title: "Listing Photography Direction", icon: "fa-solid fa-layer-group",
+        desc: "Photo shot lists and styling direction are provided so every listing shows scale, texture, and use-case clearly.",
+        features: ["Shot list creation","Styling & prop direction","Variation photo planning","Lifestyle image briefs","Mobile thumbnail testing","Image order optimization"] },
+      { title: "Review & Trust Building", icon: "fa-solid fa-shield-halved",
+        desc: "Post-purchase follow-up sequences encourage detailed reviews and photos that lift both conversion and search relevance.",
+        features: ["Review request sequencing","Photo review incentives","Response templates","Star rating monitoring","Trust signal placement","Repeat buyer nudges"] },
+      { title: "Seasonal Campaign Planning", icon: "fa-solid fa-rocket",
+        desc: "Holiday and gifting calendars are mapped months in advance so inventory, listings, and ads are ready before demand peaks.",
+        features: ["Gifting calendar mapping","Seasonal listing refreshes","Inventory readiness plan","Shipping deadline messaging","Promo scheduling","Post-season performance review"] },
+    ]
+  },
+  wayfair: {
+    label: "Wayfair",
+    icon: "fa-solid fa-couch",
+    tagline: "Supplier operations and CastleGate fulfillment managed for home and furniture brands.",
+    services: [
+      { title: "Supplier Onboarding", icon: "fa-solid fa-rocket",
+        desc: "Manufacturing brands are guided through high-level product data imports, logistics setup, and compliance configuration for a frictionless launch.",
+        features: ["Supplier portal setup","Product data import","Compliance documentation","Freight & routing setup","EDI configuration","Launch checklist management"] },
+      { title: "Catalog & SKU Management", icon: "fa-solid fa-boxes-stacked",
+        desc: "Stock flow signals, dimensional data, and high-risk catalog bottlenecks are systematically audited to avoid listing suppression.",
+        features: ["SKU data audit","Dimensional/weight accuracy","Bulk catalog updates","Suppression risk monitoring","Attribute completeness","Category mapping review"] },
+      { title: "CastleGate Fulfillment", icon: "fa-solid fa-truck-fast",
+        desc: "CastleGate warehousing and fulfillment enrollment is managed to unlock faster shipping badges and lower fulfillment costs.",
+        features: ["CastleGate enrollment","Inventory placement strategy","Speed badge qualification","Storage cost monitoring","Replenishment forecasting","Fulfillment performance review"] },
+      { title: "Sponsored Products", icon: "fa-solid fa-bullhorn",
+        desc: "Wayfair's on-site advertising is structured around your highest-margin SKUs to grow share of search profitably.",
+        features: ["Campaign structuring","High-margin SKU targeting","Bid optimization","Budget pacing","Competitor benchmarking","Monthly ad reporting"] },
+      { title: "Pricing & Promotions", icon: "fa-solid fa-magnifying-glass",
+        desc: "MAP compliance and promotional calendars are managed to protect margin while staying competitive during peak sale events.",
+        features: ["MAP compliance monitoring","Promotional calendar planning","Way Day event prep","Margin floor protection","Competitor price tracking","Discount performance review"] },
+      { title: "Performance Reporting", icon: "fa-solid fa-shield-halved",
+        desc: "Sell-through, return rate, and supplier scorecard metrics are tracked monthly so issues are caught before they affect standing.",
+        features: ["Supplier scorecard tracking","Sell-through analysis","Return rate monitoring","Chargeback review","Compliance risk flags","Action-item roadmap"] },
+    ]
+  },
+  homedepot: {
+    label: "Home Depot",
+    icon: "fa-solid fa-house",
+    tagline: "Pro-grade marketplace operations for building, hardware, and home improvement brands.",
+    services: [
+      { title: "Marketplace Onboarding", icon: "fa-solid fa-rocket",
+        desc: "New sellers are guided through the Home Depot marketplace application, catalog setup, and compliance requirements from day one.",
+        features: ["Seller application support","Catalog structure setup","Compliance documentation","Category approval process","Shipping policy setup","Launch readiness checklist"] },
+      { title: "Catalog Compliance", icon: "fa-solid fa-boxes-stacked",
+        desc: "Product data, safety documentation, and category attributes are kept audit-ready to prevent listing takedowns.",
+        features: ["Attribute compliance audit","Safety documentation review","Bulk catalog updates","Category attribute mapping","Takedown risk monitoring","Data quality scorecards"] },
+      { title: "Sponsored Ads (Pro)", icon: "fa-solid fa-bullhorn",
+        desc: "Sponsored placements are optimized to reach both DIY consumers and Pro contractor buyers with distinct bidding strategies.",
+        features: ["Campaign structuring","DIY vs. Pro audience targeting","Bid optimization","Budget pacing","Competitor benchmarking","Monthly ad reporting"] },
+      { title: "Fulfillment Setup", icon: "fa-solid fa-truck-fast",
+        desc: "Dropship and warehouse fulfillment configurations are set up to hit on-time delivery targets required for good standing.",
+        features: ["Fulfillment method setup","On-time delivery tracking","Carrier integration","Order routing rules","Cancellation rate monitoring","Fulfillment performance review"] },
+      { title: "Content & Imagery", icon: "fa-solid fa-pen-nib",
+        desc: "Titles, specs, and imagery are optimized to meet Home Depot's content standards and speak directly to trade buyers.",
+        features: ["Title & spec optimization","Image compliance review","Trade-buyer focused copy","Installation/use imagery","Content quality audit","Search rank tracking"] },
+      { title: "Performance Audit", icon: "fa-solid fa-shield-halved",
+        desc: "Scorecard metrics across defect rate, cancellations, and returns are reviewed monthly to protect marketplace standing.",
+        features: ["Seller scorecard review","Defect rate monitoring","Cancellation rate analysis","Return rate tracking","Compliance risk flags","Action-item roadmap"] },
+    ]
   }
+};
+
+/* ---------------------------------------------------------
+   STATE
+--------------------------------------------------------- */
+let activeMarketplace = "amazon";
+let activeTopicIndex = 0;
+
+/* ---------------------------------------------------------
+   RENDER: marketplace selector
+--------------------------------------------------------- */
+function renderMarketplaceRow(){
+  const row = document.getElementById("marketplace-row");
+  row.innerHTML = Object.keys(MARKETPLACES).map(key => {
+    const mp = MARKETPLACES[key];
+    const isActive = key === activeMarketplace;
+    return `
+      <button
+        onclick="selectMarketplace('${key}')"
+        class="mp-btn ${isActive ? 'active' : ''} flex items-center gap-2.5 shrink-0 px-5 py-3 rounded-2xl border border-slate-800 bg-slate-900/70 text-slate-300 font-bold text-sm hover:border-amber-500/40 hover:text-white transition-all duration-200"
+      >
+        <i class="mp-icon ${mp.icon} text-base ${isActive ? '' : 'text-amber-500'}"></i>
+        <span>${mp.label}</span>
+      </button>
+    `;
+  }).join("");
+}
+
+/* ---------------------------------------------------------
+   RENDER: topic sidebar for active marketplace
+--------------------------------------------------------- */
+function renderTopicList(){
+  const list = document.getElementById("topic-list");
+  const services = MARKETPLACES[activeMarketplace].services;
+  list.innerHTML = services.map((s, i) => {
+    const isActive = i === activeTopicIndex;
+    return `
+      <button
+        onclick="selectTopic(${i})"
+        class="topic-btn ${isActive ? 'active' : ''} shrink-0 lg:w-full text-left flex items-center gap-3 px-4 py-3.5 rounded-xl lg:rounded-lg border-l-2 border-transparent text-slate-400 font-semibold text-sm hover:text-white hover:bg-white/5 transition-all duration-150 whitespace-nowrap lg:whitespace-normal"
+      >
+        <span class="topic-num text-[11px] font-mono text-slate-600">${String(i+1).padStart(2,'0')}</span>
+        <span>${s.title}</span>
+      </button>
+    `;
+  }).join("");
+}
+
+/* ---------------------------------------------------------
+   RENDER: content panel
+--------------------------------------------------------- */
+function renderContent(){
+  const panel = document.getElementById("content-panel");
+  const mp = MARKETPLACES[activeMarketplace];
+  const s = mp.services[activeTopicIndex];
+
+  panel.innerHTML = `
+    <div class="fade-in relative z-10">
+      <div class="flex items-start justify-between gap-6 mb-6">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 shrink-0 rounded-2xl bg-slate-800/80 border border-slate-700/80 flex items-center justify-center text-amber-500 text-xl shadow-inner">
+            <i class="${s.icon}"></i>
+          </div>
+          <div>
+            <span class="text-xs font-mono font-semibold text-amber-500/80 uppercase tracking-widest">${mp.label} &middot; Service Breakdown</span>
+            <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-wide mt-1">${s.title}</h3>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-slate-400 text-base leading-relaxed mb-8 max-w-2xl">${s.desc}</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+        ${s.features.map(f => `
+          <div class="flex items-center gap-3 bg-black/30 border border-slate-800 rounded-xl px-4 py-3">
+            <i class="fa-solid fa-check text-amber-500 text-xs"></i>
+            <span class="text-slate-300 text-sm">${f}</span>
+          </div>
+        `).join("")}
+      </div>
+
+      <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-black bg-gradient-to-r from-amber-500 to-orange-600 px-6 py-3.5 rounded-xl hover:shadow-lg hover:shadow-amber-500/25 transition-all duration-200">
+        <span>Get This For My Brand</span>
+        <i class="fa-solid fa-arrow-right text-xs"></i>
+      </a>
+    </div>
+  `;
+}
+
+/* ---------------------------------------------------------
+   EVENT HANDLERS
+--------------------------------------------------------- */
+function selectMarketplace(key){
+  activeMarketplace = key;
+  activeTopicIndex = 0;
+  renderMarketplaceRow();
+  renderTopicList();
+  renderContent();
+}
+
+function selectTopic(index){
+  activeTopicIndex = index;
+  renderTopicList();
+  renderContent();
+}
+
+/* ---------------------------------------------------------
+   INIT
+--------------------------------------------------------- */
+renderMarketplaceRow();
+renderTopicList();
+renderContent();
 </script>
+
+</body>
+</html>
