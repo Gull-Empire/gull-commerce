@@ -812,7 +812,375 @@
       });
     })();
   </script>
+  
+<section>
+  <!-- ============================================================
+       MARKETPLACE MASTERY SECTION — Amazon (Seller/Vendor) + all
+       marketplaces, styled with the site's own amberOrange / amberGold /
+       dark Tailwind tokens and Plus Jakarta Sans heading font.
+       Paste this block directly BEFORE the <footer> tag.
+       ============================================================ -->
+  <section id="marketplace-mastery" class="relative py-24 lg:py-32 bg-dark-900 overflow-hidden border-t border-amberOrange-500/10">
+    <!-- decorative glow blobs -->
+    <div class="absolute -top-40 right-[8%] w-[400px] h-[400px] rounded-full bg-amberOrange-500/5 blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-0 left-[5%] w-[320px] h-[320px] rounded-full bg-amberGold-400/5 blur-[100px] pointer-events-none"></div>
 
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-14 lg:mb-16">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-amberOrange-500/30 bg-amberOrange-500/10 text-amberOrange-300 text-xs font-bold tracking-widest uppercase mb-6">
+          <i class="fa-solid fa-diagram-project text-[10px] text-amberGold-400"></i>
+          Cross-Channel Service Architecture
+        </div>
+        <h2 class="font-heading text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-amberOrange-400 via-amberGold-400 to-amberOrange-500">Marketplace</span> Mastery
+        </h2>
+        <p class="mt-6 text-base sm:text-lg text-slate-400 leading-relaxed">
+          Gull Commerce runs full-funnel account management across every major marketplace — pick a channel below to see exactly how we grow it.
+        </p>
+      </div>
+
+      <!-- MARKETPLACE SELECTOR ROW -->
+      <div id="mm-marketplace-row" class="flex gap-3 overflow-x-auto pb-4 mb-6 justify-start lg:justify-center scroll-smooth"></div>
+
+      <!-- AMAZON SELLER / VENDOR SWITCH (shown only when Amazon is active) -->
+      <div id="mm-amazon-mode-row" class="flex justify-center mb-10"></div>
+
+      <!-- Tabs Wrapper -->
+      <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
+
+        <!-- Left: Topic Buttons -->
+        <div class="w-full lg:w-[300px] shrink-0 flex flex-col">
+          <div class="bg-gradient-to-r from-amberOrange-500 to-amberGold-400 text-black font-bold text-xs uppercase tracking-widest px-6 py-4 rounded-t-2xl shadow-lg shadow-amberOrange-500/20 flex items-center justify-between">
+            <span>Service Topics</span>
+            <span id="mm-topic-count" class="font-mono text-[10px] opacity-70"></span>
+          </div>
+          <div id="mm-topic-list" class="flex flex-col"></div>
+        </div>
+
+        <!-- Right: Content Panel -->
+        <div class="flex-1 w-full relative rounded-3xl border border-amberOrange-500/15 bg-dark-800/60 backdrop-blur-xl shadow-2xl shadow-black/40 p-8 sm:p-12 min-h-[460px] overflow-hidden">
+          <div class="absolute -top-24 -right-16 w-[280px] h-[280px] rounded-full bg-amberOrange-500/5 blur-[100px] pointer-events-none"></div>
+          <div id="mm-content-panel" class="relative z-10"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+  (function () {
+    /* ---------------------------------------------------------
+       DATA
+    --------------------------------------------------------- */
+    const AMAZON_SELLER = [
+      { title: "PPC Management", icon: "fa-solid fa-bullhorn",
+        desc: "We build, refine, and scale Sponsored Products, Brands, and Display campaigns across your entire catalog with continuous A/B testing, keyword refinement, and bid optimization on every dollar spent to generate a measurable return.",
+        features: ["Campaign strategy & structure","Keyword research & targeting","Bid optimization & automation","ACOS reduction techniques","Competitor analysis","Dayparting & placement tuning"] },
+      { title: "Amazon SEO (A9)", icon: "fa-solid fa-magnifying-glass",
+        desc: "High-converting buyer-intent keywords are mapped into titles, bullet points, backend search terms, and text fields to maximize organic visibility and search rank.",
+        features: ["Keyword indexing audit","Title & bullet rewrites","Backend search term mapping","Search rank tracking","Category & node optimization","Competitor keyword gap analysis"] },
+      { title: "Listing Optimization", icon: "fa-solid fa-pen-nib",
+        desc: "Product copy is rewritten so target audiences understand your features immediately, dropping bounce rates and spiking conversion metrics across the funnel.",
+        features: ["Conversion-focused copywriting","Feature-to-benefit mapping","Buy Box readiness checks","Variation & parent-child setup","Q&A and review mining","Split-testing content variants"] },
+      { title: "A+ Content & Storefront", icon: "fa-solid fa-layer-group",
+        desc: "Brand-focused premium modules and full storefronts are architected to structure advanced product features, overcome buyer friction, and support continuous micro-conversions.",
+        features: ["Premium A+ module design","Brand Store build-out","Cross-sell & comparison charts","Mobile-first layout QA","Brand story sections","Template performance tracking"] },
+      { title: "Account Health & Audit", icon: "fa-solid fa-shield-halved",
+        desc: "Daily account monitoring keeps your catalog, listings, ads, and account health completely on track, catching risks before they become suspensions.",
+        features: ["Policy compliance checks","Suspension prevention & appeals","Inventory & FBA health audit","Pricing & buy box monitoring","Weekly health scorecards","Case log management"] },
+      { title: "Product Launch Strategy", icon: "fa-solid fa-rocket",
+        desc: "New ASIN launches are engineered with a structured ramp — from keyword indexing to review velocity — to hit profitable rank in the shortest possible window.",
+        features: ["Pre-launch keyword mapping","Launch-phase PPC ramp","Review & rating velocity plan","Coupon & deal sequencing","Early conversion rate tracking","30/60/90 day roadmap"] },
+    ];
+
+    const AMAZON_VENDOR = [
+      { title: "Vendor Onboarding", icon: "fa-solid fa-rocket",
+        desc: "Manufacturing brands are guided seamlessly through high-level product data imports, logistics setup, and compliance configurations for a frictionless launch onto Vendor Central.",
+        features: ["Vendor Central account setup","Bulk product data import","EDI/logistics configuration","Compliance documentation","Chargeback prevention setup","Launch readiness checklist"] },
+      { title: "Inventory Management", icon: "fa-solid fa-boxes-stacked",
+        desc: "Stock flow signals, wholesale buy trends, and high-risk catalog bottlenecks are systematically audited to completely avoid buy-box loss and maximize fill rates.",
+        features: ["PO fill-rate monitoring","Stock flow & lead-time audit","Forecast vs. buy trend analysis","Chargeback root-cause review","ASIN-level risk flagging","Replenishment planning"] },
+      { title: "Retail Advertising Management", icon: "fa-solid fa-rectangle-ad",
+        desc: "Target Amazon DSP and Sponsored Ad campaigns are built out with calculated precision to scale vendor market volume while protecting margins from chargebacks.",
+        features: ["DSP campaign structuring","Sponsored Products/Brands setup","Audience & retargeting builds","Margin-protected bidding","Budget pacing & scaling","Performance reporting"] },
+      { title: "A+ Content Creation", icon: "fa-solid fa-cubes",
+        desc: "Premium layouts are constructed specifically for tier-one ASIN conversions, building strong strategic frameworks that validate product value to enterprise buyers.",
+        features: ["Premium A+ module design","Brand Story build-out","Comparison chart modules","Template performance testing","Mobile layout QA","Content refresh cadence"] },
+      { title: "Sponsored Ad Management", icon: "fa-solid fa-bolt",
+        desc: "Dynamic control of your structured ad funnels maximizes performance mechanics so bulk keyword targets capture high volume at a defensible ACOS.",
+        features: ["Funnel-stage campaign structure","Bulk keyword targeting","Bid automation rules","ACOS/TACOS tracking","Competitor benchmarking","Weekly optimization cycle"] },
+      { title: "Product Listing Optimization", icon: "fa-solid fa-sliders",
+        desc: "Infrastructure data, titles, bullets, and core backend metadata tags are systematically optimized to ensure algorithm crawlers map inventory correctly.",
+        features: ["Title & bullet optimization","Backend metadata tagging","Catalog data hygiene","Search rank tracking","Content compliance audit","Variation/family structuring"] },
+    ];
+
+    const MARKETPLACES = {
+      amazon: { label: "Amazon", icon: "fa-brands fa-amazon", hasModes: true,
+        modes: { seller: { label: "Seller Central", services: AMAZON_SELLER },
+                 vendor: { label: "Vendor Central", services: AMAZON_VENDOR } } },
+      walmart: { label: "Walmart", icon: "fa-solid fa-store", services: [
+        { title: "WMP Advertising", icon: "fa-solid fa-bullhorn",
+          desc: "Sponsored Products and Search Brand Amplifier campaigns are structured and optimized to capture Walmart.com search volume at a profitable ROAS.",
+          features: ["Campaign architecture","Keyword & auto targeting","Bid & budget pacing","ROAS-driven scaling","Negative keyword hygiene","Placement performance review"] },
+        { title: "Item Setup & Catalog", icon: "fa-solid fa-boxes-stacked",
+          desc: "Bulk item spec sheets, GTIN mapping, and catalog structure are handled end-to-end so new SKUs go live clean and error-free.",
+          features: ["Bulk item setup","GTIN/UPC mapping","Category & attribute mapping","Variant grouping","Catalog error resolution","Item spec sheet audits"] },
+        { title: "Content Optimization", icon: "fa-solid fa-pen-nib",
+          desc: "Titles, descriptions, and rich media are optimized against Walmart's content quality score to lift both organic rank and conversion.",
+          features: ["Content Quality Score audit","Title & description rewrites","Rich media / shelf pages","Image compliance checks","Attribute completeness","Search rank tracking"] },
+        { title: "Fulfillment Strategy (WFS)", icon: "fa-solid fa-truck-fast",
+          desc: "Walmart Fulfillment Services enrollment and inventory placement are managed to protect delivery speed badges and reduce storage costs.",
+          features: ["WFS onboarding","Inventory placement planning","2-day delivery eligibility","Storage cost monitoring","Replenishment forecasting","Fulfillment performance audit"] },
+        { title: "Brand Shop Design", icon: "fa-solid fa-layer-group",
+          desc: "A dedicated Walmart Brand Shop is designed to showcase your full catalog and drive repeat, direct-to-brand traffic.",
+          features: ["Brand Shop layout design","Collection curation","Cross-sell modules","Mobile layout QA","Seasonal refreshes","Traffic performance tracking"] },
+        { title: "Performance Audit", icon: "fa-solid fa-shield-halved",
+          desc: "A full account health review flags compliance risks, pricing violations, and catalog gaps before they cost you visibility.",
+          features: ["Compliance risk scan","Pricing parity checks","Retail readiness score","Return rate analysis","Catalog gap report","Action-item roadmap"] },
+      ]},
+      shopify: { label: "Shopify", icon: "fa-brands fa-shopify", services: [
+        { title: "Store Setup & Theme Design", icon: "fa-solid fa-pen-nib",
+          desc: "Custom Shopify themes are built or customized around your brand identity, structured for speed, clarity, and mobile-first conversion.",
+          features: ["Custom theme build","Mobile-first UX","Page speed optimization","App stack integration","Checkout customization","Brand style guide"] },
+        { title: "Conversion Rate Optimization", icon: "fa-solid fa-magnifying-glass",
+          desc: "Funnel data is analyzed to identify friction points across product, cart, and checkout — then systematically tested and fixed.",
+          features: ["Funnel & heatmap analysis","A/B testing roadmap","Product page optimization","Cart abandonment fixes","Trust badge & social proof","Checkout friction audit"] },
+        { title: "App & Tech Stack", icon: "fa-solid fa-layer-group",
+          desc: "The right combination of subscription, reviews, upsell, and loyalty apps is selected and configured without bloating page speed.",
+          features: ["App audit & selection","Subscription setup","Upsell/cross-sell flows","Loyalty & rewards config","Speed impact testing","Stack consolidation"] },
+        { title: "Email & SMS Flows", icon: "fa-solid fa-bullhorn",
+          desc: "Klaviyo/SMS automation covers welcome, abandonment, post-purchase, and win-back flows to drive repeat revenue on autopilot.",
+          features: ["Welcome series build","Cart & browse abandonment","Post-purchase flows","Win-back campaigns","Segmentation strategy","Flow performance reporting"] },
+        { title: "Paid Social Ads", icon: "fa-solid fa-rocket",
+          desc: "Meta and TikTok campaigns are structured around creative testing and profitable CAC targets, not vanity metrics.",
+          features: ["Campaign architecture","Creative testing framework","Audience & retargeting setup","CAC/LTV tracking","Pixel & CAPI setup","Weekly scaling reviews"] },
+        { title: "Analytics & Tracking", icon: "fa-solid fa-shield-halved",
+          desc: "Clean, unified tracking across GA4, pixels, and server-side events gives you a single source of truth for every marketing dollar.",
+          features: ["GA4 & pixel setup","Server-side tracking (CAPI)","UTM governance","Dashboard build-out","Attribution review","Monthly performance report"] },
+      ]},
+      ebay: { label: "eBay", icon: "fa-brands fa-ebay", services: [
+        { title: "Listing Templates & Design", icon: "fa-solid fa-pen-nib",
+          desc: "Mobile-responsive HTML listing templates are designed to build trust instantly and communicate specs at a glance.",
+          features: ["Responsive HTML templates","Spec table design","Brand-consistent layout","Image gallery structure","Cross-sell modules","Compliance-safe formatting"] },
+        { title: "Promoted Listings Ads", icon: "fa-solid fa-bullhorn",
+          desc: "Promoted Listings Standard and Advanced campaigns are managed to lift visibility on high-margin SKUs without eroding profitability.",
+          features: ["Ad rate strategy","Campaign structuring","High-margin SKU targeting","Bid pacing","Performance reporting","Budget reallocation"] },
+        { title: "Store Optimization", icon: "fa-solid fa-layer-group",
+          desc: "Your eBay Store is organized into clear categories and promotions boxes that guide shoppers toward higher basket sizes.",
+          features: ["Category structure design","Store branding","Promotions box setup","Markdown Manager use","Cross-promotion rules","Traffic source review"] },
+        { title: "Multi-Channel Sync", icon: "fa-solid fa-boxes-stacked",
+          desc: "Inventory and pricing are synced across eBay and your other channels to eliminate oversells and pricing conflicts.",
+          features: ["Inventory sync setup","Cross-channel pricing rules","Oversell prevention","Order routing","Repricer configuration","Sync error monitoring"] },
+        { title: "Feedback & Reputation", icon: "fa-solid fa-shield-halved",
+          desc: "Seller rating, defect rate, and feedback score are actively managed to protect Top Rated Seller status and search boost.",
+          features: ["Defect rate monitoring","Feedback recovery process","Case & return handling","Top Rated Seller tracking","Policy compliance review","Customer service scripting"] },
+        { title: "Pricing Strategy", icon: "fa-solid fa-magnifying-glass",
+          desc: "Competitive pricing analysis and automated repricing rules keep you winning the buy box without racing to the bottom.",
+          features: ["Competitor price tracking","Repricing rule setup","Margin floor protection","Best Offer strategy","Seasonal pricing plan","Profitability reporting"] },
+      ]},
+      etsy: { label: "Etsy", icon: "fa-brands fa-etsy", services: [
+        { title: "SEO & Tag Strategy", icon: "fa-solid fa-magnifying-glass",
+          desc: "All 13 tags, titles, and attributes are mapped to real buyer search behavior to maximize placement in Etsy search.",
+          features: ["Tag & attribute mapping","Title structure optimization","Search term research","Category placement audit","Seasonal keyword refresh","Rank tracking"] },
+        { title: "Shop Branding", icon: "fa-solid fa-pen-nib",
+          desc: "Shop banners, About sections, and policies are crafted to build instant credibility with handmade and vintage buyers.",
+          features: ["Shop banner design","About section copywriting","Policy page setup","Shop announcement copy","Brand voice guide","Visual consistency review"] },
+        { title: "Etsy Ads Management", icon: "fa-solid fa-bullhorn",
+          desc: "Etsy Ads and Offsite Ads budgets are managed by listing-level ROAS to keep spend concentrated on your best performers.",
+          features: ["Listing-level ROAS tracking","Budget allocation strategy","Offsite Ads opt-in review","Underperformer pausing","Seasonal budget scaling","Weekly ad reporting"] },
+        { title: "Listing Photography Direction", icon: "fa-solid fa-layer-group",
+          desc: "Photo shot lists and styling direction are provided so every listing shows scale, texture, and use-case clearly.",
+          features: ["Shot list creation","Styling & prop direction","Variation photo planning","Lifestyle image briefs","Mobile thumbnail testing","Image order optimization"] },
+        { title: "Review & Trust Building", icon: "fa-solid fa-shield-halved",
+          desc: "Post-purchase follow-up sequences encourage detailed reviews and photos that lift both conversion and search relevance.",
+          features: ["Review request sequencing","Photo review incentives","Response templates","Star rating monitoring","Trust signal placement","Repeat buyer nudges"] },
+        { title: "Seasonal Campaign Planning", icon: "fa-solid fa-rocket",
+          desc: "Holiday and gifting calendars are mapped months in advance so inventory, listings, and ads are ready before demand peaks.",
+          features: ["Gifting calendar mapping","Seasonal listing refreshes","Inventory readiness plan","Shipping deadline messaging","Promo scheduling","Post-season performance review"] },
+      ]},
+      wayfair: { label: "Wayfair", icon: "fa-solid fa-couch", services: [
+        { title: "Supplier Onboarding", icon: "fa-solid fa-rocket",
+          desc: "Manufacturing brands are guided through high-level product data imports, logistics setup, and compliance configuration for a frictionless launch.",
+          features: ["Supplier portal setup","Product data import","Compliance documentation","Freight & routing setup","EDI configuration","Launch checklist management"] },
+        { title: "Catalog & SKU Management", icon: "fa-solid fa-boxes-stacked",
+          desc: "Stock flow signals, dimensional data, and high-risk catalog bottlenecks are systematically audited to avoid listing suppression.",
+          features: ["SKU data audit","Dimensional/weight accuracy","Bulk catalog updates","Suppression risk monitoring","Attribute completeness","Category mapping review"] },
+        { title: "CastleGate Fulfillment", icon: "fa-solid fa-truck-fast",
+          desc: "CastleGate warehousing and fulfillment enrollment is managed to unlock faster shipping badges and lower fulfillment costs.",
+          features: ["CastleGate enrollment","Inventory placement strategy","Speed badge qualification","Storage cost monitoring","Replenishment forecasting","Fulfillment performance review"] },
+        { title: "Sponsored Products", icon: "fa-solid fa-bullhorn",
+          desc: "Wayfair's on-site advertising is structured around your highest-margin SKUs to grow share of search profitably.",
+          features: ["Campaign structuring","High-margin SKU targeting","Bid optimization","Budget pacing","Competitor benchmarking","Monthly ad reporting"] },
+        { title: "Pricing & Promotions", icon: "fa-solid fa-magnifying-glass",
+          desc: "MAP compliance and promotional calendars are managed to protect margin while staying competitive during peak sale events.",
+          features: ["MAP compliance monitoring","Promotional calendar planning","Way Day event prep","Margin floor protection","Competitor price tracking","Discount performance review"] },
+        { title: "Performance Reporting", icon: "fa-solid fa-shield-halved",
+          desc: "Sell-through, return rate, and supplier scorecard metrics are tracked monthly so issues are caught before they affect standing.",
+          features: ["Supplier scorecard tracking","Sell-through analysis","Return rate monitoring","Chargeback review","Compliance risk flags","Action-item roadmap"] },
+      ]},
+      homedepot: { label: "Home Depot", icon: "fa-solid fa-house", services: [
+        { title: "Marketplace Onboarding", icon: "fa-solid fa-rocket",
+          desc: "New sellers are guided through the Home Depot marketplace application, catalog setup, and compliance requirements from day one.",
+          features: ["Seller application support","Catalog structure setup","Compliance documentation","Category approval process","Shipping policy setup","Launch readiness checklist"] },
+        { title: "Catalog Compliance", icon: "fa-solid fa-boxes-stacked",
+          desc: "Product data, safety documentation, and category attributes are kept audit-ready to prevent listing takedowns.",
+          features: ["Attribute compliance audit","Safety documentation review","Bulk catalog updates","Category attribute mapping","Takedown risk monitoring","Data quality scorecards"] },
+        { title: "Sponsored Ads (Pro)", icon: "fa-solid fa-bullhorn",
+          desc: "Sponsored placements are optimized to reach both DIY consumers and Pro contractor buyers with distinct bidding strategies.",
+          features: ["Campaign structuring","DIY vs. Pro audience targeting","Bid optimization","Budget pacing","Competitor benchmarking","Monthly ad reporting"] },
+        { title: "Fulfillment Setup", icon: "fa-solid fa-truck-fast",
+          desc: "Dropship and warehouse fulfillment configurations are set up to hit on-time delivery targets required for good standing.",
+          features: ["Fulfillment method setup","On-time delivery tracking","Carrier integration","Order routing rules","Cancellation rate monitoring","Fulfillment performance review"] },
+        { title: "Content & Imagery", icon: "fa-solid fa-pen-nib",
+          desc: "Titles, specs, and imagery are optimized to meet Home Depot's content standards and speak directly to trade buyers.",
+          features: ["Title & spec optimization","Image compliance review","Trade-buyer focused copy","Installation/use imagery","Content quality audit","Search rank tracking"] },
+        { title: "Performance Audit", icon: "fa-solid fa-shield-halved",
+          desc: "Scorecard metrics across defect rate, cancellations, and returns are reviewed monthly to protect marketplace standing.",
+          features: ["Seller scorecard review","Defect rate monitoring","Cancellation rate analysis","Return rate tracking","Compliance risk flags","Action-item roadmap"] },
+      ]},
+    };
+
+    /* ---------------------------------------------------------
+       STATE
+    --------------------------------------------------------- */
+    let activeMarketplace = "amazon";
+    let activeAmazonMode = "seller";
+    let activeTopicIndex = 0;
+
+    const mpRow      = document.getElementById("mm-marketplace-row");
+    const modeRow     = document.getElementById("mm-amazon-mode-row");
+    const topicList   = document.getElementById("mm-topic-list");
+    const topicCount  = document.getElementById("mm-topic-count");
+    const contentPanel= document.getElementById("mm-content-panel");
+
+    function currentServices(){
+      const mp = MARKETPLACES[activeMarketplace];
+      return mp.hasModes ? mp.modes[activeAmazonMode].services : mp.services;
+    }
+    function currentLabel(){
+      const mp = MARKETPLACES[activeMarketplace];
+      return mp.hasModes ? mp.label + " · " + mp.modes[activeAmazonMode].label : mp.label;
+    }
+
+    /* ---------------- Marketplace pills ---------------- */
+    function renderMarketplaceRow(){
+      mpRow.innerHTML = Object.keys(MARKETPLACES).map(key => {
+        const mp = MARKETPLACES[key];
+        const isActive = key === activeMarketplace;
+        return `
+          <button type="button" onclick="mmSelectMarketplace('${key}')"
+            class="shrink-0 flex items-center gap-2.5 px-5 py-3 rounded-2xl border font-bold text-sm transition-all duration-200
+            ${isActive
+              ? 'bg-gradient-to-r from-amberOrange-500 to-amberGold-400 text-black border-transparent shadow-lg shadow-amberOrange-500/25 -translate-y-0.5'
+              : 'bg-dark-800/70 border-dark-600 text-slate-300 hover:text-white hover:border-amberOrange-500/40 hover:-translate-y-0.5'}">
+            <i class="${mp.icon} text-base ${isActive ? 'text-black' : 'text-amberOrange-400'}"></i>
+            <span>${mp.label}</span>
+          </button>`;
+      }).join("");
+    }
+
+    /* ---------------- Amazon Seller / Vendor switch ---------------- */
+    function renderModeRow(){
+      const mp = MARKETPLACES.amazon;
+      if (activeMarketplace !== "amazon" || !mp.hasModes){
+        modeRow.innerHTML = "";
+        return;
+      }
+      modeRow.innerHTML = `
+        <div class="inline-flex bg-dark-800/90 border border-dark-600 p-1.5 rounded-2xl shadow-2xl backdrop-blur-xl">
+          ${Object.keys(mp.modes).map(modeKey => {
+            const isActive = modeKey === activeAmazonMode;
+            return `
+              <button type="button" onclick="mmSelectMode('${modeKey}')"
+                class="px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-widest transition-all duration-200
+                ${isActive
+                  ? 'bg-gradient-to-r from-amberOrange-500 to-amberGold-400 text-black shadow-lg shadow-amberOrange-500/25'
+                  : 'text-slate-400 hover:text-white'}">
+                ${mp.modes[modeKey].label}
+              </button>`;
+          }).join("")}
+        </div>`;
+    }
+
+    /* ---------------- Topic sidebar ---------------- */
+    function renderTopicList(){
+      const services = currentServices();
+      topicCount.textContent = services.length + " topics";
+      topicList.innerHTML = services.map((s, i) => {
+        const isActive = i === activeTopicIndex;
+        const base = "flex items-center gap-3 text-left px-6 py-4 text-sm font-semibold border border-t-0 transition-all duration-300";
+        const activeCls = "bg-amberOrange-500/15 text-amberOrange-300 border-amberOrange-500/20";
+        const idleCls = "bg-dark-800/70 text-slate-300 border-dark-600 hover:bg-amberOrange-500/10 hover:text-amberOrange-300";
+        const rounded = i === services.length - 1 ? "rounded-b-2xl" : "";
+        return `
+          <button type="button" onclick="mmSelectTopic(${i})" class="${base} ${isActive ? activeCls : idleCls} ${rounded}">
+            <i class="fa-solid fa-arrow-right text-xs shrink-0 ${isActive ? 'text-amberOrange-400' : 'text-amberOrange-500 opacity-0'} transition-all"></i>
+            ${s.title}
+          </button>`;
+      }).join("");
+    }
+
+    /* ---------------- Content panel ---------------- */
+    function renderContent(){
+      const services = currentServices();
+      const s = services[activeTopicIndex];
+      contentPanel.innerHTML = `
+        <div class="flex items-center gap-4 mb-5">
+          <div class="w-14 h-14 shrink-0 rounded-2xl bg-dark-700/80 border border-amberOrange-500/20 flex items-center justify-center text-amberOrange-400 text-xl shadow-inner">
+            <i class="${s.icon}"></i>
+          </div>
+          <div>
+            <span class="text-xs font-mono font-semibold text-amberOrange-400/90 uppercase tracking-widest">${currentLabel()} &middot; Service Breakdown</span>
+            <h3 class="font-heading text-2xl sm:text-4xl font-extrabold text-white tracking-tight mt-1">${s.title}</h3>
+          </div>
+        </div>
+        <p class="text-sm sm:text-base text-slate-400 leading-relaxed mb-8 max-w-2xl">${s.desc}</p>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+          ${s.features.map(f => `
+            <li class="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300 bg-amberOrange-500/10 border border-amberOrange-500/20 rounded-lg px-4 py-3 hover:border-amberOrange-500/40 hover:text-white transition-colors">
+              <i class="fa-solid fa-check text-amberOrange-400 text-xs shrink-0"></i> ${f}
+            </li>`).join("")}
+        </ul>
+        <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-black bg-gradient-to-r from-amberOrange-500 to-amberGold-400 px-6 py-3.5 rounded-xl shadow-lg shadow-amberOrange-500/20 hover:shadow-amberOrange-500/40 hover:-translate-y-0.5 transition-all duration-300">
+          <span>Get This For My Brand</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>`;
+    }
+
+    /* ---------------- Handlers (exposed globally) ---------------- */
+    window.mmSelectMarketplace = function(key){
+      activeMarketplace = key;
+      activeAmazonMode = "seller";
+      activeTopicIndex = 0;
+      renderMarketplaceRow();
+      renderModeRow();
+      renderTopicList();
+      renderContent();
+    };
+    window.mmSelectMode = function(modeKey){
+      activeAmazonMode = modeKey;
+      activeTopicIndex = 0;
+      renderModeRow();
+      renderTopicList();
+      renderContent();
+    };
+    window.mmSelectTopic = function(index){
+      activeTopicIndex = index;
+      renderTopicList();
+      renderContent();
+    };
+
+    /* ---------------- Init ---------------- */
+    renderMarketplaceRow();
+    renderModeRow();
+    renderTopicList();
+    renderContent();
+  })();
+  </script>
+  </section>
+  
   <!-- FOOTER SECTION -->
 <footer class="w-full bg-[#070709] border-t border-amber-600/20 text-slate-300 pt-16 pb-12 relative overflow-hidden font-sans">
   
