@@ -4,28 +4,71 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gull Commerce — Marketplace Services</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"></script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
-  body{background:#070709;}
+  *{box-sizing:border-box;}
+  body{background:#07070a;}
   ::-webkit-scrollbar{height:6px;width:6px;}
   ::-webkit-scrollbar-thumb{background:#3a3a40;border-radius:10px;}
   ::-webkit-scrollbar-track{background:transparent;}
-  .mp-btn.active{background:linear-gradient(135deg,#f59e0b,#ea580c);color:#000;border-color:transparent;box-shadow:0 8px 24px -6px rgba(245,158,11,.45);}
-  .mp-btn.active .mp-icon{color:#000;}
-  .topic-btn.active{background:linear-gradient(90deg,rgba(245,158,11,.14),rgba(245,158,11,0));border-left-color:#f59e0b;color:#fff;}
+
+  /* Marketplace pills */
+  .mp-btn{position:relative;transition:all .25s cubic-bezier(.2,.8,.2,1);}
+  .mp-btn:hover{transform:translateY(-2px);border-color:rgba(245,158,11,.45);}
+  .mp-btn.active{background:linear-gradient(135deg,#fbbf24,#ea580c);color:#0a0a0a;border-color:transparent;
+    box-shadow:0 10px 30px -8px rgba(245,158,11,.55), inset 0 1px 0 rgba(255,255,255,.35);
+    transform:translateY(-2px);}
+  .mp-btn.active .mp-icon{color:#0a0a0a;}
+  .mp-btn:not(.active) .mp-icon{color:#f59e0b;}
+
+  /* Seller / Vendor switch */
+  .mode-tab{transition:all .25s ease;}
+  .mode-tab.active{background:linear-gradient(135deg,#fbbf24,#ea580c);color:#0a0a0a;
+    box-shadow:0 6px 20px -6px rgba(245,158,11,.55);}
+
+  /* Topic buttons */
+  .topic-btn{position:relative;transition:all .2s ease;}
+  .topic-btn::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:3px;
+    background:transparent;transition:background .2s ease;}
+  .topic-btn:hover::before{background:rgba(245,158,11,.35);}
+  .topic-btn.active{background:linear-gradient(90deg,rgba(245,158,11,.16),rgba(245,158,11,.02));color:#fff;}
+  .topic-btn.active::before{background:linear-gradient(180deg,#fbbf24,#ea580c);}
   .topic-btn.active .topic-num{color:#f59e0b;}
-  .fade-in{animation:fadeIn .35s ease both;}
-  @keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+  /* Content card */
+  .content-card{background:
+      radial-gradient(120% 140% at 100% 0%, rgba(245,158,11,.10), transparent 55%),
+      linear-gradient(180deg,#12121a 0%, #0a0a0f 100%);
+    border:1px solid rgba(255,255,255,.06);
+    box-shadow:0 30px 60px -30px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.04);
+  }
+
+  .feature-chip{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);transition:all .2s ease;}
+  .feature-chip:hover{border-color:rgba(245,158,11,.35);background:rgba(245,158,11,.05);transform:translateX(2px);}
+  .feature-chip .tick{background:rgba(245,158,11,.12);}
+
+  .icon-badge{background:linear-gradient(145deg,#1c1c24,#0f0f14);border:1px solid rgba(255,255,255,.08);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 8px 20px -8px rgba(0,0,0,.6);}
+
+  .cta-btn{background:linear-gradient(135deg,#fbbf24,#ea580c);box-shadow:0 12px 28px -10px rgba(245,158,11,.5);
+    transition:all .2s ease;}
+  .cta-btn:hover{transform:translateY(-2px);box-shadow:0 16px 34px -8px rgba(245,158,11,.65);}
+
+  .fade-in{animation:fadeIn .35s cubic-bezier(.2,.8,.2,1) both;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
+  .sidebar-shell{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));
+    border:1px solid rgba(255,255,255,.07);}
 </style>
 </head>
 <body class="font-sans">
 
-<section class="bg-[#070709] text-white py-24 px-6 sm:px-12 lg:px-24 relative overflow-hidden selection:bg-amber-500 selection:text-black">
+<section class="bg-[#07070a] text-white py-24 px-6 sm:px-12 lg:px-24 relative overflow-hidden selection:bg-amber-500 selection:text-black">
 
-  <!-- Ambient light -->
+  <!-- Ambient lights -->
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-amber-600/10 blur-[150px] pointer-events-none"></div>
+  <div class="absolute bottom-0 right-0 w-96 h-96 bg-orange-600/10 blur-[130px] pointer-events-none"></div>
 
   <div class="max-w-7xl mx-auto relative z-10">
 
@@ -43,28 +86,25 @@
     </div>
 
     <!-- MARKETPLACE SELECTOR -->
-    <div id="marketplace-row" class="flex gap-3 overflow-x-auto pb-4 mb-10 justify-start lg:justify-center scroll-smooth">
-      <!-- injected by JS -->
-    </div>
+    <div id="marketplace-row" class="flex gap-3 overflow-x-auto pb-4 mb-6 justify-start lg:justify-center scroll-smooth"></div>
 
-    <!-- MAIN PANEL: sidebar topics + content -->
+    <!-- AMAZON SELLER / VENDOR SWITCH (only shown for Amazon) -->
+    <div id="amazon-mode-row" class="flex justify-center mb-10"></div>
+
+    <!-- MAIN PANEL -->
     <div class="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-6">
 
       <!-- Topic sidebar -->
-      <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-2 backdrop-blur-xl h-fit lg:sticky lg:top-6">
-        <div class="px-4 pt-4 pb-3">
+      <div class="sidebar-shell rounded-3xl p-2 backdrop-blur-xl h-fit lg:sticky lg:top-6">
+        <div class="px-4 pt-4 pb-3 flex items-center justify-between">
           <span class="text-[11px] font-bold uppercase tracking-widest text-amber-500/80">Service Topics</span>
+          <span id="topic-count" class="text-[11px] font-mono text-slate-600"></span>
         </div>
-        <div id="topic-list" class="flex lg:flex-col gap-1 overflow-x-auto lg:overflow-visible px-2 pb-2 lg:pb-2">
-          <!-- injected by JS -->
-        </div>
+        <div id="topic-list" class="flex lg:flex-col gap-1 overflow-x-auto lg:overflow-visible px-2 pb-2"></div>
       </div>
 
       <!-- Content panel -->
-      <div id="content-panel" class="bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 rounded-3xl p-8 sm:p-10 relative overflow-hidden min-h-[420px]">
-        <div class="absolute -right-16 -top-16 w-56 h-56 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
-        <!-- injected by JS -->
-      </div>
+      <div id="content-panel" class="content-card rounded-3xl p-8 sm:p-10 relative overflow-hidden min-h-[440px]"></div>
 
     </div>
 
@@ -73,38 +113,60 @@
 
 <script>
 /* ---------------------------------------------------------
-   DATA: marketplace -> icon -> list of service topics
+   DATA
 --------------------------------------------------------- */
+const AMAZON_SELLER = [
+  { title: "PPC Management", icon: "fa-solid fa-bullhorn",
+    desc: "We build, refine, and scale Sponsored Products, Brands, and Display campaigns across your entire catalog with continuous A/B testing, keyword refinement, and bid optimization on every dollar spent to generate a measurable return.",
+    features: ["Campaign strategy & structure","Keyword research & targeting","Bid optimization & automation","ACOS reduction techniques","Competitor analysis","Dayparting & placement tuning"] },
+  { title: "Amazon SEO", icon: "fa-solid fa-magnifying-glass",
+    desc: "High-converting buyer-intent keywords are mapped into titles, bullet points, backend search terms, and text fields to maximize organic visibility and search rank.",
+    features: ["Keyword indexing audit","Title & bullet rewrites","Backend search term mapping","Search rank tracking","Category & node optimization","Competitor keyword gap analysis"] },
+  { title: "Listing Optimization", icon: "fa-solid fa-pen-nib",
+    desc: "Product copy is rewritten so target audiences understand your features immediately, dropping bounce rates and spiking conversion metrics across the funnel.",
+    features: ["Conversion-focused copywriting","Feature-to-benefit mapping","Buy Box readiness checks","Variation & parent-child setup","Q&A and review mining","Split-testing content variants"] },
+  { title: "A+ Content & Storefront", icon: "fa-solid fa-layer-group",
+    desc: "Brand-focused premium modules and full storefronts are architected to structure advanced product features, overcome buyer friction, and support continuous micro-conversions.",
+    features: ["Premium A+ module design","Brand Store build-out","Cross-sell & comparison charts","Mobile-first layout QA","Brand story sections","Template performance tracking"] },
+  { title: "Account Health & Audit", icon: "fa-solid fa-shield-halved",
+    desc: "Daily account monitoring keeps your catalog, listings, ads, and account health completely on track, catching risks before they become suspensions.",
+    features: ["Policy compliance checks","Suspension prevention & appeals","Inventory & FBA health audit","Pricing & buy box monitoring","Weekly health scorecards","Case log management"] },
+  { title: "Product Launch Strategy", icon: "fa-solid fa-rocket",
+    desc: "New ASIN launches are engineered with a structured ramp — from keyword indexing to review velocity — to hit profitable rank in the shortest possible window.",
+    features: ["Pre-launch keyword mapping","Launch-phase PPC ramp","Review & rating velocity plan","Coupon & deal sequencing","Early conversion rate tracking","30/60/90 day roadmap"] },
+];
+
+const AMAZON_VENDOR = [
+  { title: "Vendor Onboarding", icon: "fa-solid fa-rocket",
+    desc: "Manufacturing brands are guided seamlessly through high-level product data imports, logistics setup, and compliance configurations for a frictionless launch onto Vendor Central.",
+    features: ["Vendor Central account setup","Bulk product data import","EDI/logistics configuration","Compliance documentation","Chargeback prevention setup","Launch readiness checklist"] },
+  { title: "Inventory Management", icon: "fa-solid fa-boxes-stacked",
+    desc: "Stock flow signals, wholesale buy trends, and high-risk catalog bottlenecks are systematically audited to completely avoid buy-box loss and maximize fill rates.",
+    features: ["PO fill-rate monitoring","Stock flow & lead-time audit","Forecast vs. buy trend analysis","Chargeback root-cause review","ASIN-level risk flagging","Replenishment planning"] },
+  { title: "Retail Advertising Management", icon: "fa-solid fa-rectangle-ad",
+    desc: "Target Amazon DSP and Sponsored Ad campaigns are built out with calculated precision to scale vendor market volume while protecting margins from chargebacks.",
+    features: ["DSP campaign structuring","Sponsored Products/Brands setup","Audience & retargeting builds","Margin-protected bidding","Budget pacing & scaling","Performance reporting"] },
+  { title: "A+ Content Creation", icon: "fa-solid fa-cubes",
+    desc: "Premium layouts are constructed specifically for tier-one ASIN conversions, building strong strategic frameworks that validate product value to enterprise buyers.",
+    features: ["Premium A+ module design","Brand Story build-out","Comparison chart modules","Template performance testing","Mobile layout QA","Content refresh cadence"] },
+  { title: "Sponsored Ad Management", icon: "fa-solid fa-bolt",
+    desc: "Dynamic control of your structured ad funnels maximizes performance mechanics so bulk keyword targets capture high volume at a defensible ACOS.",
+    features: ["Funnel-stage campaign structure","Bulk keyword targeting","Bid automation rules","ACOS/TACOS tracking","Competitor benchmarking","Weekly optimization cycle"] },
+  { title: "Product Listing Optimization", icon: "fa-solid fa-sliders",
+    desc: "Infrastructure data, titles, bullets, and core backend metadata tags are systematically optimized to ensure algorithm crawlers map inventory correctly.",
+    features: ["Title & bullet optimization","Backend metadata tagging","Catalog data hygiene","Search rank tracking","Content compliance audit","Variation/family structuring"] },
+];
+
 const MARKETPLACES = {
   amazon: {
     label: "Amazon",
     icon: "fa-brands fa-amazon",
-    tagline: "Full Seller & Vendor Central management engineered for scalable, profitable growth.",
-    services: [
-      { title: "PPC Management", icon: "fa-solid fa-bullhorn",
-        desc: "We build, refine, and scale Sponsored Products, Brands, and Display campaigns across your entire catalog with continuous A/B testing, keyword refinement, and bid optimization on every dollar spent to generate a measurable return.",
-        features: ["Campaign strategy & structure","Keyword research & targeting","Bid optimization & automation","ACOS reduction techniques","Competitor analysis","Dayparting & placement tuning"] },
-      { title: "Amazon SEO", icon: "fa-solid fa-magnifying-glass",
-        desc: "High-converting buyer-intent keywords are mapped into titles, bullet points, backend search terms, and text fields to maximize organic visibility and search rank.",
-        features: ["Keyword indexing audit","Title & bullet rewrites","Backend search term mapping","Search rank tracking","Category & node optimization","Competitor keyword gap analysis"] },
-      { title: "Listing Optimization", icon: "fa-solid fa-pen-nib",
-        desc: "Product copy is rewritten so target audiences understand your features immediately, dropping bounce rates and spiking conversion metrics across the funnel.",
-        features: ["Conversion-focused copywriting","Feature-to-benefit mapping","Buy Box readiness checks","Variation & parent-child setup","Q&A and review mining","Split-testing content variants"] },
-      { title: "A+ Content & Storefront", icon: "fa-solid fa-layer-group",
-        desc: "Brand-focused premium modules and full storefronts are architected to structure advanced product features, overcome buyer friction, and support continuous micro-conversions.",
-        features: ["Premium A+ module design","Brand Store build-out","Cross-sell & comparison charts","Mobile-first layout QA","Brand story sections","Template performance tracking"] },
-      { title: "Account Health & Audit", icon: "fa-solid fa-shield-halved",
-        desc: "Daily account monitoring keeps your catalog, listings, ads, and account health completely on track, catching risks before they become suspensions.",
-        features: ["Policy compliance checks","Suspension prevention & appeals","Inventory & FBA health audit","Pricing & buy box monitoring","Weekly health scorecards","Case log management"] },
-      { title: "Product Launch Strategy", icon: "fa-solid fa-rocket",
-        desc: "New ASIN launches are engineered with a structured ramp — from keyword indexing to review velocity — to hit profitable rank in the shortest possible window.",
-        features: ["Pre-launch keyword mapping","Launch-phase PPC ramp","Review & rating velocity plan","Coupon & deal sequencing","Early conversion rate tracking","30/60/90 day roadmap"] },
-    ]
+    hasModes: true,
+    modes: { seller: { label: "Seller Central", services: AMAZON_SELLER },
+             vendor: { label: "Vendor Central", services: AMAZON_VENDOR } }
   },
   walmart: {
-    label: "Walmart",
-    icon: "fa-solid fa-store",
-    tagline: "Walmart Marketplace growth built on clean catalog data, WFS fulfillment, and disciplined ad spend.",
+    label: "Walmart", icon: "fa-solid fa-store",
     services: [
       { title: "WMP Advertising", icon: "fa-solid fa-bullhorn",
         desc: "Sponsored Products and Search Brand Amplifier campaigns are structured and optimized to capture Walmart.com search volume at a profitable ROAS.",
@@ -127,9 +189,7 @@ const MARKETPLACES = {
     ]
   },
   shopify: {
-    label: "Shopify",
-    icon: "fa-brands fa-shopify",
-    tagline: "DTC storefronts engineered for conversion, retention, and paid acquisition efficiency.",
+    label: "Shopify", icon: "fa-brands fa-shopify",
     services: [
       { title: "Store Setup & Theme Design", icon: "fa-solid fa-pen-nib",
         desc: "Custom Shopify themes are built or customized around your brand identity, structured for speed, clarity, and mobile-first conversion.",
@@ -152,9 +212,7 @@ const MARKETPLACES = {
     ]
   },
   ebay: {
-    label: "eBay",
-    icon: "fa-brands fa-ebay",
-    tagline: "Listing design, Promoted Listings, and reputation management built for eBay's search algorithm.",
+    label: "eBay", icon: "fa-brands fa-ebay",
     services: [
       { title: "Listing Templates & Design", icon: "fa-solid fa-pen-nib",
         desc: "Mobile-responsive HTML listing templates are designed to build trust instantly and communicate specs at a glance.",
@@ -177,9 +235,7 @@ const MARKETPLACES = {
     ]
   },
   etsy: {
-    label: "Etsy",
-    icon: "fa-brands fa-etsy",
-    tagline: "Handmade and design-led brands positioned to rank, convert, and build repeat buyers.",
+    label: "Etsy", icon: "fa-brands fa-etsy",
     services: [
       { title: "SEO & Tag Strategy", icon: "fa-solid fa-magnifying-glass",
         desc: "All 13 tags, titles, and attributes are mapped to real buyer search behavior to maximize placement in Etsy search.",
@@ -202,9 +258,7 @@ const MARKETPLACES = {
     ]
   },
   wayfair: {
-    label: "Wayfair",
-    icon: "fa-solid fa-couch",
-    tagline: "Supplier operations and CastleGate fulfillment managed for home and furniture brands.",
+    label: "Wayfair", icon: "fa-solid fa-couch",
     services: [
       { title: "Supplier Onboarding", icon: "fa-solid fa-rocket",
         desc: "Manufacturing brands are guided through high-level product data imports, logistics setup, and compliance configuration for a frictionless launch.",
@@ -227,9 +281,7 @@ const MARKETPLACES = {
     ]
   },
   homedepot: {
-    label: "Home Depot",
-    icon: "fa-solid fa-house",
-    tagline: "Pro-grade marketplace operations for building, hardware, and home improvement brands.",
+    label: "Home Depot", icon: "fa-solid fa-house",
     services: [
       { title: "Marketplace Onboarding", icon: "fa-solid fa-rocket",
         desc: "New sellers are guided through the Home Depot marketplace application, catalog setup, and compliance requirements from day one.",
@@ -257,7 +309,17 @@ const MARKETPLACES = {
    STATE
 --------------------------------------------------------- */
 let activeMarketplace = "amazon";
+let activeAmazonMode = "seller";
 let activeTopicIndex = 0;
+
+function currentServices(){
+  const mp = MARKETPLACES[activeMarketplace];
+  return mp.hasModes ? mp.modes[activeAmazonMode].services : mp.services;
+}
+function currentLabel(){
+  const mp = MARKETPLACES[activeMarketplace];
+  return mp.hasModes ? `${mp.label} · ${mp.modes[activeAmazonMode].label}` : mp.label;
+}
 
 /* ---------------------------------------------------------
    RENDER: marketplace selector
@@ -268,34 +330,52 @@ function renderMarketplaceRow(){
     const mp = MARKETPLACES[key];
     const isActive = key === activeMarketplace;
     return `
-      <button
-        onclick="selectMarketplace('${key}')"
-        class="mp-btn ${isActive ? 'active' : ''} flex items-center gap-2.5 shrink-0 px-5 py-3 rounded-2xl border border-slate-800 bg-slate-900/70 text-slate-300 font-bold text-sm hover:border-amber-500/40 hover:text-white transition-all duration-200"
-      >
-        <i class="mp-icon ${mp.icon} text-base ${isActive ? '' : 'text-amber-500'}"></i>
+      <button onclick="selectMarketplace('${key}')"
+        class="mp-btn ${isActive ? 'active' : ''} flex items-center gap-2.5 shrink-0 px-5 py-3 rounded-2xl border border-slate-800 bg-slate-900/70 text-slate-300 font-bold text-sm hover:text-white">
+        <i class="mp-icon ${mp.icon} text-base"></i>
         <span>${mp.label}</span>
-      </button>
-    `;
+      </button>`;
   }).join("");
 }
 
 /* ---------------------------------------------------------
-   RENDER: topic sidebar for active marketplace
+   RENDER: Amazon Seller/Vendor switch
+--------------------------------------------------------- */
+function renderAmazonModeRow(){
+  const wrap = document.getElementById("amazon-mode-row");
+  const mp = MARKETPLACES.amazon;
+  if (activeMarketplace !== "amazon" || !mp.hasModes){
+    wrap.innerHTML = "";
+    return;
+  }
+  wrap.innerHTML = `
+    <div class="inline-flex bg-slate-900/90 border border-slate-800 p-1.5 rounded-2xl shadow-2xl backdrop-blur-xl">
+      ${Object.keys(mp.modes).map(modeKey => {
+        const isActive = modeKey === activeAmazonMode;
+        return `
+          <button onclick="selectAmazonMode('${modeKey}')"
+            class="mode-tab ${isActive ? 'active' : 'text-slate-400 hover:text-white'} px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-widest">
+            ${mp.modes[modeKey].label}
+          </button>`;
+      }).join("")}
+    </div>`;
+}
+
+/* ---------------------------------------------------------
+   RENDER: topic sidebar
 --------------------------------------------------------- */
 function renderTopicList(){
   const list = document.getElementById("topic-list");
-  const services = MARKETPLACES[activeMarketplace].services;
+  const services = currentServices();
+  document.getElementById("topic-count").textContent = `${services.length} topics`;
   list.innerHTML = services.map((s, i) => {
     const isActive = i === activeTopicIndex;
     return `
-      <button
-        onclick="selectTopic(${i})"
-        class="topic-btn ${isActive ? 'active' : ''} shrink-0 lg:w-full text-left flex items-center gap-3 px-4 py-3.5 rounded-xl lg:rounded-lg border-l-2 border-transparent text-slate-400 font-semibold text-sm hover:text-white hover:bg-white/5 transition-all duration-150 whitespace-nowrap lg:whitespace-normal"
-      >
+      <button onclick="selectTopic(${i})"
+        class="topic-btn ${isActive ? 'active' : ''} shrink-0 lg:w-full text-left flex items-center gap-3 pl-5 pr-4 py-3.5 rounded-xl lg:rounded-lg text-slate-400 font-semibold text-sm hover:text-white whitespace-nowrap lg:whitespace-normal">
         <span class="topic-num text-[11px] font-mono text-slate-600">${String(i+1).padStart(2,'0')}</span>
         <span>${s.title}</span>
-      </button>
-    `;
+      </button>`;
   }).join("");
 }
 
@@ -304,20 +384,19 @@ function renderTopicList(){
 --------------------------------------------------------- */
 function renderContent(){
   const panel = document.getElementById("content-panel");
-  const mp = MARKETPLACES[activeMarketplace];
-  const s = mp.services[activeTopicIndex];
+  const services = currentServices();
+  const s = services[activeTopicIndex];
 
   panel.innerHTML = `
+    <div class="absolute -right-16 -top-16 w-56 h-56 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
     <div class="fade-in relative z-10">
-      <div class="flex items-start justify-between gap-6 mb-6">
-        <div class="flex items-center gap-4">
-          <div class="w-14 h-14 shrink-0 rounded-2xl bg-slate-800/80 border border-slate-700/80 flex items-center justify-center text-amber-500 text-xl shadow-inner">
-            <i class="${s.icon}"></i>
-          </div>
-          <div>
-            <span class="text-xs font-mono font-semibold text-amber-500/80 uppercase tracking-widest">${mp.label} &middot; Service Breakdown</span>
-            <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-wide mt-1">${s.title}</h3>
-          </div>
+      <div class="flex items-center gap-4 mb-6">
+        <div class="icon-badge w-14 h-14 shrink-0 rounded-2xl flex items-center justify-center text-amber-500 text-xl">
+          <i class="${s.icon}"></i>
+        </div>
+        <div>
+          <span class="text-xs font-mono font-semibold text-amber-500/80 uppercase tracking-widest">${currentLabel()} &middot; Service Breakdown</span>
+          <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-wide mt-1">${s.title}</h3>
         </div>
       </div>
 
@@ -325,19 +404,19 @@ function renderContent(){
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
         ${s.features.map(f => `
-          <div class="flex items-center gap-3 bg-black/30 border border-slate-800 rounded-xl px-4 py-3">
-            <i class="fa-solid fa-check text-amber-500 text-xs"></i>
+          <div class="feature-chip flex items-center gap-3 rounded-xl px-4 py-3">
+            <span class="tick w-5 h-5 rounded-full flex items-center justify-center shrink-0">
+              <i class="fa-solid fa-check text-amber-500 text-[10px]"></i>
+            </span>
             <span class="text-slate-300 text-sm">${f}</span>
-          </div>
-        `).join("")}
+          </div>`).join("")}
       </div>
 
-      <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-black bg-gradient-to-r from-amber-500 to-orange-600 px-6 py-3.5 rounded-xl hover:shadow-lg hover:shadow-amber-500/25 transition-all duration-200">
+      <a href="#contact" class="cta-btn inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-black px-6 py-3.5 rounded-xl">
         <span>Get This For My Brand</span>
         <i class="fa-solid fa-arrow-right text-xs"></i>
       </a>
-    </div>
-  `;
+    </div>`;
 }
 
 /* ---------------------------------------------------------
@@ -345,8 +424,18 @@ function renderContent(){
 --------------------------------------------------------- */
 function selectMarketplace(key){
   activeMarketplace = key;
+  activeAmazonMode = "seller";
   activeTopicIndex = 0;
   renderMarketplaceRow();
+  renderAmazonModeRow();
+  renderTopicList();
+  renderContent();
+}
+
+function selectAmazonMode(modeKey){
+  activeAmazonMode = modeKey;
+  activeTopicIndex = 0;
+  renderAmazonModeRow();
   renderTopicList();
   renderContent();
 }
@@ -361,6 +450,7 @@ function selectTopic(index){
    INIT
 --------------------------------------------------------- */
 renderMarketplaceRow();
+renderAmazonModeRow();
 renderTopicList();
 renderContent();
 </script>
