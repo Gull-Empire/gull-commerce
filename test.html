@@ -12,7 +12,7 @@
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-<!-- ULTRA-FAST LOGO SWAPPER WITH BLACK THEME & COMBINED TEXT COLOR -->
+<!-- ULTRA-WIDE FULL SCREEN BLING LOGO SECTION -->
 <style>
   /* Metallic Light-Sweep (Bling) Effect */
   @keyframes blingSweep {
@@ -22,8 +22,8 @@
 
   /* Fast Light Flash Animation */
   @keyframes fastFlash {
-    0%, 100% { opacity: 1; filter: brightness(1.2); }
-    50% { opacity: 0.1; filter: brightness(0.5); }
+    0%, 100% { opacity: 1; filter: brightness(1.3); }
+    50% { opacity: 0.15; filter: brightness(0.4); }
   }
 
   .bling-card {
@@ -41,7 +41,7 @@
     background: linear-gradient(
       60deg,
       transparent 30%,
-      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0.35) 50%,
       rgba(245, 158, 11, 0.5) 55%,
       transparent 70%
     );
@@ -49,7 +49,6 @@
     pointer-events: none;
   }
 
-  /* Staggered Bling Timing */
   .bling-card:nth-child(2n)::after { animation-delay: 0.3s; }
   .bling-card:nth-child(3n)::after { animation-delay: 0.6s; }
   .bling-card:nth-child(4n)::after { animation-delay: 0.9s; }
@@ -59,15 +58,16 @@
   }
 </style>
 
-<section class="relative w-full bg-[#030303] text-slate-100 py-24 px-4 sm:px-8 lg:px-16 overflow-hidden font-sans border-t border-amber-500/20">
+<section class="relative w-full bg-[#030303] text-slate-100 py-16 px-4 sm:px-8 lg:px-12 overflow-hidden font-sans border-t border-amber-500/20">
     
-    <!-- Warm Golden Ambient Glow (No Blue) -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-amber-500/10 rounded-full blur-[160px] pointer-events-none"></div>
+    <!-- Warm Golden Ambient Glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[400px] bg-amber-500/10 rounded-full blur-[180px] pointer-events-none"></div>
 
-    <div class="relative z-10 max-w-7xl mx-auto space-y-12">
+    <!-- Container Changed from max-w-7xl to max-w-[95rem] for Full Screen Coverage -->
+    <div class="relative z-10 max-w-[95rem] mx-auto space-y-10">
         
-        <!-- Header with Combined Rich Color Text -->
-        <div class="text-center space-y-4 max-w-3xl mx-auto">
+        <!-- Header Section -->
+        <div class="text-center space-y-3 max-w-3xl mx-auto">
             <div class="inline-flex items-center space-x-2 text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-500/10 px-5 py-2 rounded-full border border-amber-500/30 backdrop-blur-md shadow-[0_0_15px_rgba(245,158,11,0.2)]">
                 <span class="w-2.5 h-2.5 bg-amber-400 rounded-full animate-ping"></span>
                 <span>ECOSYSTEM & PLATFORMS</span>
@@ -81,9 +81,9 @@
             </p>
         </div>
 
-        <!-- FAST DYNAMIC LOGO GRID (PURE BLACK CARDS) -->
-        <div id="logo-grid-container" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5">
-            <!-- JavaScript dynamically inserts black theme cards here -->
+        <!-- EXPANDED WIDE GRID & LARGER BOXES -->
+        <div id="logo-grid-container" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-6">
+            <!-- JavaScript inserts larger black cards here -->
         </div>
 
     </div>
@@ -97,7 +97,7 @@
     { src: "https://abdullah-gull.github.io/images/walmart-logo-png-5.png", title: "Walmart" },
     { src: "https://abdullah-gull.github.io/images/Etsy_logo.svg.webp", title: "Etsy" },
     { src: "https://abdullah-gull.github.io/images/EBay_logo.png", title: "eBay" },
-    { src: "https://abdullah-gull.github.io/images/6752c0a021fd1f672842c767_CPSecEh24I1i34_8eYced5Ig3NFthwrRw6bQQOMHdOg.png", title: "Helium 10" },
+    { src: "https://abdullahgull.github.io/images/6752c0a021fd1f672842c767_CPSecEh24I1i34_8eYced5Ig3NFthwrRw6bQQOMHdOg.png", title: "Helium 10" },
     { src: "https://abdullah-gull.github.io/images/images.jpg", title: "Amazon Vendor Central" },
     { src: "https://abdullah-gull.github.io/images/meta-facebook-rebranding-name-news_dezeen_2364_col_hero2.jpg", title: "Meta Ads" },
     { src: "https://abdullah-gull.github.io/images/jungle-scout-affiliate-program.jpg", title: "Jungle Scout" },
@@ -107,24 +107,23 @@
   const gridContainer = document.getElementById('logo-grid-container');
   const cardCount = 12;
 
-  // Initialize Black Cards Grid
+  // Render Grid with Larger Card Heights (h-36) and Scaled Logos
   function initGrid() {
     gridContainer.innerHTML = '';
     for (let i = 0; i < cardCount; i++) {
       const logo = logosList[i % logosList.length];
       const cardHTML = `
-        <div id="card-${i}" class="bling-card group relative bg-[#0a0a0a] border border-neutral-800 hover:border-amber-400/80 rounded-xl p-4 flex items-center justify-center h-28 transition-all duration-300 hover:-translate-y-1.5 cursor-pointer shadow-lg hover:shadow-[0_0_20px_rgba(245,158,11,0.25)]">
-            <img id="img-${i}" src="${logo.src}" alt="${logo.title}" class="max-h-12 max-w-[85%] object-contain filter contrast-125 brightness-110 group-hover:scale-105 transition-all duration-200">
+        <div id="card-${i}" class="bling-card group relative bg-[#090909] border border-neutral-800 hover:border-amber-400/80 rounded-2xl p-6 flex items-center justify-center h-36 sm:h-40 transition-all duration-300 hover:-translate-y-2 cursor-pointer shadow-xl hover:shadow-[0_0_25px_rgba(245,158,11,0.3)]">
+            <img id="img-${i}" src="${logo.src}" alt="${logo.title}" class="max-h-16 max-w-[90%] object-contain filter contrast-125 brightness-110 group-hover:scale-110 transition-all duration-300">
         </div>
       `;
       gridContainer.insertAdjacentHTML('beforeend', cardHTML);
     }
   }
 
-  // Fast Logo Swap Function (800ms Interval)
+  // Fast Swapping
   function startFastLogoSwap() {
     setInterval(() => {
-      // Pick 2 random slots at once for rapid feel
       for(let step = 0; step < 2; step++) {
         const randomSlot = Math.floor(Math.random() * cardCount);
         const randomLogo = logosList[Math.floor(Math.random() * logosList.length)];
@@ -145,7 +144,7 @@
           }, 250);
         }
       }
-    }, 800); // Badly fast: Har 0.8s mein logos dynamically shift honge
+    }, 800);
   }
 
   document.addEventListener("DOMContentLoaded", () => {
