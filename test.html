@@ -14,326 +14,244 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 <!-- Custom CSS for Infinite Marquee Scroll (Include this in your style tag or global CSS) -->
+<!-- Custom Animation & Tooltip Styles -->
 <style>
-  @keyframes marqueeScroll {
+  @keyframes scrollLeftToRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0%); }
+  }
+  @keyframes scrollRightToLeft {
     0% { transform: translateX(0%); }
     100% { transform: translateX(-50%); }
   }
-  .animate-marquee {
+
+  .animate-marquee-ltr {
     display: flex;
     width: max-content;
-    animation: marqueeScroll 30s linear infinite;
+    animation: scrollLeftToRight 35s linear infinite;
   }
-  .animate-marquee:hover {
+
+  .animate-marquee-rtl {
+    display: flex;
+    width: max-content;
+    animation: scrollRightToLeft 35s linear infinite;
+  }
+
+  .animate-marquee-ltr:hover,
+  .animate-marquee-rtl:hover {
     animation-play-state: paused;
   }
 </style>
 
-<!-- TESTIMONIALS SECTION (SMOOTH INFINITE SLIDER THEME) -->
+<!-- TESTIMONIALS SECTION -->
 <section class="w-full bg-[#050505] text-slate-900 py-16 px-4 sm:px-6 lg:px-8 font-sans">
   
-  <!-- Outer Vibrant Orange Container -->
-  <div class="max-w-7xl mx-auto bg-gradient-to-br from-[#ea580c] via-[#f97316] to-[#d97706] rounded-3xl py-12 px-4 sm:px-8 shadow-[0_15px_50px_rgba(249,115,22,0.4)] relative overflow-hidden border border-orange-400/40">
+  <div class="max-w-7xl mx-auto bg-gradient-to-br from-[#ea580c] via-[#f97316] to-[#d97706] rounded-3xl py-12 px-2 sm:px-6 shadow-[0_15px_50px_rgba(249,115,22,0.4)] relative overflow-hidden border border-orange-400/40">
     
-    <!-- Background Glows -->
     <div aria-hidden="true" class="absolute -top-24 -right-24 w-96 h-96 bg-amber-300/20 rounded-full blur-3xl pointer-events-none"></div>
     <div aria-hidden="true" class="absolute -bottom-24 -left-24 w-96 h-96 bg-orange-800/20 rounded-full blur-3xl pointer-events-none"></div>
 
-    <div class="relative z-10 space-y-12">
+    <div class="relative z-10 space-y-10">
       
       <!-- HEADER -->
       <div class="text-center space-y-3">
         <div class="inline-flex items-center space-x-2 text-[11px] font-black uppercase tracking-widest text-black bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full border border-black/20 shadow-sm">
           <span class="w-2 h-2 rounded-full bg-black"></span>
-          <span>TESTIMONIALS</span>
+          <span>CLIENT FEEDBACK</span>
         </div>
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight leading-tight">
           What <span class="text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">clients say!</span>
         </h2>
       </div>
 
-      <!-- INFINITE SLIDER WRAPPER (Right-to-Left Scroll) -->
-      <div class="overflow-hidden w-full pt-6 pb-4">
-        <div class="animate-marquee space-x-6">
+      <!-- ROW 1: LEFT TO RIGHT -->
+      <div class="overflow-hidden w-full pt-4 pb-2">
+        <div class="animate-marquee-ltr space-x-6">
           
-          <!-- ================= LOOP SET 1 ================= -->
-          <!-- Card 1: Tariq Vance -->
-          <div class="w-[320px] sm:w-[360px] flex-shrink-0 relative bg-[#0a0a0c]/95 text-white rounded-3xl p-6 pt-10 border border-black/40 shadow-xl flex flex-col justify-between text-center group hover:border-white/60 transition-all duration-300">
+          <!-- Card 1: Alex Rivera -->
+          <div class="w-[300px] sm:w-[350px] flex-shrink-0 relative bg-[#0a0a0c]/95 text-white rounded-3xl p-6 pt-10 border border-black/40 shadow-xl flex flex-col justify-between text-center group hover:border-white/60 transition-all duration-300">
             <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
               <div class="w-14 h-14 rounded-full border-2 border-orange-500 overflow-hidden relative shadow-md">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Tariq Vance" class="w-full h-full object-cover"/>
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Alex Rivera" class="w-full h-full object-cover"/>
                 <div class="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow">
-                  <svg class="w-full h-full" viewBox="0 0 24 24">
-                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                  </svg>
+                  <svg class="w-full h-full" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
                 </div>
               </div>
             </div>
-            <div class="space-y-3">
-              <h3 class="text-base font-bold text-white tracking-wide">Tariq Vance</h3>
-              <p class="text-[11px] text-slate-400">1 week ago</p>
+            <div class="space-y-2.5">
               <div class="flex items-center justify-center space-x-1">
-                <div class="flex text-amber-400 text-sm">★★★★★</div>
-                <span class="text-blue-500 text-xs">✔</span>
+                <h3 class="text-base font-bold text-white tracking-wide">Alex Rivera</h3>
+                <svg class="w-4 h-4 text-blue-500 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
               </div>
+
+              <!-- Interactive Time Stamp Badge -->
+              <div class="relative inline-block group/time">
+                <button type="button" class="text-[11px] text-slate-400 hover:text-orange-400 border-b border-dashed border-slate-600 hover:border-orange-400 transition-colors cursor-pointer focus:outline-none">
+                  2 weeks ago
+                </button>
+                <!-- Tooltip Popup -->
+                <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover/time:flex group-focus/time:flex flex-col items-center z-30 w-max">
+                  <div class="bg-orange-500 text-black text-[10px] font-black px-2.5 py-1 rounded-md shadow-lg border border-orange-300">
+                    📅 Jul 20, 2026 at 04:15 PM
+                  </div>
+                  <div class="w-2 h-2 bg-orange-500 rotate-45 -mt-1"></div>
+                </div>
+              </div>
+
+              <div class="flex text-amber-400 text-xs justify-center">★★★★★</div>
               <p class="text-xs text-slate-300 leading-relaxed font-light">
-                Gull Empire, CEO Abdullah Gull and his team optimized our Amazon listings, improved our PPC campaigns, and helped increase our overall sales. Highly recommended!
+                Gull Empire transformed our Amazon storefront. CEO Abdullah Gull restructured our entire PPC strategy and lowered our ACoS by 28% in under a month.
               </p>
             </div>
           </div>
 
-          <!-- Card 2: Rayan Butt -->
-          <div class="w-[320px] sm:w-[360px] flex-shrink-0 relative bg-[#0a0a0c]/95 text-white rounded-3xl p-6 pt-10 border border-black/40 shadow-xl flex flex-col justify-between text-center group hover:border-white/60 transition-all duration-300">
+          <!-- Card 2: Marcus Vance -->
+          <div class="w-[300px] sm:w-[350px] flex-shrink-0 relative bg-[#0a0a0c]/95 text-white rounded-3xl p-6 pt-10 border border-black/40 shadow-xl flex flex-col justify-between text-center group hover:border-white/60 transition-all duration-300">
             <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
               <div class="w-14 h-14 rounded-full border-2 border-orange-500 overflow-hidden relative shadow-md">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Rayan Butt" class="w-full h-full object-cover"/>
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Marcus Vance" class="w-full h-full object-cover"/>
                 <div class="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow">
-                  <svg class="w-full h-full" viewBox="0 0 24 24">
-                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                  </svg>
+                  <svg class="w-full h-full" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
                 </div>
               </div>
             </div>
-            <div class="space-y-3">
-              <h3 class="text-base font-bold text-white tracking-wide">Rayan Butt</h3>
-              <p class="text-[11px] text-slate-400">1 week ago</p>
+            <div class="space-y-2.5">
               <div class="flex items-center justify-center space-x-1">
-                <div class="flex text-amber-400 text-sm">★★★★★</div>
-                <span class="text-blue-500 text-xs">✔</span>
+                <h3 class="text-base font-bold text-white tracking-wide">Marcus Vance</h3>
+                <svg class="w-4 h-4 text-blue-500 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
               </div>
+
+              <!-- Interactive Time Stamp Badge -->
+              <div class="relative inline-block group/time">
+                <button type="button" class="text-[11px] text-slate-400 hover:text-orange-400 border-b border-dashed border-slate-600 hover:border-orange-400 transition-colors cursor-pointer focus:outline-none">
+                  1 month ago
+                </button>
+                <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover/time:flex group-focus/time:flex flex-col items-center z-30 w-max">
+                  <div class="bg-orange-500 text-black text-[10px] font-black px-2.5 py-1 rounded-md shadow-lg border border-orange-300">
+                    📅 Jul 02, 2026 at 11:30 AM
+                  </div>
+                  <div class="w-2 h-2 bg-orange-500 rotate-45 -mt-1"></div>
+                </div>
+              </div>
+
+              <div class="flex text-amber-400 text-xs justify-center">★★★★★</div>
               <p class="text-xs text-slate-300 leading-relaxed font-light">
-                Good support for Amazon PPC management and listing improvements. The Gull Empire team delivered structured results fast.
+                Hands down the most professional team for Amazon Sellers. They fixed our keyword indexing and optimized our listing copy seamlessly.
               </p>
             </div>
           </div>
 
-          <!-- Card 3: Zayan Hashmi -->
-          <div class="w-[320px] sm:w-[360px] flex-shrink-0 relative bg-[#0a0a0c]/95 text-white rounded-3xl p-6 pt-10 border border-black/40 shadow-xl flex flex-col justify-between text-center group hover:border-white/60 transition-all duration-300">
+          <!-- Card 3: Sarah Jenkins -->
+          <div class="w-[300px] sm:w-[350px] flex-shrink-0 relative bg-[#0a0a0c]/95 text-white rounded-3xl p-6 pt-10 border border-black/40 shadow-xl flex flex-col justify-between text-center group hover:border-white/60 transition-all duration-300">
             <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
               <div class="w-14 h-14 rounded-full border-2 border-orange-500 overflow-hidden relative shadow-md">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Zayan Hashmi" class="w-full h-full object-cover"/>
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Sarah Jenkins" class="w-full h-full object-cover"/>
                 <div class="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow">
-                  <svg class="w-full h-full" viewBox="0 0 24 24">
-                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                  </svg>
+                  <svg class="w-full h-full" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
                 </div>
               </div>
             </div>
-            <div class="space-y-3">
-              <h3 class="text-base font-bold text-white tracking-wide">Zayan Hashmi</h3>
-              <p class="text-[11px] text-slate-400">1 month ago</p>
+            <div class="space-y-2.5">
               <div class="flex items-center justify-center space-x-1">
-                <div class="flex text-amber-400 text-sm">★★★★★</div>
-                <span class="text-blue-500 text-xs">✔</span>
+                <h3 class="text-base font-bold text-white tracking-wide">Sarah Jenkins</h3>
+                <svg class="w-4 h-4 text-blue-500 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
               </div>
+
+              <!-- Interactive Time Stamp Badge -->
+              <div class="relative inline-block group/time">
+                <button type="button" class="text-[11px] text-slate-400 hover:text-orange-400 border-b border-dashed border-slate-600 hover:border-orange-400 transition-colors cursor-pointer focus:outline-none">
+                  1 month ago
+                </button>
+                <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover/time:flex group-focus/time:flex flex-col items-center z-30 w-max">
+                  <div class="bg-orange-500 text-black text-[10px] font-black px-2.5 py-1 rounded-md shadow-lg border border-orange-300">
+                    📅 Jun 28, 2026 at 09:45 PM
+                  </div>
+                  <div class="w-2 h-2 bg-orange-500 rotate-45 -mt-1"></div>
+                </div>
+              </div>
+
+              <div class="flex text-amber-400 text-xs justify-center">★★★★★</div>
               <p class="text-xs text-slate-300 leading-relaxed font-light">
-                They are very reliable. Highly recommended for Amazon store scaling and ACOS reduction!
+                Working directly with Abdullah Gull has been a game-changer. Gull Empire handles our store operations so we can focus purely on brand expansion.
               </p>
             </div>
           </div>
 
-          <!-- Card 4: Hamza Farooq -->
-          <div class="w-[320px] sm:w-[360px] flex-shrink-0 relative bg-[#0a0a0c]/95 text-white rounded-3xl p-6 pt-10 border border-black/40 shadow-xl flex flex-col justify-between text-center group hover:border-white/60 transition-all duration-300">
+        </div>
+      </div>
+
+      <!-- ROW 2: RIGHT TO LEFT -->
+      <div class="overflow-hidden w-full pb-4">
+        <div class="animate-marquee-rtl space-x-6">
+          
+          <!-- Card 4: David Sterling -->
+          <div class="w-[300px] sm:w-[350px] flex-shrink-0 relative bg-[#0a0a0c]/95 text-white rounded-3xl p-6 pt-10 border border-black/40 shadow-xl flex flex-col justify-between text-center group hover:border-white/60 transition-all duration-300">
             <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
               <div class="w-14 h-14 rounded-full border-2 border-orange-500 overflow-hidden relative shadow-md">
-                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80" alt="Hamza Farooq" class="w-full h-full object-cover"/>
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="David Sterling" class="w-full h-full object-cover"/>
                 <div class="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow">
-                  <svg class="w-full h-full" viewBox="0 0 24 24">
-                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                  </svg>
+                  <svg class="w-full h-full" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
                 </div>
               </div>
             </div>
-            <div class="space-y-3">
-              <h3 class="text-base font-bold text-white tracking-wide">Hamza Farooq</h3>
-              <p class="text-[11px] text-slate-400">1 month ago</p>
+            <div class="space-y-2.5">
               <div class="flex items-center justify-center space-x-1">
-                <div class="flex text-amber-400 text-sm">★★★★★</div>
-                <span class="text-blue-500 text-xs">✔</span>
+                <h3 class="text-base font-bold text-white tracking-wide">David Sterling</h3>
+                <svg class="w-4 h-4 text-blue-500 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
               </div>
+
+              <!-- Interactive Time Stamp Badge -->
+              <div class="relative inline-block group/time">
+                <button type="button" class="text-[11px] text-slate-400 hover:text-orange-400 border-b border-dashed border-slate-600 hover:border-orange-400 transition-colors cursor-pointer focus:outline-none">
+                  2 months ago
+                </button>
+                <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover/time:flex group-focus/time:flex flex-col items-center z-30 w-max">
+                  <div class="bg-orange-500 text-black text-[10px] font-black px-2.5 py-1 rounded-md shadow-lg border border-orange-300">
+                    📅 Jun 05, 2026 at 02:20 PM
+                  </div>
+                  <div class="w-2 h-2 bg-orange-500 rotate-45 -mt-1"></div>
+                </div>
+              </div>
+
+              <div class="flex text-amber-400 text-xs justify-center">★★★★★</div>
               <p class="text-xs text-slate-300 leading-relaxed font-light">
-                Great experience with their Amazon SEO and listing optimization service. They made the process simple and easy to understand.
+                Outstanding experience. Gull Empire boosted our organic rank for 10 key search terms in less than three weeks.
               </p>
             </div>
           </div>
 
-          <!-- Card 5: Bilal Tariq -->
-          <div class="w-[320px] sm:w-[360px] flex-shrink-0 relative bg-[#0a0a0c]/95 text-white rounded-3xl p-6 pt-10 border border-black/40 shadow-xl flex flex-col justify-between text-center group hover:border-white/60 transition-all duration-300">
+          <!-- Card 5: Chloe Bennet -->
+          <div class="w-[300px] sm:w-[350px] flex-shrink-0 relative bg-[#0a0a0c]/95 text-white rounded-3xl p-6 pt-10 border border-black/40 shadow-xl flex flex-col justify-between text-center group hover:border-white/60 transition-all duration-300">
             <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
               <div class="w-14 h-14 rounded-full border-2 border-orange-500 overflow-hidden relative shadow-md">
-                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80" alt="Bilal Tariq" class="w-full h-full object-cover"/>
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80" alt="Chloe Bennet" class="w-full h-full object-cover"/>
                 <div class="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow">
-                  <svg class="w-full h-full" viewBox="0 0 24 24">
-                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                  </svg>
+                  <svg class="w-full h-full" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
                 </div>
               </div>
             </div>
-            <div class="space-y-3">
-              <h3 class="text-base font-bold text-white tracking-wide">Bilal Tariq</h3>
-              <p class="text-[11px] text-slate-400">5 months ago</p>
+            <div class="space-y-2.5">
               <div class="flex items-center justify-center space-x-1">
-                <div class="flex text-amber-400 text-sm">★★★★★</div>
-                <span class="text-blue-500 text-xs">✔</span>
+                <h3 class="text-base font-bold text-white tracking-wide">Chloe Bennet</h3>
+                <svg class="w-4 h-4 text-blue-500 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
               </div>
-              <p class="text-xs text-slate-300 leading-relaxed font-light">
-                I'm working with Gull Empire CEO Abdullah Gull. He has awesome hands-on experience in Amazon. They are managing my store smoothly. Very happy to work with them!
-              </p>
-            </div>
-          </div>
 
-          <!-- ================= LOOP SET 2 (DUPLICATED FOR SEAMLESS CONTINUOUS SCROLL) ================= -->
-          <!-- Card 1 Duplicate -->
-          <div class="w-[320px] sm:w-[360px] flex-shrink-0 relative bg-[#0a0a0c]/95 text-white rounded-3xl p-6 pt-10 border border-black/40 shadow-xl flex flex-col justify-between text-center group hover:border-white/60 transition-all duration-300">
-            <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
-              <div class="w-14 h-14 rounded-full border-2 border-orange-500 overflow-hidden relative shadow-md">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Tariq Vance" class="w-full h-full object-cover"/>
-                <div class="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow">
-                  <svg class="w-full h-full" viewBox="0 0 24 24">
-                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                  </svg>
+              <!-- Interactive Time Stamp Badge -->
+              <div class="relative inline-block group/time">
+                <button type="button" class="text-[11px] text-slate-400 hover:text-orange-400 border-b border-dashed border-slate-600 hover:border-orange-400 transition-colors cursor-pointer focus:outline-none">
+                  3 months ago
+                </button>
+                <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover/time:flex group-focus/time:flex flex-col items-center z-30 w-max">
+                  <div class="bg-orange-500 text-black text-[10px] font-black px-2.5 py-1 rounded-md shadow-lg border border-orange-300">
+                    📅 May 14, 2026 at 08:10 AM
+                  </div>
+                  <div class="w-2 h-2 bg-orange-500 rotate-45 -mt-1"></div>
                 </div>
               </div>
-            </div>
-            <div class="space-y-3">
-              <h3 class="text-base font-bold text-white tracking-wide">Tariq Vance</h3>
-              <p class="text-[11px] text-slate-400">1 week ago</p>
-              <div class="flex items-center justify-center space-x-1">
-                <div class="flex text-amber-400 text-sm">★★★★★</div>
-                <span class="text-blue-500 text-xs">✔</span>
-              </div>
-              <p class="text-xs text-slate-300 leading-relaxed font-light">
-                Gull Empire, CEO Abdullah Gull and his team optimized our Amazon listings, improved our PPC campaigns, and helped increase our overall sales. Highly recommended!
-              </p>
-            </div>
-          </div>
 
-          <!-- Card 2 Duplicate -->
-          <div class="w-[320px] sm:w-[360px] flex-shrink-0 relative bg-[#0a0a0c]/95 text-white rounded-3xl p-6 pt-10 border border-black/40 shadow-xl flex flex-col justify-between text-center group hover:border-white/60 transition-all duration-300">
-            <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
-              <div class="w-14 h-14 rounded-full border-2 border-orange-500 overflow-hidden relative shadow-md">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Rayan Butt" class="w-full h-full object-cover"/>
-                <div class="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow">
-                  <svg class="w-full h-full" viewBox="0 0 24 24">
-                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <div class="space-y-3">
-              <h3 class="text-base font-bold text-white tracking-wide">Rayan Butt</h3>
-              <p class="text-[11px] text-slate-400">1 week ago</p>
-              <div class="flex items-center justify-center space-x-1">
-                <div class="flex text-amber-400 text-sm">★★★★★</div>
-                <span class="text-blue-500 text-xs">✔</span>
-              </div>
+              <div class="flex text-amber-400 text-xs justify-center">★★★★★</div>
               <p class="text-xs text-slate-300 leading-relaxed font-light">
-                Good support for Amazon PPC management and listing improvements. The Gull Empire team delivered structured results fast.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 3 Duplicate -->
-          <div class="w-[320px] sm:w-[360px] flex-shrink-0 relative bg-[#0a0a0c]/95 text-white rounded-3xl p-6 pt-10 border border-black/40 shadow-xl flex flex-col justify-between text-center group hover:border-white/60 transition-all duration-300">
-            <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
-              <div class="w-14 h-14 rounded-full border-2 border-orange-500 overflow-hidden relative shadow-md">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Zayan Hashmi" class="w-full h-full object-cover"/>
-                <div class="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow">
-                  <svg class="w-full h-full" viewBox="0 0 24 24">
-                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <div class="space-y-3">
-              <h3 class="text-base font-bold text-white tracking-wide">Zayan Hashmi</h3>
-              <p class="text-[11px] text-slate-400">1 month ago</p>
-              <div class="flex items-center justify-center space-x-1">
-                <div class="flex text-amber-400 text-sm">★★★★★</div>
-                <span class="text-blue-500 text-xs">✔</span>
-              </div>
-              <p class="text-xs text-slate-300 leading-relaxed font-light">
-                They are very reliable. Highly recommended for Amazon store scaling and ACOS reduction!
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 4 Duplicate -->
-          <div class="w-[320px] sm:w-[360px] flex-shrink-0 relative bg-[#0a0a0c]/95 text-white rounded-3xl p-6 pt-10 border border-black/40 shadow-xl flex flex-col justify-between text-center group hover:border-white/60 transition-all duration-300">
-            <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
-              <div class="w-14 h-14 rounded-full border-2 border-orange-500 overflow-hidden relative shadow-md">
-                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80" alt="Hamza Farooq" class="w-full h-full object-cover"/>
-                <div class="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow">
-                  <svg class="w-full h-full" viewBox="0 0 24 24">
-                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <div class="space-y-3">
-              <h3 class="text-base font-bold text-white tracking-wide">Hamza Farooq</h3>
-              <p class="text-[11px] text-slate-400">1 month ago</p>
-              <div class="flex items-center justify-center space-x-1">
-                <div class="flex text-amber-400 text-sm">★★★★★</div>
-                <span class="text-blue-500 text-xs">✔</span>
-              </div>
-              <p class="text-xs text-slate-300 leading-relaxed font-light">
-                Great experience with their Amazon SEO and listing optimization service. They made the process simple and easy to understand.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 5 Duplicate -->
-          <div class="w-[320px] sm:w-[360px] flex-shrink-0 relative bg-[#0a0a0c]/95 text-white rounded-3xl p-6 pt-10 border border-black/40 shadow-xl flex flex-col justify-between text-center group hover:border-white/60 transition-all duration-300">
-            <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
-              <div class="w-14 h-14 rounded-full border-2 border-orange-500 overflow-hidden relative shadow-md">
-                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80" alt="Bilal Tariq" class="w-full h-full object-cover"/>
-                <div class="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow">
-                  <svg class="w-full h-full" viewBox="0 0 24 24">
-                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <div class="space-y-3">
-              <h3 class="text-base font-bold text-white tracking-wide">Bilal Tariq</h3>
-              <p class="text-[11px] text-slate-400">5 months ago</p>
-              <div class="flex items-center justify-center space-x-1">
-                <div class="flex text-amber-400 text-sm">★★★★★</div>
-                <span class="text-blue-500 text-xs">✔</span>
-              </div>
-              <p class="text-xs text-slate-300 leading-relaxed font-light">
-                I'm working with Gull Empire CEO Abdullah Gull. He has awesome hands-on experience in Amazon. They are managing my store smoothly. Very happy to work with them!
+                Very transparent and result-driven agency. Their team provided detailed weekly reports on sales growth and PPC ad spend.
               </p>
             </div>
           </div>
