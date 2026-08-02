@@ -13,16 +13,21 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-<!-- ULTRA-PREMIUM BLING LOGO GRID SECTION -->
+<!-- ULTRA-PREMIUM DYNAMIC LOGO SWAPPER WITH BLING & FLICKER EFFECT -->
 <style>
   /* Metallic Light-Sweep (Bling) Effect */
   @keyframes blingSweep {
-    0% {
-      transform: translateX(-150%) skewX(-25deg);
-    }
-    20%, 100% {
-      transform: translateX(250%) skewX(-25deg);
-    }
+    0% { transform: translateX(-150%) skewX(-25deg); }
+    25%, 100% { transform: translateX(250%) skewX(-25deg); }
+  }
+
+  /* Neon Light Switch ON/OFF Flicker Animation */
+  @keyframes neonFlicker {
+    0%, 100% { opacity: 1; filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.6)); }
+    20% { opacity: 0.2; filter: none; }
+    25% { opacity: 1; filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.9)); }
+    40% { opacity: 0.4; }
+    42% { opacity: 1; }
   }
 
   .bling-card {
@@ -40,34 +45,33 @@
     background: linear-gradient(
       60deg,
       transparent 30%,
-      rgba(255, 255, 255, 0.25) 50%,
-      rgba(245, 158, 11, 0.4) 55%,
+      rgba(255, 255, 255, 0.35) 50%,
+      rgba(245, 158, 11, 0.5) 55%,
       transparent 70%
     );
-    animation: blingSweep 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events-none: none;
+    animation: blingSweep 3.5s infinite cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
   }
 
-  /* Staggering the animation for each card so they don't bling all at once */
-  .bling-card:nth-child(2n)::after { animation-delay: 0.7s; }
-  .bling-card:nth-child(3n)::after { animation-delay: 1.4s; }
-  .bling-card:nth-child(4n)::after { animation-delay: 2.1s; }
-  .bling-card:nth-child(5n)::after { animation-delay: 2.8s; }
+  /* Different delays for natural bling flow */
+  .bling-card:nth-child(2n)::after { animation-delay: 0.5s; }
+  .bling-card:nth-child(3n)::after { animation-delay: 1.2s; }
+  .bling-card:nth-child(4n)::after { animation-delay: 1.8s; }
+  .bling-card:nth-child(5n)::after { animation-delay: 2.5s; }
 
-  /* Glow pulse on hover */
-  .bling-card:hover {
-    box-shadow: 0 0 25px rgba(245, 158, 11, 0.4), inset 0 0 15px rgba(245, 158, 11, 0.2);
+  .flicker-active {
+    animation: neonFlicker 0.4s ease-in-out;
   }
 </style>
 
 <section class="relative w-full bg-[#030106] text-slate-100 py-24 px-4 sm:px-8 lg:px-16 overflow-hidden font-sans border-t border-amber-500/20">
     
-    <!-- Deep Neon Ambient Glows -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[380px] bg-gradient-to-r from-amber-500/15 via-purple-600/15 to-amber-500/15 rounded-full blur-[170px] pointer-events-none"></div>
+    <!-- Deep Ambient Glows -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-amber-500/15 via-purple-600/20 to-amber-500/15 rounded-full blur-[180px] pointer-events-none"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto space-y-14">
         
-        <!-- Header Title -->
+        <!-- Header -->
         <div class="text-center space-y-4 max-w-2xl mx-auto">
             <div class="inline-flex items-center space-x-2 text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-500/10 px-5 py-2 rounded-full border border-amber-400/30 backdrop-blur-md shadow-[0_0_15px_rgba(245,158,11,0.2)]">
                 <span class="w-2.5 h-2.5 bg-amber-400 rounded-full animate-ping"></span>
@@ -82,70 +86,78 @@
             </p>
         </div>
 
-        <!-- LOGOS GRID WITH AUTOMATIC BLING LIGHT SWEEP -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
-            
-            <!-- 01. Amazon Seller -->
-            <div class="bling-card group relative bg-[#0d071a]/80 backdrop-blur-md border border-purple-500/30 hover:border-amber-400 rounded-2xl p-4 flex items-center justify-center h-28 transition-all duration-500 hover:-translate-y-2 cursor-pointer">
-                <img src="https://abdullah-gull.github.io/images/Amazon-Seller-Service-1024x500.png" alt="Amazon Seller" class="max-h-12 max-w-[85%] object-contain filter contrast-125 brightness-110 group-hover:scale-110 transition-transform duration-300">
-            </div>
-
-            <!-- 02. Shopify -->
-            <div class="bling-card group relative bg-[#0d071a]/80 backdrop-blur-md border border-purple-500/30 hover:border-amber-400 rounded-2xl p-4 flex items-center justify-center h-28 transition-all duration-500 hover:-translate-y-2 cursor-pointer">
-                <img src="https://abdullah-gull.github.io/images/Shopify-Logo.jpg" alt="Shopify" class="max-h-12 max-w-[85%] object-contain rounded mix-blend-lighten contrast-125 group-hover:scale-110 transition-transform duration-300">
-            </div>
-
-            <!-- 03. Walmart -->
-            <div class="bling-card group relative bg-[#0d071a]/80 backdrop-blur-md border border-purple-500/30 hover:border-amber-400 rounded-2xl p-4 flex items-center justify-center h-28 transition-all duration-500 hover:-translate-y-2 cursor-pointer">
-                <img src="https://abdullah-gull.github.io/images/walmart-logo-png-5.png" alt="Walmart" class="max-h-12 max-w-[85%] object-contain filter brightness-125 group-hover:scale-110 transition-transform duration-300">
-            </div>
-
-            <!-- 04. Etsy -->
-            <div class="bling-card group relative bg-[#0d071a]/80 backdrop-blur-md border border-purple-500/30 hover:border-amber-400 rounded-2xl p-4 flex items-center justify-center h-28 transition-all duration-500 hover:-translate-y-2 cursor-pointer">
-                <img src="https://abdullah-gull.github.io/images/Etsy_logo.svg.webp" alt="Etsy" class="max-h-12 max-w-[85%] object-contain filter brightness-125 group-hover:scale-110 transition-transform duration-300">
-            </div>
-
-            <!-- 05. eBay -->
-            <div class="bling-card group relative bg-[#0d071a]/80 backdrop-blur-md border border-purple-500/30 hover:border-amber-400 rounded-2xl p-4 flex items-center justify-center h-28 transition-all duration-500 hover:-translate-y-2 cursor-pointer">
-                <img src="https://abdullah-gull.github.io/images/EBay_logo.png" alt="eBay" class="max-h-12 max-w-[85%] object-contain filter brightness-125 group-hover:scale-110 transition-transform duration-300">
-            </div>
-
-            <!-- 06. Helium 10 -->
-            <div class="bling-card group relative bg-[#0d071a]/80 backdrop-blur-md border border-purple-500/30 hover:border-amber-400 rounded-2xl p-4 flex items-center justify-center h-28 transition-all duration-500 hover:-translate-y-2 cursor-pointer">
-                <img src="https://abdullahgull.github.io/images/6752c0a021fd1f672842c767_CPSecEh24I1i34_8eYced5Ig3NFthwrRw6bQQOMHdOg.png" alt="Helium 10" class="max-h-12 max-w-[85%] object-contain filter brightness-125 group-hover:scale-110 transition-transform duration-300">
-            </div>
-
-            <!-- 07. Amazon Vendor Central -->
-            <div class="bling-card group relative bg-[#0d071a]/80 backdrop-blur-md border border-purple-500/30 hover:border-amber-400 rounded-2xl p-4 flex items-center justify-center h-28 transition-all duration-500 hover:-translate-y-2 cursor-pointer">
-                <img src="https://abdullah-gull.github.io/images/images.jpg" alt="Vendor Central" class="max-h-12 max-w-[85%] object-contain rounded mix-blend-lighten group-hover:scale-110 transition-transform duration-300">
-            </div>
-
-            <!-- 08. Meta Ads -->
-            <div class="bling-card group relative bg-[#0d071a]/80 backdrop-blur-md border border-purple-500/30 hover:border-amber-400 rounded-2xl p-4 flex items-center justify-center h-28 transition-all duration-500 hover:-translate-y-2 cursor-pointer">
-                <img src="https://abdullah-gull.github.io/images/meta-facebook-rebranding-name-news_dezeen_2364_col_hero2.jpg" alt="Meta Ads" class="max-h-12 max-w-[85%] object-contain rounded mix-blend-lighten group-hover:scale-110 transition-transform duration-300">
-            </div>
-
-            <!-- 09. Jungle Scout -->
-            <div class="bling-card group relative bg-[#0d071a]/80 backdrop-blur-md border border-purple-500/30 hover:border-amber-400 rounded-2xl p-4 flex items-center justify-center h-28 transition-all duration-500 hover:-translate-y-2 cursor-pointer">
-                <img src="https://abdullah-gull.github.io/images/jungle-scout-affiliate-program.jpg" alt="Jungle Scout" class="max-h-12 max-w-[85%] object-contain rounded mix-blend-lighten group-hover:scale-110 transition-transform duration-300">
-            </div>
-
-            <!-- 10. Amazon Ads -->
-            <div class="bling-card group relative bg-[#0d071a]/80 backdrop-blur-md border border-purple-500/30 hover:border-amber-400 rounded-2xl p-4 flex items-center justify-center h-28 transition-all duration-500 hover:-translate-y-2 cursor-pointer">
-                <img src="https://abdullah-gull.github.io/images/OG_image_Squid_Ink.png" alt="Amazon Ads" class="max-h-12 max-w-[85%] object-contain filter brightness-125 group-hover:scale-110 transition-transform duration-300">
-            </div>
-
-            <!-- 11. Walmart Marketplace -->
-            <div class="bling-card group relative bg-[#0d071a]/80 backdrop-blur-md border border-purple-500/30 hover:border-amber-400 rounded-2xl p-4 flex items-center justify-center h-28 transition-all duration-500 hover:-translate-y-2 cursor-pointer">
-                <img src="https://abdullah-gull.github.io/images/walmart-logo-png-5.png" alt="Walmart Marketplace" class="max-h-12 max-w-[85%] object-contain filter brightness-125 group-hover:scale-110 transition-transform duration-300">
-            </div>
-
-            <!-- 12. Amazon Seller Central -->
-            <div class="bling-card group relative bg-[#0d071a]/80 backdrop-blur-md border border-purple-500/30 hover:border-amber-400 rounded-2xl p-4 flex items-center justify-center h-28 transition-all duration-500 hover:-translate-y-2 cursor-pointer">
-                <img src="https://abdullah-gull.github.io/images/Amazon-Seller-Service-1024x500.png" alt="Amazon Seller Central" class="max-h-12 max-w-[85%] object-contain filter contrast-125 brightness-110 group-hover:scale-110 transition-transform duration-300">
-            </div>
-
+        <!-- DYNAMIC LOGO GRID -->
+        <div id="logo-grid-container" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
+            <!-- Logos generated dynamically via JavaScript below for auto swapping -->
         </div>
 
     </div>
 </section>
+
+<!-- JAVASCRIPT FOR REAL-TIME LOGO SWAPPING & FLICKER EFFECT -->
+<script>
+  // List of all your logo images
+  const logosList = [
+    { src: "https://abdullah-gull.github.io/images/Amazon-Seller-Service-1024x500.png", title: "Amazon Seller Central" },
+    { src: "https://abdullah-gull.github.io/images/Shopify-Logo.jpg", title: "Shopify" },
+    { src: "https://abdullah-gull.github.io/images/walmart-logo-png-5.png", title: "Walmart" },
+    { src: "https://abdullah-gull.github.io/images/Etsy_logo.svg.webp", title: "Etsy" },
+    { src: "https://abdullah-gull.github.io/images/EBay_logo.png", title: "eBay" },
+    { src: "https://abdullahgull.github.io/images/6752c0a021fd1f672842c767_CPSecEh24I1i34_8eYced5Ig3NFthwrRw6bQQOMHdOg.png", title: "Helium 10" },
+    { src: "https://abdullah-gull.github.io/images/images.jpg", title: "Amazon Vendor Central" },
+    { src: "https://abdullah-gull.github.io/images/meta-facebook-rebranding-name-news_dezeen_2364_col_hero2.jpg", title: "Meta Ads" },
+    { src: "https://abdullah-gull.github.io/images/jungle-scout-affiliate-program.jpg", title: "Jungle Scout" },
+    { src: "https://abdullah-gull.github.io/images/OG_image_Squid_Ink.png", title: "Amazon Ads" }
+  ];
+
+  const gridContainer = document.getElementById('logo-grid-container');
+  const cardCount = 12; // Grid has 12 slots
+
+  // Initial Render of Cards
+  function initGrid() {
+    gridContainer.innerHTML = '';
+    for (let i = 0; i < cardCount; i++) {
+      const logo = logosList[i % logosList.length];
+      const cardHTML = `
+        <div id="card-${i}" class="bling-card group relative bg-[#0d071a]/80 backdrop-blur-md border border-purple-500/30 hover:border-amber-400 rounded-2xl p-4 flex items-center justify-center h-28 transition-all duration-500 hover:-translate-y-2 cursor-pointer shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+            <img id="img-${i}" src="${logo.src}" alt="${logo.title}" class="max-h-12 max-w-[85%] object-contain filter contrast-125 brightness-110 group-hover:scale-110 transition-all duration-300">
+        </div>
+      `;
+      gridContainer.insertAdjacentHTML('beforeend', cardHTML);
+    }
+  }
+
+  // Random Logo Swap with Light Off/On Flicker
+  function startDynamicLogoSwap() {
+    setInterval(() => {
+      // Pick a random slot to swap
+      const randomSlot = Math.floor(Math.random() * cardCount);
+      const randomLogo = logosList[Math.floor(Math.random() * logosList.length)];
+
+      const card = document.getElementById(`card-${randomSlot}`);
+      const img = document.getElementById(`img-${randomSlot}`);
+
+      if (card && img) {
+        // Step 1: Trigger Light Flicker Animation
+        card.classList.add('flicker-active');
+
+        setTimeout(() => {
+          // Step 2: Swap Image Source halfway through flicker
+          img.src = randomLogo.src;
+          img.alt = randomLogo.title;
+        }, 200);
+
+        setTimeout(() => {
+          // Step 3: Remove animation class for next cycle
+          card.classList.remove('flicker-active');
+        }, 450);
+      }
+    }, 2000); // Swaps every 2 seconds
+  }
+
+  // Run on Load
+  document.addEventListener("DOMContentLoaded", () => {
+    initGrid();
+    startDynamicLogoSwap();
+  });
+</script>
