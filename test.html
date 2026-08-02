@@ -12,8 +12,7 @@
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
-<!-- ULTRA-PREMIUM DYNAMIC LOGO SWAPPER WITH BLING & FLICKER EFFECT -->
+<!-- ULTRA-FAST LOGO SWAPPER WITH BLACK THEME & COMBINED TEXT COLOR -->
 <style>
   /* Metallic Light-Sweep (Bling) Effect */
   @keyframes blingSweep {
@@ -21,13 +20,10 @@
     25%, 100% { transform: translateX(250%) skewX(-25deg); }
   }
 
-  /* Neon Light Switch ON/OFF Flicker Animation */
-  @keyframes neonFlicker {
-    0%, 100% { opacity: 1; filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.6)); }
-    20% { opacity: 0.2; filter: none; }
-    25% { opacity: 1; filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.9)); }
-    40% { opacity: 0.4; }
-    42% { opacity: 1; }
+  /* Fast Light Flash Animation */
+  @keyframes fastFlash {
+    0%, 100% { opacity: 1; filter: brightness(1.2); }
+    50% { opacity: 0.1; filter: brightness(0.5); }
   }
 
   .bling-card {
@@ -45,58 +41,56 @@
     background: linear-gradient(
       60deg,
       transparent 30%,
-      rgba(255, 255, 255, 0.35) 50%,
+      rgba(255, 255, 255, 0.3) 50%,
       rgba(245, 158, 11, 0.5) 55%,
       transparent 70%
     );
-    animation: blingSweep 3.5s infinite cubic-bezier(0.4, 0, 0.2, 1);
+    animation: blingSweep 2.5s infinite cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
   }
 
-  /* Different delays for natural bling flow */
-  .bling-card:nth-child(2n)::after { animation-delay: 0.5s; }
-  .bling-card:nth-child(3n)::after { animation-delay: 1.2s; }
-  .bling-card:nth-child(4n)::after { animation-delay: 1.8s; }
-  .bling-card:nth-child(5n)::after { animation-delay: 2.5s; }
+  /* Staggered Bling Timing */
+  .bling-card:nth-child(2n)::after { animation-delay: 0.3s; }
+  .bling-card:nth-child(3n)::after { animation-delay: 0.6s; }
+  .bling-card:nth-child(4n)::after { animation-delay: 0.9s; }
 
-  .flicker-active {
-    animation: neonFlicker 0.4s ease-in-out;
+  .flash-active {
+    animation: fastFlash 0.25s ease-in-out;
   }
 </style>
 
-<section class="relative w-full bg-[#030106] text-slate-100 py-24 px-4 sm:px-8 lg:px-16 overflow-hidden font-sans border-t border-amber-500/20">
+<section class="relative w-full bg-[#030303] text-slate-100 py-24 px-4 sm:px-8 lg:px-16 overflow-hidden font-sans border-t border-amber-500/20">
     
-    <!-- Deep Ambient Glows -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-amber-500/15 via-purple-600/20 to-amber-500/15 rounded-full blur-[180px] pointer-events-none"></div>
+    <!-- Warm Golden Ambient Glow (No Blue) -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-amber-500/10 rounded-full blur-[160px] pointer-events-none"></div>
 
-    <div class="relative z-10 max-w-7xl mx-auto space-y-14">
+    <div class="relative z-10 max-w-7xl mx-auto space-y-12">
         
-        <!-- Header -->
-        <div class="text-center space-y-4 max-w-2xl mx-auto">
-            <div class="inline-flex items-center space-x-2 text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-500/10 px-5 py-2 rounded-full border border-amber-400/30 backdrop-blur-md shadow-[0_0_15px_rgba(245,158,11,0.2)]">
+        <!-- Header with Combined Rich Color Text -->
+        <div class="text-center space-y-4 max-w-3xl mx-auto">
+            <div class="inline-flex items-center space-x-2 text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-500/10 px-5 py-2 rounded-full border border-amber-500/30 backdrop-blur-md shadow-[0_0_15px_rgba(245,158,11,0.2)]">
                 <span class="w-2.5 h-2.5 bg-amber-400 rounded-full animate-ping"></span>
                 <span>ECOSYSTEM & PLATFORMS</span>
             </div>
             
             <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
-                Platforms & Tools <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-amber-500 drop-shadow-[0_0_20px_rgba(245,158,11,0.3)]">I Work With</span>
+                Platforms & Tools <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-yellow-300 drop-shadow-[0_0_25px_rgba(245,158,11,0.4)]">I Work With</span>
             </h2>
-            <p class="text-xs sm:text-sm text-slate-400 max-w-lg mx-auto leading-relaxed">
-                Empowering brands across top-tier e-commerce marketplaces, data analytics engines, and advertising channels.
+            <p class="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto leading-relaxed">
+                Empowering brands across top-tier <span class="text-amber-400 font-semibold">E-Commerce Marketplaces</span>, <span class="text-orange-400 font-semibold">Data Analytics Engines</span>, and <span class="text-yellow-400 font-semibold">Advertising Channels</span>.
             </p>
         </div>
 
-        <!-- DYNAMIC LOGO GRID -->
-        <div id="logo-grid-container" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
-            <!-- Logos generated dynamically via JavaScript below for auto swapping -->
+        <!-- FAST DYNAMIC LOGO GRID (PURE BLACK CARDS) -->
+        <div id="logo-grid-container" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5">
+            <!-- JavaScript dynamically inserts black theme cards here -->
         </div>
 
     </div>
 </section>
 
-<!-- JAVASCRIPT FOR REAL-TIME LOGO SWAPPING & FLICKER EFFECT -->
+<!-- SUPER FAST LOGO SWAP SCRIPT -->
 <script>
-  // List of all your logo images
   const logosList = [
     { src: "https://abdullah-gull.github.io/images/Amazon-Seller-Service-1024x500.png", title: "Amazon Seller Central" },
     { src: "https://abdullah-gull.github.io/images/Shopify-Logo.jpg", title: "Shopify" },
@@ -111,53 +105,51 @@
   ];
 
   const gridContainer = document.getElementById('logo-grid-container');
-  const cardCount = 12; // Grid has 12 slots
+  const cardCount = 12;
 
-  // Initial Render of Cards
+  // Initialize Black Cards Grid
   function initGrid() {
     gridContainer.innerHTML = '';
     for (let i = 0; i < cardCount; i++) {
       const logo = logosList[i % logosList.length];
       const cardHTML = `
-        <div id="card-${i}" class="bling-card group relative bg-[#0d071a]/80 backdrop-blur-md border border-purple-500/30 hover:border-amber-400 rounded-2xl p-4 flex items-center justify-center h-28 transition-all duration-500 hover:-translate-y-2 cursor-pointer shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
-            <img id="img-${i}" src="${logo.src}" alt="${logo.title}" class="max-h-12 max-w-[85%] object-contain filter contrast-125 brightness-110 group-hover:scale-110 transition-all duration-300">
+        <div id="card-${i}" class="bling-card group relative bg-[#0a0a0a] border border-neutral-800 hover:border-amber-400/80 rounded-xl p-4 flex items-center justify-center h-28 transition-all duration-300 hover:-translate-y-1.5 cursor-pointer shadow-lg hover:shadow-[0_0_20px_rgba(245,158,11,0.25)]">
+            <img id="img-${i}" src="${logo.src}" alt="${logo.title}" class="max-h-12 max-w-[85%] object-contain filter contrast-125 brightness-110 group-hover:scale-105 transition-all duration-200">
         </div>
       `;
       gridContainer.insertAdjacentHTML('beforeend', cardHTML);
     }
   }
 
-  // Random Logo Swap with Light Off/On Flicker
-  function startDynamicLogoSwap() {
+  // Fast Logo Swap Function (800ms Interval)
+  function startFastLogoSwap() {
     setInterval(() => {
-      // Pick a random slot to swap
-      const randomSlot = Math.floor(Math.random() * cardCount);
-      const randomLogo = logosList[Math.floor(Math.random() * logosList.length)];
+      // Pick 2 random slots at once for rapid feel
+      for(let step = 0; step < 2; step++) {
+        const randomSlot = Math.floor(Math.random() * cardCount);
+        const randomLogo = logosList[Math.floor(Math.random() * logosList.length)];
 
-      const card = document.getElementById(`card-${randomSlot}`);
-      const img = document.getElementById(`img-${randomSlot}`);
+        const card = document.getElementById(`card-${randomSlot}`);
+        const img = document.getElementById(`img-${randomSlot}`);
 
-      if (card && img) {
-        // Step 1: Trigger Light Flicker Animation
-        card.classList.add('flicker-active');
+        if (card && img) {
+          card.classList.add('flash-active');
 
-        setTimeout(() => {
-          // Step 2: Swap Image Source halfway through flicker
-          img.src = randomLogo.src;
-          img.alt = randomLogo.title;
-        }, 200);
+          setTimeout(() => {
+            img.src = randomLogo.src;
+            img.alt = randomLogo.title;
+          }, 120);
 
-        setTimeout(() => {
-          // Step 3: Remove animation class for next cycle
-          card.classList.remove('flicker-active');
-        }, 450);
+          setTimeout(() => {
+            card.classList.remove('flash-active');
+          }, 250);
+        }
       }
-    }, 2000); // Swaps every 2 seconds
+    }, 800); // Badly fast: Har 0.8s mein logos dynamically shift honge
   }
 
-  // Run on Load
   document.addEventListener("DOMContentLoaded", () => {
     initGrid();
-    startDynamicLogoSwap();
+    startFastLogoSwap();
   });
 </script>
