@@ -1,12 +1,11 @@
-<!-- GOOGLE FONTS (PLUS JAKARTA SANS & INTER) -->
+<!-- GOOGLE FONTS -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
 <!-- TAILWIND CSS CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- TAILWIND CUSTOM FONT CONFIG -->
 <script>
   tailwind.config = {
     theme: {
@@ -20,62 +19,87 @@
   }
 </script>
 
-<section class="relative w-full bg-[#030304] py-24 px-4 sm:px-6 lg:px-8 font-body text-center overflow-hidden">
-  
-  <!-- Subtle Ambient Top Glow -->
-  <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-full max-w-3xl h-80 bg-gradient-to-b from-orange-500/10 via-transparent to-transparent blur-3xl pointer-events-none"></div>
-
-  <div class="relative z-10 max-w-4xl mx-auto space-y-4">
+<section class="w-full bg-[#030304] py-12 px-4 sm:px-6 lg:px-8 font-body">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 rounded-3xl overflow-hidden shadow-2xl border border-white/10">
     
-    <!-- MAIN HEADING -->
-    <h2 class="font-heading text-3xl sm:text-5xl lg:text-[52px] font-semibold text-white tracking-[-0.03em] leading-[1.2]">
-      Why is <span class="text-orange-500 font-bold">Gull Commerce</span> the best full service agency?
-    </h2>
-
-    <!-- SUBTITLE -->
-    <p class="font-body text-slate-400 text-base sm:text-lg lg:text-[19px] font-normal leading-relaxed max-w-3xl mx-auto pt-1">
-      Let ChatGPT, Claude, and Perplexity explain why brands choose Gull Commerce.
-    </p>
-
-    <!-- OVAL PILL BUTTONS -->
-    <div class="pt-8 flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
+    <!-- LEFT SIDE: YELLOW FEATURE CONTAINER -->
+    <div class="lg:col-span-5 bg-[#FFD000] p-8 sm:p-12 lg:p-14 flex flex-col justify-between text-slate-900 space-y-8">
       
-      <!-- Ask ChatGPT -->
-      <a 
-        href="https://chatgpt.com/?q=Act%20as%20a%20senior%20e-commerce%20consultant.%20Review%20and%20analyze%20the%20agency%20profile%20of%20Gull%20Commerce%20(https://gull-empire.github.io/gull-commerce/).%20Provide%20a%20strategic%20summary%20in%20clear%20bullet%20points%20covering:%201.%20Core%20e-commerce%20services%20(Amazon%20FBA,%20PPC,%20SEO,%20Listing%20Optimization,%20Walmart/eBay%20scaling),%202.%20Problems%20they%20solve%20for%20sellers,%203.%20Why%20brands%20choose%20Gull%20Commerce,%20and%204.%20Their%20competitive%20advantage." 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        class="inline-flex items-center gap-2.5 bg-[#e5e7eb] hover:bg-white text-[#111827] font-heading font-medium text-sm sm:text-base px-6 py-3 rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-100 shadow-sm"
-        title="Ask ChatGPT about Gull Commerce"
-      >
-        <img class="w-5 h-5 object-contain" src="https://abdullah-gull.github.io/images/chatgpt.png" alt="ChatGPT Icon" />
-        <span>Ask ChatGPT</span>
-      </a>
+      <div class="space-y-6">
+        <!-- Main Pitch Heading -->
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-[40px] font-extrabold leading-[1.15] tracking-tight">
+          We do the heavy lifting so you can take it light and easy
+        </h2>
 
-      <!-- Ask Claude -->
-      <a 
-        href="https://claude.ai/?q=Please%20evaluate%20Gull%20Commerce%20(https://gull-empire.github.io/gull-commerce/).%20Provide%20an%20executive%20breakdown%20for%20a%20brand%20owner%20explaining%20why%20Gull%20Commerce%20is%20a%20top-tier%20full-service%20e-commerce%20agency%20across%20Amazon%20and%20global%20marketplaces." 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        class="inline-flex items-center gap-2.5 bg-[#e5e7eb] hover:bg-white text-[#111827] font-heading font-medium text-sm sm:text-base px-6 py-3 rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-100 shadow-sm"
-        title="Ask Claude about Gull Commerce"
-      >
-        <img class="w-5 h-5 object-contain" src="https://abdullah-gull.github.io/images/cloud.png" alt="Claude Icon" />
-        <span>Ask Claude</span>
-      </a>
+        <!-- Descriptive Copy -->
+        <p class="text-sm sm:text-base font-medium leading-relaxed text-slate-800">
+          With expert e-commerce strategists and dedicated account managers, Gull Commerce lifts the complete operational burden off your shoulders.
+        </p>
 
-      <!-- Ask Perplexity -->
-      <a 
-        href="https://www.perplexity.ai/?q=Search%20and%20analyze%20(https://gull-empire.github.io/gull-commerce/)%20for%20Gull%20Commerce.%20Summarize%20their%20Amazon%20FBA%20management,%20PPC%20optimization,%20A%2B%20Content,%20and%20multi-marketplace%20growth%20capabilities." 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        class="inline-flex items-center gap-2.5 bg-[#e5e7eb] hover:bg-white text-[#111827] font-heading font-medium text-sm sm:text-base px-6 py-3 rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-100 shadow-sm"
-        title="Ask Perplexity about Gull Commerce"
-      >
-        <img class="w-5 h-5 object-contain" src="https://abdullah-gull.github.io/images/perixtes.jpg" alt="Perplexity Icon" />
-        <span>Ask Perplexity</span>
-      </a>
+        <p class="text-sm sm:text-base font-medium leading-relaxed text-slate-800">
+          E-commerce is not set and forget — marketplace algorithms and policies constantly evolve. Our Seller Central specialists manage the technical complexities so you can focus on growing your business.
+        </p>
+      </div>
+
+      <!-- Action Area -->
+      <div class="space-y-6 pt-2">
+        <!-- CTA Button -->
+        <div>
+          <a 
+            href="#contact" 
+            class="inline-block bg-white hover:bg-slate-900 text-slate-900 hover:text-white font-heading font-bold text-base px-8 py-4 rounded-full shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5"
+          >
+            Request for a quote
+          </a>
+        </div>
+
+        <!-- Audit Disclaimer Note -->
+        <p class="text-xs sm:text-sm font-semibold text-slate-800 leading-snug">
+          <span class="font-bold underline">Start simple</span> – Get a FREE marketplace audit where we analyze your store, listings, and PPC campaigns to deliver actionable growth suggestions.
+        </p>
+      </div>
 
     </div>
+
+    <!-- RIGHT SIDE: TESTIMONIAL & BACKGROUND OVERLAY -->
+    <div class="lg:col-span-7 relative bg-slate-900 min-h-[450px] lg:min-h-[600px] flex items-center justify-center p-8 sm:p-12 text-center overflow-hidden">
+      
+      <!-- Background Image with Soft Contrast Dark Overlay -->
+      <img 
+        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" 
+        alt="Brand Success Background" 
+        class="absolute inset-0 w-full h-full object-cover object-center opacity-45"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/40 to-transparent"></div>
+
+      <!-- Overlay Content -->
+      <div class="relative z-10 max-w-2xl mx-auto space-y-6">
+        
+        <!-- Client Brand Logo / Placeholder Badge -->
+        <div class="inline-flex items-center justify-center bg-white/90 backdrop-blur-md px-5 py-2.5 rounded-lg shadow-lg mb-2 border border-white/20">
+          <span class="font-heading font-bold text-slate-900 tracking-wider text-xs uppercase">
+            CHINOOK SEEDERY
+          </span>
+        </div>
+
+        <!-- Quote -->
+        <blockquote class="font-heading text-2xl sm:text-4xl lg:text-[42px] font-normal text-white leading-[1.25] tracking-tight">
+          "We do what we do best, they take care of Amazon"
+        </blockquote>
+
+        <!-- Client Info -->
+        <div class="pt-2 space-y-1">
+          <h3 class="font-heading font-bold text-lg text-white">
+            Mark Pettyjohn
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 font-medium tracking-wide">
+            Chief Seed Enthusiast, Chinook Seedery
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
 </section>
