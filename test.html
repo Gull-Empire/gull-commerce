@@ -25,16 +25,17 @@
     100% { transform: translateX(-50%); }
   }
 
+  /* Speed fast karne ke liye duration 20s kar diya hai */
   .animate-marquee-ltr {
     display: flex;
     width: max-content;
-    animation: scrollLeftToRight 35s linear infinite;
+    animation: scrollLeftToRight 20s linear infinite;
   }
 
   .animate-marquee-rtl {
     display: flex;
     width: max-content;
-    animation: scrollRightToLeft 35s linear infinite;
+    animation: scrollRightToLeft 20s linear infinite;
   }
 
   .animate-marquee-ltr:hover,
@@ -64,15 +65,15 @@
         </h2>
       </div>
 
-      <!-- ROW 1: LEFT TO RIGHT -->
+      <!-- ROW 1: LEFT TO RIGHT (FAST SPEED) -->
       <div class="overflow-hidden w-full pt-4 pb-2">
         <div class="animate-marquee-ltr space-x-6">
           
-          <!-- Card 1: Alex Rivera -->
+          <!-- Card 1: Ethan Hayes -->
           <div class="w-[300px] sm:w-[350px] flex-shrink-0 relative bg-[#0a0a0c]/95 text-white rounded-3xl p-6 pt-10 border border-black/40 shadow-xl flex flex-col justify-between text-center group hover:border-white/60 transition-all duration-300">
             <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
               <div class="w-14 h-14 rounded-full border-2 border-orange-500 overflow-hidden relative shadow-md">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Alex Rivera" class="w-full h-full object-cover"/>
+                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&q=80" alt="Ethan Hayes" class="w-full h-full object-cover"/>
                 <div class="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow">
                   <svg class="w-full h-full" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
                 </div>
@@ -80,36 +81,32 @@
             </div>
             <div class="space-y-2.5">
               <div class="flex items-center justify-center space-x-1">
-                <h3 class="text-base font-bold text-white tracking-wide">Alex Rivera</h3>
+                <h3 class="text-base font-bold text-white tracking-wide">Ethan Hayes</h3>
                 <svg class="w-4 h-4 text-blue-500 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
               </div>
-
-              <!-- Interactive Time Stamp Badge -->
               <div class="relative inline-block group/time">
                 <button type="button" class="text-[11px] text-slate-400 hover:text-orange-400 border-b border-dashed border-slate-600 hover:border-orange-400 transition-colors cursor-pointer focus:outline-none">
-                  2 weeks ago
+                  3 days ago
                 </button>
-                <!-- Tooltip Popup -->
                 <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover/time:flex group-focus/time:flex flex-col items-center z-30 w-max">
                   <div class="bg-orange-500 text-black text-[10px] font-black px-2.5 py-1 rounded-md shadow-lg border border-orange-300">
-                    📅 Jul 20, 2026 at 04:15 PM
+                    📅 Jul 31, 2026 at 02:15 PM
                   </div>
                   <div class="w-2 h-2 bg-orange-500 rotate-45 -mt-1"></div>
                 </div>
               </div>
-
               <div class="flex text-amber-400 text-xs justify-center">★★★★★</div>
               <p class="text-xs text-slate-300 leading-relaxed font-light">
-                Gull Empire transformed our Amazon storefront. CEO Abdullah Gull restructured our entire PPC strategy and lowered our ACoS by 28% in under a month.
+                Gull Empire completely optimized our Amazon Seller Central. CEO Abdullah Gull restructured our ad budgets and improved ROAS within weeks!
               </p>
             </div>
           </div>
 
-          <!-- Card 2: Marcus Vance -->
+          <!-- Card 2: Jessica Miller -->
           <div class="w-[300px] sm:w-[350px] flex-shrink-0 relative bg-[#0a0a0c]/95 text-white rounded-3xl p-6 pt-10 border border-black/40 shadow-xl flex flex-col justify-between text-center group hover:border-white/60 transition-all duration-300">
             <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
               <div class="w-14 h-14 rounded-full border-2 border-orange-500 overflow-hidden relative shadow-md">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Marcus Vance" class="w-full h-full object-cover"/>
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Jessica Miller" class="w-full h-full object-cover"/>
                 <div class="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow">
                   <svg class="w-full h-full" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
                 </div>
@@ -117,11 +114,115 @@
             </div>
             <div class="space-y-2.5">
               <div class="flex items-center justify-center space-x-1">
-                <h3 class="text-base font-bold text-white tracking-wide">Marcus Vance</h3>
+                <h3 class="text-base font-bold text-white tracking-wide">Jessica Miller</h3>
                 <svg class="w-4 h-4 text-blue-500 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
               </div>
+              <div class="relative inline-block group/time">
+                <button type="button" class="text-[11px] text-slate-400 hover:text-orange-400 border-b border-dashed border-slate-600 hover:border-orange-400 transition-colors cursor-pointer focus:outline-none">
+                  1 week ago
+                </button>
+                <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover/time:flex group-focus/time:flex flex-col items-center z-30 w-max">
+                  <div class="bg-orange-500 text-black text-[10px] font-black px-2.5 py-1 rounded-md shadow-lg border border-orange-300">
+                    📅 Jul 26, 2026 at 10:40 AM
+                  </div>
+                  <div class="w-2 h-2 bg-orange-500 rotate-45 -mt-1"></div>
+                </div>
+              </div>
+              <div class="flex text-amber-400 text-xs justify-center">★★★★★</div>
+              <p class="text-xs text-slate-300 leading-relaxed font-light">
+                Extremely skilled e-commerce strategists. Their keyword indexing and listing copywriting brought our conversion rates way up.
+              </p>
+            </div>
+          </div>
 
-              <!-- Interactive Time Stamp Badge -->
+          <!-- Card 3: Robert Langford -->
+          <div class="w-[300px] sm:w-[350px] flex-shrink-0 relative bg-[#0a0a0c]/95 text-white rounded-3xl p-6 pt-10 border border-black/40 shadow-xl flex flex-col justify-between text-center group hover:border-white/60 transition-all duration-300">
+            <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
+              <div class="w-14 h-14 rounded-full border-2 border-orange-500 overflow-hidden relative shadow-md">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80" alt="Robert Langford" class="w-full h-full object-cover"/>
+                <div class="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow">
+                  <svg class="w-full h-full" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="space-y-2.5">
+              <div class="flex items-center justify-center space-x-1">
+                <h3 class="text-base font-bold text-white tracking-wide">Robert Langford</h3>
+                <svg class="w-4 h-4 text-blue-500 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <div class="relative inline-block group/time">
+                <button type="button" class="text-[11px] text-slate-400 hover:text-orange-400 border-b border-dashed border-slate-600 hover:border-orange-400 transition-colors cursor-pointer focus:outline-none">
+                  2 weeks ago
+                </button>
+                <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover/time:flex group-focus/time:flex flex-col items-center z-30 w-max">
+                  <div class="bg-orange-500 text-black text-[10px] font-black px-2.5 py-1 rounded-md shadow-lg border border-orange-300">
+                    📅 Jul 19, 2026 at 06:20 PM
+                  </div>
+                  <div class="w-2 h-2 bg-orange-500 rotate-45 -mt-1"></div>
+                </div>
+              </div>
+              <div class="flex text-amber-400 text-xs justify-center">★★★★★</div>
+              <p class="text-xs text-slate-300 leading-relaxed font-light">
+                Managing our multi-marketplace stores became effortless after partnering with Gull Empire. Top-tier execution and reporting!
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 4: Sophia Martinez -->
+          <div class="w-[300px] sm:w-[350px] flex-shrink-0 relative bg-[#0a0a0c]/95 text-white rounded-3xl p-6 pt-10 border border-black/40 shadow-xl flex flex-col justify-between text-center group hover:border-white/60 transition-all duration-300">
+            <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
+              <div class="w-14 h-14 rounded-full border-2 border-orange-500 overflow-hidden relative shadow-md">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80" alt="Sophia Martinez" class="w-full h-full object-cover"/>
+                <div class="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow">
+                  <svg class="w-full h-full" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="space-y-2.5">
+              <div class="flex items-center justify-center space-x-1">
+                <h3 class="text-base font-bold text-white tracking-wide">Sophia Martinez</h3>
+                <svg class="w-4 h-4 text-blue-500 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <div class="relative inline-block group/time">
+                <button type="button" class="text-[11px] text-slate-400 hover:text-orange-400 border-b border-dashed border-slate-600 hover:border-orange-400 transition-colors cursor-pointer focus:outline-none">
+                  3 weeks ago
+                </button>
+                <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover/time:flex group-focus/time:flex flex-col items-center z-30 w-max">
+                  <div class="bg-orange-500 text-black text-[10px] font-black px-2.5 py-1 rounded-md shadow-lg border border-orange-300">
+                    📅 Jul 12, 2026 at 01:15 PM
+                  </div>
+                  <div class="w-2 h-2 bg-orange-500 rotate-45 -mt-1"></div>
+                </div>
+              </div>
+              <div class="flex text-amber-400 text-xs justify-center">★★★★★</div>
+              <p class="text-xs text-slate-300 leading-relaxed font-light">
+                Our PPC ACoS was stuck at 45%. Abdullah Gull's strategy brought it down to 19% while doubling daily sales orders!
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ROW 2: RIGHT TO LEFT (FAST SPEED) -->
+      <div class="overflow-hidden w-full pb-4">
+        <div class="animate-marquee-rtl space-x-6">
+          
+          <!-- Card 5: Daniel Carter -->
+          <div class="w-[300px] sm:w-[350px] flex-shrink-0 relative bg-[#0a0a0c]/95 text-white rounded-3xl p-6 pt-10 border border-black/40 shadow-xl flex flex-col justify-between text-center group hover:border-white/60 transition-all duration-300">
+            <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
+              <div class="w-14 h-14 rounded-full border-2 border-orange-500 overflow-hidden relative shadow-md">
+                <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80" alt="Daniel Carter" class="w-full h-full object-cover"/>
+                <div class="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow">
+                  <svg class="w-full h-full" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="space-y-2.5">
+              <div class="flex items-center justify-center space-x-1">
+                <h3 class="text-base font-bold text-white tracking-wide">Daniel Carter</h3>
+                <svg class="w-4 h-4 text-blue-500 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
               <div class="relative inline-block group/time">
                 <button type="button" class="text-[11px] text-slate-400 hover:text-orange-400 border-b border-dashed border-slate-600 hover:border-orange-400 transition-colors cursor-pointer focus:outline-none">
                   1 month ago
@@ -133,19 +234,18 @@
                   <div class="w-2 h-2 bg-orange-500 rotate-45 -mt-1"></div>
                 </div>
               </div>
-
               <div class="flex text-amber-400 text-xs justify-center">★★★★★</div>
               <p class="text-xs text-slate-300 leading-relaxed font-light">
-                Hands down the most professional team for Amazon Sellers. They fixed our keyword indexing and optimized our listing copy seamlessly.
+                Highly dedicated team. They successfully scaled our Amazon brand across both US and European marketplaces.
               </p>
             </div>
           </div>
 
-          <!-- Card 3: Sarah Jenkins -->
+          <!-- Card 6: Emily Watson -->
           <div class="w-[300px] sm:w-[350px] flex-shrink-0 relative bg-[#0a0a0c]/95 text-white rounded-3xl p-6 pt-10 border border-black/40 shadow-xl flex flex-col justify-between text-center group hover:border-white/60 transition-all duration-300">
             <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
               <div class="w-14 h-14 rounded-full border-2 border-orange-500 overflow-hidden relative shadow-md">
-                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Sarah Jenkins" class="w-full h-full object-cover"/>
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Emily Watson" class="w-full h-full object-cover"/>
                 <div class="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow">
                   <svg class="w-full h-full" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
                 </div>
@@ -153,42 +253,32 @@
             </div>
             <div class="space-y-2.5">
               <div class="flex items-center justify-center space-x-1">
-                <h3 class="text-base font-bold text-white tracking-wide">Sarah Jenkins</h3>
+                <h3 class="text-base font-bold text-white tracking-wide">Emily Watson</h3>
                 <svg class="w-4 h-4 text-blue-500 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
               </div>
-
-              <!-- Interactive Time Stamp Badge -->
               <div class="relative inline-block group/time">
                 <button type="button" class="text-[11px] text-slate-400 hover:text-orange-400 border-b border-dashed border-slate-600 hover:border-orange-400 transition-colors cursor-pointer focus:outline-none">
                   1 month ago
                 </button>
                 <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover/time:flex group-focus/time:flex flex-col items-center z-30 w-max">
                   <div class="bg-orange-500 text-black text-[10px] font-black px-2.5 py-1 rounded-md shadow-lg border border-orange-300">
-                    📅 Jun 28, 2026 at 09:45 PM
+                    📅 Jun 24, 2026 at 03:40 PM
                   </div>
                   <div class="w-2 h-2 bg-orange-500 rotate-45 -mt-1"></div>
                 </div>
               </div>
-
               <div class="flex text-amber-400 text-xs justify-center">★★★★★</div>
               <p class="text-xs text-slate-300 leading-relaxed font-light">
-                Working directly with Abdullah Gull has been a game-changer. Gull Empire handles our store operations so we can focus purely on brand expansion.
+                Gull Empire's storefront design and branding work helped us stand out against huge competitors.
               </p>
             </div>
           </div>
 
-        </div>
-      </div>
-
-      <!-- ROW 2: RIGHT TO LEFT -->
-      <div class="overflow-hidden w-full pb-4">
-        <div class="animate-marquee-rtl space-x-6">
-          
-          <!-- Card 4: David Sterling -->
+          <!-- Card 7: Oliver Smith -->
           <div class="w-[300px] sm:w-[350px] flex-shrink-0 relative bg-[#0a0a0c]/95 text-white rounded-3xl p-6 pt-10 border border-black/40 shadow-xl flex flex-col justify-between text-center group hover:border-white/60 transition-all duration-300">
             <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
               <div class="w-14 h-14 rounded-full border-2 border-orange-500 overflow-hidden relative shadow-md">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="David Sterling" class="w-full h-full object-cover"/>
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" alt="Oliver Smith" class="w-full h-full object-cover"/>
                 <div class="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow">
                   <svg class="w-full h-full" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
                 </div>
@@ -196,35 +286,32 @@
             </div>
             <div class="space-y-2.5">
               <div class="flex items-center justify-center space-x-1">
-                <h3 class="text-base font-bold text-white tracking-wide">David Sterling</h3>
+                <h3 class="text-base font-bold text-white tracking-wide">Oliver Smith</h3>
                 <svg class="w-4 h-4 text-blue-500 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
               </div>
-
-              <!-- Interactive Time Stamp Badge -->
               <div class="relative inline-block group/time">
                 <button type="button" class="text-[11px] text-slate-400 hover:text-orange-400 border-b border-dashed border-slate-600 hover:border-orange-400 transition-colors cursor-pointer focus:outline-none">
                   2 months ago
                 </button>
                 <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover/time:flex group-focus/time:flex flex-col items-center z-30 w-max">
                   <div class="bg-orange-500 text-black text-[10px] font-black px-2.5 py-1 rounded-md shadow-lg border border-orange-300">
-                    📅 Jun 05, 2026 at 02:20 PM
+                    📅 Jun 10, 2026 at 09:15 AM
                   </div>
                   <div class="w-2 h-2 bg-orange-500 rotate-45 -mt-1"></div>
                 </div>
               </div>
-
               <div class="flex text-amber-400 text-xs justify-center">★★★★★</div>
               <p class="text-xs text-slate-300 leading-relaxed font-light">
-                Outstanding experience. Gull Empire boosted our organic rank for 10 key search terms in less than three weeks.
+                Super detailed analytics and performance tracking. We always know exactly where our ad dollars are going.
               </p>
             </div>
           </div>
 
-          <!-- Card 5: Chloe Bennet -->
+          <!-- Card 8: Grace Taylor -->
           <div class="w-[300px] sm:w-[350px] flex-shrink-0 relative bg-[#0a0a0c]/95 text-white rounded-3xl p-6 pt-10 border border-black/40 shadow-xl flex flex-col justify-between text-center group hover:border-white/60 transition-all duration-300">
             <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
               <div class="w-14 h-14 rounded-full border-2 border-orange-500 overflow-hidden relative shadow-md">
-                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80" alt="Chloe Bennet" class="w-full h-full object-cover"/>
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Grace Taylor" class="w-full h-full object-cover"/>
                 <div class="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow">
                   <svg class="w-full h-full" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
                 </div>
@@ -232,26 +319,23 @@
             </div>
             <div class="space-y-2.5">
               <div class="flex items-center justify-center space-x-1">
-                <h3 class="text-base font-bold text-white tracking-wide">Chloe Bennet</h3>
+                <h3 class="text-base font-bold text-white tracking-wide">Grace Taylor</h3>
                 <svg class="w-4 h-4 text-blue-500 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
               </div>
-
-              <!-- Interactive Time Stamp Badge -->
               <div class="relative inline-block group/time">
                 <button type="button" class="text-[11px] text-slate-400 hover:text-orange-400 border-b border-dashed border-slate-600 hover:border-orange-400 transition-colors cursor-pointer focus:outline-none">
                   3 months ago
                 </button>
                 <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover/time:flex group-focus/time:flex flex-col items-center z-30 w-max">
                   <div class="bg-orange-500 text-black text-[10px] font-black px-2.5 py-1 rounded-md shadow-lg border border-orange-300">
-                    📅 May 14, 2026 at 08:10 AM
+                    📅 May 04, 2026 at 05:50 PM
                   </div>
                   <div class="w-2 h-2 bg-orange-500 rotate-45 -mt-1"></div>
                 </div>
               </div>
-
               <div class="flex text-amber-400 text-xs justify-center">★★★★★</div>
               <p class="text-xs text-slate-300 leading-relaxed font-light">
-                Very transparent and result-driven agency. Their team provided detailed weekly reports on sales growth and PPC ad spend.
+                Excellent strategic planning and execution. Gull Empire is our go-to partner for all Amazon listing setups!
               </p>
             </div>
           </div>
