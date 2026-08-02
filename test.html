@@ -7,188 +7,178 @@
 
   <!-- TAILWIND CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-<!-- GULL EMPIRE - LOGICAL TRUST & VERIFIED REVIEWS SECTION -->
-<section class="w-full bg-[#030304] text-slate-100 py-16 px-4 sm:px-6 lg:px-8 font-sans">
-  <div class="max-w-6xl mx-auto shadow-2xl rounded-3xl overflow-hidden border border-amber-500/20 bg-[#0a0a0e]">
-    
-    <!-- TOP SECTION: BOLD ORANGE BANNER -->
-    <div class="bg-gradient-to-r from-[#ff7a00] via-[#ff6a00] to-[#ff8c00] text-slate-950 p-10 sm:p-14 text-center relative overflow-hidden">
-      <!-- Diagonal Stripe Pattern -->
-      <div class="absolute inset-0 opacity-10 bg-[linear-gradient(135deg,#000_25%,transparent_25%,transparent_50%,#000_50%,#000_75%,transparent_75%,transparent)] bg-[size:12px_12px] pointer-events-none"></div>
+<section id="premium-results-split" class="py-20 px-4 sm:px-8 lg:px-16 bg-[#060606] text-zinc-900 font-sans selection:bg-zinc-900 selection:text-white">
 
-      <!-- Header Content -->
-      <div class="relative z-10 space-y-3 max-w-3xl mx-auto mb-12">
-        <h2 class="text-4xl sm:text-5xl font-black tracking-tight text-slate-950">
+  <!-- Tailwind CSS Custom Marquee Keyframes Injector -->
+  <style>
+    @keyframes marqueeInfinite {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee-infinite {
+      display: flex;
+      width: max-content;
+      animation: marqueeInfinite 25s linear infinite;
+    }
+    .animate-marquee-infinite:hover {
+      animation-play-state: paused;
+    }
+  </style>
+
+  <div class="max-w-6xl mx-auto rounded-3xl overflow-hidden border border-zinc-900 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.9)]">
+    
+    <!-- ========================================== -->
+    <!-- TOP SECTION: Solid Vibrant Block with Updated Counters -->
+    <!-- ========================================== -->
+    <div class="bg-[#ff8c00] p-8 sm:p-12 lg:p-16 text-center relative">
+      <div class="absolute inset-0 bg-[linear-gradient(45deg,rgba(0,0,0,0.03)_25%,transparent_25%,transparent_50%,rgba(0,0,0,0.03)_50%,rgba(0,0,0,0.03)_75%,transparent_75%,transparent)] bg-[size:24px_24px] pointer-events-none opacity-40"></div>
+
+      <div class="relative z-10 max-w-2xl mx-auto mb-12">
+        <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-zinc-950 mb-3">
           It's all about results
         </h2>
-        <p class="text-xs sm:text-sm font-bold text-slate-900/85 leading-relaxed max-w-xl mx-auto">
-          Our success is directly tied to the growth and expansion of our amazing clients.
+        <p class="text-zinc-900/80 text-xs sm:text-sm font-medium tracking-wide">
+          My success is directly tied to the growth and expansion of my amazing clients.
         </p>
       </div>
 
-      <!-- METRICS COUNTER GRID -->
-      <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 items-center divide-y md:divide-y-0 md:divide-x divide-slate-950/20 pt-2">
+      <!-- Main Counter Stats Grid -->
+      <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 items-center justify-center py-4">
         
-        <!-- Metric 1: Brands -->
-        <div class="space-y-1 pt-4 md:pt-0">
-          <div class="text-5xl sm:text-6xl font-black tracking-tight text-slate-950 flex items-center justify-center">
-            <span class="counter" data-target="70">0</span><span>+</span>
+        <!-- Stat Column 01: Brands (UPDATED TO 70+) -->
+        <div class="flex flex-col items-center md:px-4 relative">
+          <div class="text-6xl sm:text-7xl font-black tracking-tighter text-zinc-950 mb-2 flex items-center font-mono">
+            <span class="vibrant-counter" data-target="70">0</span><span class="ml-0.5 text-zinc-900/70">+</span>
           </div>
-          <span class="text-xs font-extrabold text-slate-900/80 uppercase tracking-wider block pt-1">
-            BRANDS CURRENTLY MANAGED
-          </span>
+          <p class="text-zinc-950 text-xs font-bold tracking-wider capitalize">Brands Currently Managed</p>
+          <div class="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 h-16 w-[1px] bg-zinc-950/20"></div>
         </div>
 
-        <!-- Metric 2: Revenue -->
-        <div class="space-y-1 pt-4 md:pt-0">
-          <div class="text-5xl sm:text-6xl font-black tracking-tight text-slate-950 flex items-center justify-center">
-            <span>$</span><span class="counter" data-target="25">0</span><span>M+</span>
+        <!-- Stat Column 02: Revenue (UPDATED TO $25M+) -->
+        <div class="flex flex-col items-center md:px-4 relative">
+          <div class="text-6xl sm:text-7xl font-black tracking-tighter text-zinc-950 mb-2 flex items-center font-mono">
+            <span class="text-zinc-900/70 mr-0.5">$</span><span class="vibrant-counter" data-target="25">0</span><span class="ml-0.5 text-zinc-900/70">M+</span>
           </div>
-          <span class="text-xs font-extrabold text-slate-900/80 uppercase tracking-wider block pt-1">
-            REVENUE GENERATED ON AMAZON
-          </span>
+          <p class="text-zinc-950 text-xs font-bold tracking-wider capitalize">Revenue Generated On Amazon</p>
+          <div class="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 h-16 w-[1px] bg-zinc-950/20"></div>
         </div>
 
-        <!-- Metric 3: Retention -->
-        <div class="space-y-1 pt-4 md:pt-0">
-          <div class="text-5xl sm:text-6xl font-black tracking-tight text-slate-950 flex items-center justify-center">
-            <span class="counter" data-target="98">0</span><span>%</span>
+        <!-- Stat Column 03: Retention (UPDATED TO 98%) -->
+        <div class="flex flex-col items-center md:px-4">
+          <div class="text-6xl sm:text-7xl font-black tracking-tighter text-zinc-950 mb-2 flex items-center font-mono">
+            <span class="vibrant-counter" data-target="98">0</span><span class="ml-0.5 text-zinc-900/70">%</span>
           </div>
-          <span class="text-xs font-extrabold text-slate-900/80 uppercase tracking-wider block pt-1">
-            CLIENT RETENTION RATE
-          </span>
+          <p class="text-zinc-950 text-xs font-bold tracking-wider capitalize">Client Retention Rate</p>
         </div>
 
       </div>
+
+      <!-- Arrow Drop Pointer Center Notch -->
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[99%] w-0 h-0 border-l-[16px] border-l-transparent border-r-[16px] border-r-transparent border-t-[16px] border-t-[#ff8c00] z-20"></div>
     </div>
 
-    <!-- TRIANGLE POINTER -->
-    <div class="relative flex justify-center bg-[#0d0d12]">
-      <div class="w-0 h-0 border-l-[16px] border-l-transparent border-r-[16px] border-r-transparent border-t-[16px] border-t-[#ff6a00] absolute -top-[1px]"></div>
-    </div>
-
-    <!-- BOTTOM SECTION: LOGICAL REVIEWS (70 BRANDS SCALE) -->
-    <div class="bg-[#0d0d12] px-6 py-10 border-t border-slate-800/80">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center max-w-5xl mx-auto">
+    <!-- ========================================== -->
+    <!-- BOTTOM SECTION: Maximum Scale Infinite Slider -->
+    <!-- ========================================== -->
+    <div class="bg-[#0e0e11] py-14 overflow-hidden relative z-10 border-t border-zinc-900 w-full">
+      <div class="w-full relative flex items-center">
         
-        <!-- CARD 1: TRUSTPILOT (4.9 STARS - 48 REVIEWS) -->
-        <div class="bg-[#121218] border border-emerald-500/30 rounded-2xl p-6 relative transition-all duration-300 hover:border-emerald-500/60 hover:shadow-lg hover:shadow-emerald-500/10">
-          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            
-            <div class="space-y-4">
-              <!-- Official Trustpilot Brand Logo -->
-              <div class="flex items-center space-x-2 text-white">
-                <svg class="w-8 h-8 text-[#00b67a] fill-current" viewBox="0 0 24 24">
-                  <path d="M12 0l3.09 9.511h10l-8.09 5.882 3.09 9.511-8.09-5.882-8.09 5.882 3.09-9.511-8.09-5.882h10z"/>
-                </svg>
-                <span class="text-2xl font-black tracking-tight">Trustpilot</span>
-              </div>
-              
-              <!-- 5 Green Boxes Rating Row -->
-              <div class="flex items-center space-x-1.5">
-                <div class="w-8 h-8 bg-[#00b67a] rounded flex items-center justify-center text-white text-sm">★</div>
-                <div class="w-8 h-8 bg-[#00b67a] rounded flex items-center justify-center text-white text-sm">★</div>
-                <div class="w-8 h-8 bg-[#00b67a] rounded flex items-center justify-center text-white text-sm">★</div>
-                <div class="w-8 h-8 bg-[#00b67a] rounded flex items-center justify-center text-white text-sm">★</div>
-                <div class="w-8 h-8 bg-[#00b67a] rounded flex items-center justify-center text-white text-sm">★</div>
-              </div>
-            </div>
-
-            <div class="flex flex-col items-start sm:items-end justify-between space-y-4 w-full sm:w-auto">
-              <div>
-                <span class="text-3xl font-black text-white block sm:text-right">4.9 stars</span>
-                <span class="text-xs font-semibold text-slate-400 block sm:text-right">48+ client reviews</span>
-              </div>
-              
-              <a href="https://www.trustpilot.com" target="_blank" rel="noopener noreferrer" 
-                 class="inline-flex items-center space-x-1.5 bg-[#1e1e28] hover:bg-[#252533] border border-slate-700/80 text-xs font-bold text-slate-200 px-4 py-2 rounded-xl transition-colors">
-                <span>Read Reviews</span>
-                <span class="text-xs text-slate-400">🔗</span>
-              </a>
-            </div>
-
+        <!-- Continuous Infinite Track Flex Wrapper -->
+        <div class="animate-marquee-infinite flex items-center gap-10">
+          
+          <!-- ==================== SET 1 ==================== -->
+          <!-- Google Reviews Container -->
+          <div class="h-24 w-60 bg-zinc-900/30 border border-zinc-800/30 rounded-xl flex items-center justify-center p-0 filter grayscale hover:grayscale-0 transition-all duration-300">
+            <img class="h-16 md:h-[72px] w-[90%] object-contain opacity-95" src="https://abdullah-gull.github.io/images/Google-reviews2webp-300x89.webp" alt="Google Reviews">
           </div>
+
+          <!-- Squid Ink Container -->
+          <div class="h-24 w-60 bg-zinc-900/30 border border-zinc-800/30 rounded-xl flex items-center justify-center p-0 filter grayscale hover:grayscale-0 transition-all duration-300">
+            <img class="h-16 md:h-[72px] w-[90%] object-contain brightness-0 invert opacity-95" src="https://abdullah-gull.github.io/images/OG_image_Squid_Ink-removebg-preview.png" alt="Squid Ink">
+          </div>
+
+          <!-- Meta Container -->
+          <div class="h-24 w-60 bg-zinc-900/30 border border-zinc-800/30 rounded-xl flex items-center justify-center p-0 filter grayscale hover:grayscale-0 transition-all duration-300">
+            <img class="h-14 md:h-[64px] w-[85%] object-contain brightness-0 invert" src="https://abdullah-gull.github.io/images/meta-facebook-rebranding-name-news_dezeen_2364_col_hero2-removebg-preview.png" alt="Meta">
+          </div>
+
+          <!-- Helium 10 / Partner Container -->
+          <div class="h-24 w-60 bg-zinc-900/30 border border-zinc-800/30 rounded-xl flex items-center justify-center p-0 filter grayscale hover:grayscale-0 transition-all duration-300">
+            <img class="h-16 md:h-[72px] w-[90%] object-contain brightness-0 invert" src="https://abdullah-gull.github.io/images/6752c0a021fd1f672842c767_CPSecEh24I1i34_8eYced5Ig3NFthwrRw6bQQOMHdOg-removebg-preview.png" alt="Partner Integration">
+          </div>
+
+          <!-- ==================== SET 2 (Duplicate for Infinite Flow) ==================== -->
+          <!-- Google Reviews Container -->
+          <div class="h-24 w-60 bg-zinc-900/30 border border-zinc-800/30 rounded-xl flex items-center justify-center p-0 filter grayscale hover:grayscale-0 transition-all duration-300">
+            <img class="h-16 md:h-[72px] w-[90%] object-contain opacity-95" src="https://abdullah-gull.github.io/images/Google-reviews2webp-300x89.webp" alt="Google Reviews">
+          </div>
+
+          <!-- Squid Ink Container -->
+          <div class="h-24 w-60 bg-zinc-900/30 border border-zinc-800/30 rounded-xl flex items-center justify-center p-0 filter grayscale hover:grayscale-0 transition-all duration-300">
+            <img class="h-16 md:h-[72px] w-[90%] object-contain brightness-0 invert opacity-95" src="https://abdullah-gull.github.io/images/OG_image_Squid_Ink-removebg-preview.png" alt="Squid Ink">
+          </div>
+
+          <!-- Meta Container -->
+          <div class="h-24 w-60 bg-zinc-900/30 border border-zinc-800/30 rounded-xl flex items-center justify-center p-0 filter grayscale hover:grayscale-0 transition-all duration-300">
+            <img class="h-14 md:h-[64px] w-[85%] object-contain brightness-0 invert" src="https://abdullah-gull.github.io/images/meta-facebook-rebranding-name-news_dezeen_2364_col_hero2-removebg-preview.png" alt="Meta">
+          </div>
+
+          <!-- Helium 10 / Partner Container -->
+          <div class="h-24 w-60 bg-zinc-900/30 border border-zinc-800/30 rounded-xl flex items-center justify-center p-0 filter grayscale hover:grayscale-0 transition-all duration-300">
+            <img class="h-16 md:h-[72px] w-[90%] object-contain brightness-0 invert" src="https://abdullah-gull.github.io/images/6752c0a021fd1f672842c767_CPSecEh24I1i34_8eYced5Ig3NFthwrRw6bQQOMHdOg-removebg-preview.png" alt="Partner Integration">
+          </div>
+
         </div>
-
-        <!-- CARD 2: GOOGLE REVIEWS (5.0 STARS - 32 REVIEWS) -->
-        <div class="bg-[#121218] border border-slate-800 rounded-2xl p-6 relative transition-all duration-300 hover:border-amber-500/40 hover:shadow-lg hover:shadow-amber-500/5">
-          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            
-            <div class="space-y-4">
-              <!-- Google Official Logo -->
-              <div class="flex items-center space-x-2">
-                <svg class="w-8 h-8" viewBox="0 0 24 24">
-                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                </svg>
-                <span class="text-3xl font-bold tracking-tight text-white">Google</span>
-              </div>
-              
-              <!-- 5 Gold Stars Row -->
-              <div class="flex items-center space-x-1 text-amber-400 text-2xl">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-              </div>
-            </div>
-
-            <div class="flex flex-col items-start sm:items-end justify-between space-y-4 w-full sm:w-auto">
-              <div>
-                <span class="text-3xl font-black text-white block sm:text-right">5.0 stars</span>
-                <span class="text-xs font-semibold text-slate-400 block sm:text-right">32 verified reviews</span>
-              </div>
-              
-              <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" 
-                 class="inline-flex items-center space-x-1.5 bg-[#1e1e28] hover:bg-[#252533] border border-slate-700/80 text-xs font-bold text-slate-200 px-4 py-2 rounded-xl transition-colors">
-                <span>Read Reviews</span>
-                <span class="text-xs text-slate-400">🔗</span>
-              </a>
-            </div>
-
-          </div>
-
-          <div class="mt-4 pt-3 border-t border-slate-800/60 text-center">
-            <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
-              Verified Google Review Partner
-            </span>
-          </div>
-        </div>
-
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- SCRIPT: Dynamic Counting Animation -->
+<!-- ========================================== -->
+<!-- JS LOGIC: Smooth Cubic Deceleration Counter -->
+<!-- ========================================== -->
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const counters = document.querySelectorAll('.counter');
-    const speed = 35;
+  document.addEventListener('DOMContentLoaded', function() {
+    const dashboardElements = document.querySelectorAll('.vibrant-counter');
+    const animationLength = 1100;
 
-    const startCounting = (entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const counter = entry.target;
-          const updateCount = () => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText;
-            const inc = Math.ceil(target / speed);
+    const playCounterAnimation = (element) => {
+      const ceilingValue = +element.getAttribute('data-target');
+      const timeOrigin = performance.now();
 
-            if (count < target) {
-              counter.innerText = count + inc > target ? target : count + inc;
-              setTimeout(updateCount, 30);
-            } else {
-              counter.innerText = target;
-            }
-          };
-          updateCount();
-          observer.unobserve(counter);
+      const processRenderFrame = (timestamp) => {
+        const structuralDelta = timestamp - timeOrigin;
+        const completeRatio = Math.min(structuralDelta / animationLength, 1);
+
+        const deceleratedEasedValue = 1 - Math.pow(1 - completeRatio, 3);
+        const computationalOutput = Math.floor(deceleratedEasedValue * ceilingValue);
+
+        element.innerText = computationalOutput;
+
+        if (completeRatio < 1) {
+          requestAnimationFrame(processRenderFrame);
+        } else {
+          element.innerText = ceilingValue;
         }
-      });
+      };
+
+      requestAnimationFrame(processRenderFrame);
     };
 
-    const observer = new IntersectionObserver(startCounting, { threshold: 0.5 });
-    counters.forEach(counter => observer.observe(counter));
+    const setupObserverOptions = { threshold: 0.15 };
+    const viewportGridObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          dashboardElements.forEach(item => playCounterAnimation(item));
+          viewportGridObserver.unobserve(entry.target);
+        }
+      });
+    }, setupObserverOptions);
+
+    const masterComponentNode = document.getElementById('premium-results-split');
+    if (masterComponentNode) {
+      viewportGridObserver.observe(masterComponentNode);
+    }
   });
 </script>
